@@ -1,0 +1,6 @@
+framework module Pods_Neighbor_LaborTests {
+  umbrella header "Pods-Neighbor LaborTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
