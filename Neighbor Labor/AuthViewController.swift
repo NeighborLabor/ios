@@ -16,13 +16,13 @@ class AuthViewController: BaseViewController{
     
     @IBAction func loginAction(_ sender: Any) {
         // Need to check string
-        authInteractor.loginWith(email: emailTF.text!, password: passwordTF.text!) { (success, error) in
-            if success {
-                     self.dismiss(animated: true, completion: nil)
-            }else{
-                // Not Final
-                self.showAlert(title: "Unable to Login In", message: error!.localizedDescription)
+        authInteractor.loginWith(email: emailTF.text!, password: passwordTF.text!) { (error) in
+            guard let err = error else{
+                print("registerAction: No Error")
+                self.dismiss(animated: true, completion: nil)
+                return
             }
+            self.showAlert(title: "Unable to LogIn", message: err.localizedDescription)
             
         }
     }
@@ -40,22 +40,21 @@ class RegisterController : BaseViewController{
 
     
     @IBAction func registerAction(_ sender: Any) {
-        authInteractor.signUpWith(email:emailTF.text!
-            , password: passwordTF.text!,
-              name: nameTF.text!, phone: "4139778327",
+        
+        
+        authInteractor.signUpWith(email:emailTF.text!,
+              password: passwordTF.text!,
+              name: nameTF.text!,
+              phone: "4139778327",
               ppic: nil,
-              skillset: ["skill1"],
               bio: bioTF.text!)
-                { (success, error) in
-                
-                if (error == nil) {
-                    self.showAlert(title: "Sucess", message: "Sucess")
-                }else{
-                    // Not Final
-                    self.showAlert(title: "Unable to Login In", message: error!.localizedDescription)
+                { (error) in
+                guard let err = error else{
+                    print("registerAction: No Error")
+                    return
                 }
+                self.showAlert(title: "Unable to Log out", message: err.localizedDescription)
 
-                
                 
         }
         

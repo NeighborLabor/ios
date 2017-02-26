@@ -12,6 +12,7 @@ import Parse
 
 class Listing: PFObject, PFSubclassing{
     
+    @NSManaged var createdBy: PFUser
     @NSManaged var title: String
     @NSManaged var descr: String
     @NSManaged var geopoint: PFGeoPoint?
@@ -31,7 +32,7 @@ class Listing: PFObject, PFSubclassing{
 }
 
 class Review: PFObject, PFSubclassing{
-    
+    @NSManaged var createdBy: PFUser
     @NSManaged var rating: Int
     @NSManaged var descr: String
     @NSManaged var reviewer: PFUser

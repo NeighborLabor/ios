@@ -13,10 +13,14 @@ class ViewController: BaseViewController{
     @IBOutlet weak var label: UILabel!
     
     @IBAction func logoutAction(_ sender: Any) {
-        authInteractor.signOut { (success, error) in
-            if success{
-                self.viewDidAppear(true)
+        authInteractor.signOut { (error) in
+            guard let err = error else{
+                // Handle Sucess
+                print("Log Out Sucess")
+                return
             }
+            //Handle Errors
+            self.showAlert(title: "Unable to Log Out", message: err.localizedDescription)
         }
     }
     
