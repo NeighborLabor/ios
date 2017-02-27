@@ -7,43 +7,58 @@
 //
 
 import UIKit
+import Parse
+
 
 class ListViewController: AuthViewController{
 
     
     let listingManager = ListingManager()
+    var listings = [Listing]()
     
-    @IBAction func createListingAction(_ sender: Any) {
-        
+    @IBOutlet weak var tableView: UITableView!
+    
+    // temporary
+    @IBAction func menuToggleAction(_ sender: Any) {
+        AuthManager().signOut { (err) in
+            
+        }
+    }
 
+    @IBAction func createListAction(_ sender: Any) {
+        
+        guard let _ = AuthManager.currentUser() else {
+            
+            self.performSegue(withIdentifier: "authSegue", sender: self)
+            print("User not loaded in")
+            return
+        }
+        self.performSegue(withIdentifier: "listSegue", sender: self)
+    
     }
     
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     
         
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if let _ = AuthManager.currentUser(){
-            listingManager.createAListing(title: "Dog Walker", desc: "I need someone to walk my dog", address: "555 hiuntington Ave, Boston MA", startTime: NSDate().addingTimeInterval(10000.0), duration: 60, photo: nil, compensation: 20) { (error) in
+        Listing.query()?.findObjectsInBackground(block: { (results, error) in
+            guard let error = error else{
                 
-                guard let error = error else{
-                    print("Listing uploaded")
-                    return
-                }
-                
-                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.listings = results as! [Listing]
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
+                return
             }
+            print("Problem occurred : \(error.localizedDescription)")
+
             
-        }else{
-            self.performSegue(withIdentifier: "authSegue", sender: nil)
-        }
+        })
         
     }
     
@@ -53,11 +68,23 @@ class ListViewController: AuthViewController{
 extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return listings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listcell")!
+        let listing = self.listings[indexPath.row]
+        
+        cell.textLabel?.text = listing.title
+        cell.detailTextLabel?.text = listing.descr
+        
+         cell.imageView?.image = UIImage(named: "placeholder")
+        
+        print(listing.title)
+    
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
