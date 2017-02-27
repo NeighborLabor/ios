@@ -15,9 +15,9 @@ class Listing: PFObject, PFSubclassing{
     @NSManaged var createdBy: PFUser
     @NSManaged var title: String
     @NSManaged var descr: String
-    @NSManaged var geopoint: PFGeoPoint?
+    @NSManaged var geopoint: PFGeoPoint
     @NSManaged var address: String
-    @NSManaged var startTime: NSDate?
+    @NSManaged var startTime: NSDate
     @NSManaged var duration: Int
     @NSManaged var photos : [PFFile]
     @NSManaged var applicants : [PFUser]

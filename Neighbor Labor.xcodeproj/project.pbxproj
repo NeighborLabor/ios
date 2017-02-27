@@ -10,16 +10,18 @@
 		7D5B9A4EFD51FFB42E525D58 /* Pods_Neighbor_LaborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDFD3503CF2E93F8C3516F2 /* Pods_Neighbor_LaborTests.framework */; };
 		899ACF62C5C8F8D842E5C294 /* Pods_Neighbor_LaborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0BF614691454DE11D90116 /* Pods_Neighbor_LaborUITests.framework */; };
 		941B1B031E57B0BA00EA780A /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941B1B021E57B0BA00EA780A /* Entities.swift */; };
+		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
+		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
 		947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0AB1E454E5100E836F5 /* AppDelegate.swift */; };
 		947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0AF1E454E5100E836F5 /* Main.storyboard */; };
 		947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0B21E454E5100E836F5 /* Assets.xcassets */; };
 		947DA0B61E454E5100E836F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0B41E454E5100E836F5 /* LaunchScreen.storyboard */; };
 		947DA0C11E454E5100E836F5 /* Neighbor_LaborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0C01E454E5100E836F5 /* Neighbor_LaborTests.swift */; };
 		947DA0CC1E454E5100E836F5 /* Neighbor_LaborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0CB1E454E5100E836F5 /* Neighbor_LaborUITests.swift */; };
-		94AA08DE1E60C91C0091E70C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DD1E60C91C0091E70C /* ViewController.swift */; };
+		94AA08DE1E60C91C0091E70C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DD1E60C91C0091E70C /* ListViewController.swift */; };
 		94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DF1E60CBB50091E70C /* AuthViewController.swift */; };
 		94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08E11E60CBF80091E70C /* BaseViewController.swift */; };
-		94B768261E4C063400C30221 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthInteractor.swift */; };
+		94B768261E4C063400C30221 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthManager.swift */; };
 		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		6A4A0CB109424A0CB68D2391 /* Pods-Neighbor Labor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor Labor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor Labor/Pods-Neighbor Labor.debug.xcconfig"; sourceTree = "<group>"; };
 		80BB0E631C0F733C4C4F9DB8 /* Pods-Neighbor LaborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.release.xcconfig"; sourceTree = "<group>"; };
 		941B1B021E57B0BA00EA780A /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
+		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		947DA0A81E454E5100E836F5 /* Neighbor Labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neighbor Labor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		947DA0AB1E454E5100E836F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		947DA0B01E454E5100E836F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,10 +65,10 @@
 		947DA0C71E454E5100E836F5 /* Neighbor LaborUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Neighbor LaborUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		947DA0CB1E454E5100E836F5 /* Neighbor_LaborUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neighbor_LaborUITests.swift; sourceTree = "<group>"; };
 		947DA0CD1E454E5100E836F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94AA08DD1E60C91C0091E70C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94AA08DD1E60C91C0091E70C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		94AA08DF1E60CBB50091E70C /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		94AA08E11E60CBF80091E70C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		94B768251E4C063400C30221 /* AuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
+		94B768251E4C063400C30221 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A848D62A753AD41EF37CB48A /* Pods-Neighbor LaborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborUITests/Pods-Neighbor LaborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFC1DDA54265D5C53BCB0FD2 /* Pods-Neighbor LaborTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +111,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		945CE41A1E626BE60031CEE6 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				94B768251E4C063400C30221 /* AuthManager.swift */,
+				9436A2D31E63892D006DB660 /* Common.swift */,
+				9436A2CF1E637692006DB660 /* ListingManager.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
 		947DA09F1E454E5100E836F5 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +148,7 @@
 			children = (
 				941B1B021E57B0BA00EA780A /* Entities.swift */,
 				947DA0AB1E454E5100E836F5 /* AppDelegate.swift */,
-				94B768251E4C063400C30221 /* AuthInteractor.swift */,
+				945CE41A1E626BE60031CEE6 /* Interactors */,
 				94AA08E31E60CC5A0091E70C /* ViewControllers */,
 				947DA0AF1E454E5100E836F5 /* Main.storyboard */,
 				947DA0B21E454E5100E836F5 /* Assets.xcassets */,
@@ -165,7 +179,7 @@
 		94AA08E31E60CC5A0091E70C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				94AA08DD1E60C91C0091E70C /* ViewController.swift */,
+				94AA08DD1E60C91C0091E70C /* ListViewController.swift */,
 				94AA08DF1E60CBB50091E70C /* AuthViewController.swift */,
 				94AA08E11E60CBF80091E70C /* BaseViewController.swift */,
 			);
@@ -466,10 +480,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94B768261E4C063400C30221 /* AuthInteractor.swift in Sources */,
+				94B768261E4C063400C30221 /* AuthManager.swift in Sources */,
 				941B1B031E57B0BA00EA780A /* Entities.swift in Sources */,
 				94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */,
-				94AA08DE1E60C91C0091E70C /* ViewController.swift in Sources */,
+				9436A2D01E637692006DB660 /* ListingManager.swift in Sources */,
+				9436A2D41E63892D006DB660 /* Common.swift in Sources */,
+				94AA08DE1E60C91C0091E70C /* ListViewController.swift in Sources */,
 				947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */,
 				94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */,
 			);

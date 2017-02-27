@@ -6,7 +6,7 @@ target 'Neighbor Labor' do
   use_frameworks!
 
   # Pods for Neighbor Labor
-  pod 'Parse'
+	pod 'Parse'
 
   target 'Neighbor LaborTests' do
     inherit! :search_paths

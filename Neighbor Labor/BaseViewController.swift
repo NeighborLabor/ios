@@ -9,7 +9,6 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    let authInteractor = AuthInteractor()  // Might cost memory retain cycle
 
 
     func showAlert(title: String, message: String) {

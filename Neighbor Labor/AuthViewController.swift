@@ -10,15 +10,25 @@ import UIKit
 
 
 class AuthViewController: BaseViewController{
+    let authInteractor = AuthManager()  // Might cause memory retain cycle
     
+}
+
+
+class LoginViewController: AuthViewController {
+
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func loginAction(_ sender: Any) {
         // Need to check string
         authInteractor.loginWith(email: emailTF.text!, password: passwordTF.text!) { (error) in
             guard let err = error else{
-                print("registerAction: No Error")
+                print("loginAction: No Error")
                 self.dismiss(animated: true, completion: nil)
                 return
             }
@@ -26,10 +36,11 @@ class AuthViewController: BaseViewController{
             
         }
     }
-    
+
 }
 
-class RegisterController : BaseViewController{
+
+class RegisterController : AuthViewController{
     
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -41,21 +52,14 @@ class RegisterController : BaseViewController{
     
     @IBAction func registerAction(_ sender: Any) {
         
-        
         authInteractor.signUpWith(email:emailTF.text!,
-              password: passwordTF.text!,
-              name: nameTF.text!,
-              phone: "4139778327",
-              ppic: nil,
-              bio: bioTF.text!)
+              password: passwordTF.text!, name: nameTF.text!, phone: "4139778327", ppic: nil, bio: bioTF.text!)
                 { (error) in
                 guard let err = error else{
                     print("registerAction: No Error")
                     return
                 }
                 self.showAlert(title: "Unable to Log out", message: err.localizedDescription)
-
-                
         }
         
         
