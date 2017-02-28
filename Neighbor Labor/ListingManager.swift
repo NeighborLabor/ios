@@ -59,10 +59,10 @@ class ListingManager : ListingInteractor{
      //   listing.worker = nil
         
         
-        // MARK: TODO ADDRESS STRING TO PFEOPOINT
+        // MARK: TODO ADDRESS STRING TO PFGEOPOINT
          LocationManager.requestCurrentLocation(adress: address, completion: { (point, error) in
             guard let err = error else{
-                // no Error 
+            // no Error
                 listing.geopoint = point!
                 listing.saveInBackground { (sucess, error) in
                         completion(error as NSError?)

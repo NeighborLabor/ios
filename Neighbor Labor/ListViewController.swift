@@ -72,18 +72,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listcell")!
         let listing = self.listings[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listcell") as! LIstingCell
         
-        cell.textLabel?.text = listing.title
-        cell.detailTextLabel?.text = listing.descr
-        
-         cell.imageView?.image = UIImage(named: "placeholder")
-        
-        print(listing.title)
-    
-        
+        cell.titleLabel?.text = listing.title
+        cell.descriptionLabel?.text = listing.descr
+        cell.imgView?.image = UIImage(named: "placeholder")
+        cell.priceLabel.text = "$\(listing.compensation)"
+                
         return cell
     }
     

@@ -22,6 +22,7 @@
 		94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DF1E60CBB50091E70C /* AuthViewController.swift */; };
 		94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08E11E60CBF80091E70C /* BaseViewController.swift */; };
 		94B768261E4C063400C30221 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthManager.swift */; };
+		94D91DFA1E65E0CC00FFBAF8 /* LIstingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D91DF91E65E0CC00FFBAF8 /* LIstingCell.swift */; };
 		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		94AA08DF1E60CBB50091E70C /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		94AA08E11E60CBF80091E70C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B768251E4C063400C30221 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		94D91DF91E65E0CC00FFBAF8 /* LIstingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LIstingCell.swift; sourceTree = "<group>"; };
 		A848D62A753AD41EF37CB48A /* Pods-Neighbor LaborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborUITests/Pods-Neighbor LaborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFC1DDA54265D5C53BCB0FD2 /* Pods-Neighbor LaborTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,8 +150,9 @@
 			children = (
 				941B1B021E57B0BA00EA780A /* Entities.swift */,
 				947DA0AB1E454E5100E836F5 /* AppDelegate.swift */,
-				945CE41A1E626BE60031CEE6 /* Interactors */,
 				94AA08E31E60CC5A0091E70C /* ViewControllers */,
+				945CE41A1E626BE60031CEE6 /* Interactors */,
+				94D91DF81E65E08A00FFBAF8 /* Views */,
 				947DA0AF1E454E5100E836F5 /* Main.storyboard */,
 				947DA0B21E454E5100E836F5 /* Assets.xcassets */,
 				947DA0B41E454E5100E836F5 /* LaunchScreen.storyboard */,
@@ -184,6 +187,14 @@
 				94AA08E11E60CBF80091E70C /* BaseViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94D91DF81E65E08A00FFBAF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94D91DF91E65E0CC00FFBAF8 /* LIstingCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		FA1FA146B178EEE2A1A2FB16 /* Pods */ = {
@@ -485,6 +496,7 @@
 				94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */,
 				9436A2D01E637692006DB660 /* ListingManager.swift in Sources */,
 				9436A2D41E63892D006DB660 /* Common.swift in Sources */,
+				94D91DFA1E65E0CC00FFBAF8 /* LIstingCell.swift in Sources */,
 				94AA08DE1E60C91C0091E70C /* ListViewController.swift in Sources */,
 				947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */,
 				94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */,
