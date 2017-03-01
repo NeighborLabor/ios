@@ -44,8 +44,7 @@ class ListViewController: AuthViewController{
         super.viewDidLoad()
         
     
-        
-        
+    
         Listing.query()?.findObjectsInBackground(block: { (results, error) in
             guard let error = error else{
                 
@@ -53,6 +52,7 @@ class ListViewController: AuthViewController{
                 self.tableView.delegate = self
                 self.tableView.dataSource = self
                 self.tableView.reloadData()
+                
                 return
             }
             print("Problem occurred : \(error.localizedDescription)")
@@ -68,7 +68,8 @@ class ListViewController: AuthViewController{
 extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return listings.count
+        return 1
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,7 +85,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return listings.count
     }
     
     
