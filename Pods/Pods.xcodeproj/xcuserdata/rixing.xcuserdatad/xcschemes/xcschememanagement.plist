@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EasyPeasy.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FoldingCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,11 +42,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>167DCEBCCC1D6F693CE87947F8252363</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>51CB0AF616C6306147B99C320EB6D3ED</key>
 		<dict>
 			<key>primary</key>
@@ -47,7 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B5221EA08C01208C608AC6ECB17B9F2E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B626E472969D6F87698AF0041EAAFC38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E2ADA04CA44F7E58BF9B7AD30895FEA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F15A52EC40247413C03E680D49410C18</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,15 +1,21 @@
 PODS:
   - Bolts/Tasks (1.8.4)
+  - EasyPeasy (1.4.1)
+  - FoldingCell (2.0.3)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
+  - EasyPeasy
+  - FoldingCell (~> 2.0.3)
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  EasyPeasy: b8a2feebd47395aaf46bde178abcddd36c922d37
+  FoldingCell: 2f3113051609167776743415fc00ed877ac6d62c
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
 
-PODFILE CHECKSUM: 29d5723196a572ba6042bca776f7d12f98b500ca
+PODFILE CHECKSUM: e58d90d8089e4e0b0532867fedcdc2efba019c42
 
 COCOAPODS: 1.2.0

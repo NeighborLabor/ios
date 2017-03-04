@@ -7,17 +7,15 @@
 //
 
 import UIKit
+import FoldingCell
+import EasyPeasy
 
 class LIstingCell: UITableViewCell {
-
+    
     @IBOutlet weak var imgView: UIImageView!
-
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var priceLabel: UILabel!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!
     
 }
