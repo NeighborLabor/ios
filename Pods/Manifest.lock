@@ -1,21 +1,44 @@
 PODS:
+  - AFDateHelper (4.1.2)
   - Bolts/Tasks (1.8.4)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - EasyPeasy (1.4.1)
+  - Eureka (2.0.1)
   - FoldingCell (2.0.3)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - SwiftIconFont (2.6.0)
 
 DEPENDENCIES:
+  - AFDateHelper (~> 4.1.2)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - EasyPeasy
+  - Eureka (~> 2.0)
   - FoldingCell (~> 2.0.3)
   - Parse
+  - SwiftIconFont
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  AFDateHelper: b19c83daa132e398b34fbea085a1554ce07adfe9
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   EasyPeasy: b8a2feebd47395aaf46bde178abcddd36c922d37
+  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   FoldingCell: 2f3113051609167776743415fc00ed877ac6d62c
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  SwiftIconFont: bbe1f32e1e16bac87dad8566afc80132cb8d072c
 
-PODFILE CHECKSUM: e58d90d8089e4e0b0532867fedcdc2efba019c42
+PODFILE CHECKSUM: 8af84d308dd7d995910b2303ddbf7a98aabbd430
 
 COCOAPODS: 1.2.0

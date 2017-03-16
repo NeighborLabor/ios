@@ -122,12 +122,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="555"/>
+            <point key="canvasLocation" x="2654" y="555"/>
         </scene>
-        <!--View Controller-->
+        <!--Create List View Controller-->
         <scene sceneID="QmN-1f-dOc">
             <objects>
-                <viewController id="iWP-Hu-kVe" sceneMemberID="viewController">
+                <viewController id="iWP-Hu-kVe" customClass="CreateListViewController" customModule="Neighbor_Labor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bJL-cv-ak1"/>
                         <viewControllerLayoutGuide type="bottom" id="YL7-iN-FgO"/>
@@ -135,22 +135,19 @@
                     <view key="view" contentMode="scaleToFill" id="Ors-CM-QMX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHo-sb-TUG">
-                                <rect key="frame" x="24" y="110" width="335" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YBh-5O-X9A"/>
+                    <navigationItem key="navigationItem" id="YBh-5O-X9A">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dnf-fK-f3u">
+                            <connections>
+                                <action selector="cancelAction:" destination="iWP-Hu-kVe" id="hZA-RT-Vza"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yW-3R-Hd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3433" y="-1042"/>
+            <point key="canvasLocation" x="3502" y="-1066"/>
         </scene>
         <!--NL-->
         <scene sceneID="4C3-fd-mSd">
@@ -167,6 +164,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tm-y2-ncW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
@@ -323,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ld-ao-glB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="555"/>
+            <point key="canvasLocation" x="3665" y="555"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iBu-vw-cXS">
@@ -359,7 +357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGU-L9-bFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564" y="-1042"/>
+            <point key="canvasLocation" x="2486" y="-1066"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1zt-4n-ccR">

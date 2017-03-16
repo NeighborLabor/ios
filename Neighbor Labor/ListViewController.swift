@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 import FoldingCell
-class ListViewController: AuthViewController{
+class ListViewController: BaseViewController{
 
     
     let listingManager = ListingManager()
@@ -20,9 +20,7 @@ class ListViewController: AuthViewController{
     
     // temporary
     @IBAction func menuToggleAction(_ sender: Any) {
-        AuthManager().signOut { (err) in
-            
-        }
+        
     }
 
     @IBAction func createListAction(_ sender: Any) {
@@ -30,7 +28,7 @@ class ListViewController: AuthViewController{
         guard let _ = AuthManager.currentUser() else {
             
             self.performSegue(withIdentifier: "authSegue", sender: self)
-            print("User not loaded in")
+            print("User not logged in")
             return
         }
         self.performSegue(withIdentifier: "listSegue", sender: self)
@@ -46,31 +44,22 @@ class ListViewController: AuthViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        openHeight  = RWFoldingCell.KCloseHeight * CGFloat(itemCount) + 8
-        itemHeight =  [CGFloat](repeating: closeHeight, count: 3)
         
-
+        openHeight  = RWFoldingCell.KCloseHeight * CGFloat(itemCount) + 8
         tableView.register(RWFoldingCell.self, forCellReuseIdentifier: "RWFoldingCell")
-
-    
         Listing.query()?.findObjectsInBackground(block: { (results, error) in
             guard let error = error else{
                 
                 self.listings = results as! [Listing]
                 self.tableView.delegate = self
                 self.tableView.dataSource = self
+                self.itemHeight =  [CGFloat](repeating: self.closeHeight, count: self.listings.count)
                 self.tableView.reloadData()
-                
-            
                 return
             }
             print("Problem occurred : \(error.localizedDescription)")
-
-            
         })
-        
     }
-    
 }
 
 
@@ -82,15 +71,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let listing = self.listings[indexPath.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "listcell") as! LIstingCell
-//        
-//        cell.titleLabel?.text = listing.title
-//        cell.descriptionLabel?.text = listing.descr
-//        cell.imgView?.image = UIImage(named: "placeholder")
-//        cell.priceLabel.text = "$\(listing.compensation)"
-//              
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RWFoldingCell", for: indexPath)
+        let listing = self.listings[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RWFoldingCell") as! RWFoldingCell
+        
         return cell
     }
     
@@ -104,9 +87,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
-    
-        
+        let cell = tableView.cellForRow(at: indexPath) as! RWFoldingCell
+//
+//        
         var duration = 0.0
         if itemHeight[indexPath.row] == closeHeight { // open cell
             itemHeight[indexPath.row] = openHeight
@@ -115,7 +98,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
         } else {// close cell
             itemHeight[indexPath.row] = closeHeight
             cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 1.1
+            duration = 0.5
         }
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in

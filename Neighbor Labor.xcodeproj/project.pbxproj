@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D5B9A4EFD51FFB42E525D58 /* Pods_Neighbor_LaborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDFD3503CF2E93F8C3516F2 /* Pods_Neighbor_LaborTests.framework */; };
 		899ACF62C5C8F8D842E5C294 /* Pods_Neighbor_LaborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0BF614691454DE11D90116 /* Pods_Neighbor_LaborUITests.framework */; };
-		9402739F1E6687DA00ED0F9F /* FoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9402739E1E6687DA00ED0F9F /* FoldedView.xib */; };
+		940C32591E79BD2B00DFDB18 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940C32581E79BD2B00DFDB18 /* CreateListViewController.swift */; };
 		941B1B031E57B0BA00EA780A /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941B1B021E57B0BA00EA780A /* Entities.swift */; };
 		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
 		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
@@ -24,7 +24,6 @@
 		94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DF1E60CBB50091E70C /* AuthViewController.swift */; };
 		94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08E11E60CBF80091E70C /* BaseViewController.swift */; };
 		94B768261E4C063400C30221 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthManager.swift */; };
-		94D91DFA1E65E0CC00FFBAF8 /* LIstingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D91DF91E65E0CC00FFBAF8 /* LIstingCell.swift */; };
 		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +52,7 @@
 		5FFEEDF84D8D769ADAE7F40F /* Pods-Neighbor Labor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor Labor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor Labor/Pods-Neighbor Labor.release.xcconfig"; sourceTree = "<group>"; };
 		6A4A0CB109424A0CB68D2391 /* Pods-Neighbor Labor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor Labor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor Labor/Pods-Neighbor Labor.debug.xcconfig"; sourceTree = "<group>"; };
 		80BB0E631C0F733C4C4F9DB8 /* Pods-Neighbor LaborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.release.xcconfig"; sourceTree = "<group>"; };
-		9402739E1E6687DA00ED0F9F /* FoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoldedView.xib; sourceTree = "<group>"; };
+		940C32581E79BD2B00DFDB18 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		941B1B021E57B0BA00EA780A /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -74,7 +73,6 @@
 		94AA08DF1E60CBB50091E70C /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		94AA08E11E60CBF80091E70C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B768251E4C063400C30221 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		94D91DF91E65E0CC00FFBAF8 /* LIstingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LIstingCell.swift; sourceTree = "<group>"; };
 		A848D62A753AD41EF37CB48A /* Pods-Neighbor LaborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborUITests/Pods-Neighbor LaborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFC1DDA54265D5C53BCB0FD2 /* Pods-Neighbor LaborTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +187,7 @@
 				94AA08DD1E60C91C0091E70C /* ListViewController.swift */,
 				94AA08DF1E60CBB50091E70C /* AuthViewController.swift */,
 				94AA08E11E60CBF80091E70C /* BaseViewController.swift */,
+				940C32581E79BD2B00DFDB18 /* CreateListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -196,9 +195,7 @@
 		94D91DF81E65E08A00FFBAF8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				94D91DF91E65E0CC00FFBAF8 /* LIstingCell.swift */,
 				9498692F1E66688B008D41C9 /* RWFoldingCell.swift */,
-				9402739E1E6687DA00ED0F9F /* FoldedView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -332,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9402739F1E6687DA00ED0F9F /* FoldedView.xib in Resources */,
 				947DA0B61E454E5100E836F5 /* LaunchScreen.storyboard in Resources */,
 				947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */,
 				947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */,
@@ -504,7 +500,7 @@
 				94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */,
 				9436A2D01E637692006DB660 /* ListingManager.swift in Sources */,
 				9436A2D41E63892D006DB660 /* Common.swift in Sources */,
-				94D91DFA1E65E0CC00FFBAF8 /* LIstingCell.swift in Sources */,
+				940C32591E79BD2B00DFDB18 /* CreateListViewController.swift in Sources */,
 				94AA08DE1E60C91C0091E70C /* ListViewController.swift in Sources */,
 				947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */,
 				94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */,

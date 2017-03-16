@@ -15,21 +15,8 @@ import Parse
 
 
 internal protocol ListingInteractor {
-//    @NSManaged var createdBy: PFUser
-//    @NSManaged var title: String
-//    @NSManaged var descr: String
-//    @NSManaged var geopoint: PFGeoPoint
-//    @NSManaged var address: String
-//    @NSManaged var startTime: NSDate
-//    @NSManaged var duration: Int
-//    @NSManaged var photos : [PFFile]
-//    @NSManaged var applicants : [PFUser]
-//    @NSManaged var active: Bool
-//    @NSManaged var compensation: Double
-//    @NSManaged var worker: PFUser?
-    
+ 
     func createAListing(title: String, desc: String, address: String, startTime: NSDate, duration: Int, photo: NSData?, compensation: Double, completion: @escaping ErrorResultBlock)
-    
     
 }
 
@@ -75,7 +62,9 @@ class ListingManager : ListingInteractor{
         
     }
     
-    
+    deinit {
+    print("listingManager : deinits")
+    }
 
     
 }
