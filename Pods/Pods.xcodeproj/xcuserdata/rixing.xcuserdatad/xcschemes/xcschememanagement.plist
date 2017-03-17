@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftIconFont.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,16 +67,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2099CC07D4D9581FA474C2A5FC7D3B1E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>50AE73764E5647C42B86F4FE2C7D989F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>51CB0AF616C6306147B99C320EB6D3ED</key>
 		<dict>
 			<key>primary</key>
@@ -92,7 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8479B262A55BB8389DE794BD219BF5ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94D030E41223EB43665510EC918B972A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9ADF74A92DB37BCA9991356E7AC5F6FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9CD0C9632E146B82A2BD0240A84787B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

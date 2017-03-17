@@ -14,7 +14,7 @@ target 'Neighbor Labor' do
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwiftIconFont'
     pod 'AFDateHelper', '~> 4.1.2'
-    
+    pod 'SideMenu', '~> 2.3.0'
   target 'Neighbor LaborTests' do
     inherit! :search_paths
     # Pods for testing

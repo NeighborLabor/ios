@@ -9,24 +9,16 @@
 import UIKit
 import Parse
 import FoldingCell
+import SwiftIconFont
 class ListViewController: BaseViewController{
 
     
     let listingManager = ListingManager()
     var listings = [Listing]()
-    
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    // temporary
-    @IBAction func menuToggleAction(_ sender: Any) {
-        
-    }
 
     @IBAction func createListAction(_ sender: Any) {
-        
         guard let _ = AuthManager.currentUser() else {
-            
             self.performSegue(withIdentifier: "authSegue", sender: self)
             print("User not logged in")
             return
@@ -44,6 +36,7 @@ class ListViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem?.icon(from: .Octicon, code: "three-bars", ofSize: 40)
         
         openHeight  = RWFoldingCell.KCloseHeight * CGFloat(itemCount) + 8
         tableView.register(RWFoldingCell.self, forCellReuseIdentifier: "RWFoldingCell")
@@ -73,7 +66,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listing = self.listings[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "RWFoldingCell") as! RWFoldingCell
-        
+        cell.update(list: listing)
+    
         return cell
     }
     
@@ -108,9 +102,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
 }
-
-
-
 
 
 

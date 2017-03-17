@@ -11,6 +11,10 @@
 		899ACF62C5C8F8D842E5C294 /* Pods_Neighbor_LaborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0BF614691454DE11D90116 /* Pods_Neighbor_LaborUITests.framework */; };
 		940C32591E79BD2B00DFDB18 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940C32581E79BD2B00DFDB18 /* CreateListViewController.swift */; };
 		941B1B031E57B0BA00EA780A /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941B1B021E57B0BA00EA780A /* Entities.swift */; };
+		9429815B1E7C5F1D006CC44F /* FoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9429815A1E7C5F1D006CC44F /* FoldedView.xib */; };
+		9429815D1E7C7BEE006CC44F /* FoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9429815C1E7C7BEE006CC44F /* FoldedView.swift */; };
+		9429815F1E7C7C86006CC44F /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9429815E1E7C7C86006CC44F /* ExpandedView.swift */; };
+		942C35C91E7ADCB100B92240 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C35C81E7ADCB100B92240 /* extensions.swift */; };
 		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
 		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
 		947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0AB1E454E5100E836F5 /* AppDelegate.swift */; };
@@ -54,6 +58,10 @@
 		80BB0E631C0F733C4C4F9DB8 /* Pods-Neighbor LaborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.release.xcconfig"; sourceTree = "<group>"; };
 		940C32581E79BD2B00DFDB18 /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		941B1B021E57B0BA00EA780A /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		9429815A1E7C5F1D006CC44F /* FoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoldedView.xib; sourceTree = "<group>"; };
+		9429815C1E7C7BEE006CC44F /* FoldedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldedView.swift; sourceTree = "<group>"; };
+		9429815E1E7C7C86006CC44F /* ExpandedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
+		942C35C81E7ADCB100B92240 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		947DA0A81E454E5100E836F5 /* Neighbor Labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neighbor Labor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +164,7 @@
 				945CE41A1E626BE60031CEE6 /* Interactors */,
 				94D91DF81E65E08A00FFBAF8 /* Views */,
 				947DA0AF1E454E5100E836F5 /* Main.storyboard */,
+				942C35C81E7ADCB100B92240 /* extensions.swift */,
 				947DA0B21E454E5100E836F5 /* Assets.xcassets */,
 				947DA0B41E454E5100E836F5 /* LaunchScreen.storyboard */,
 				947DA0B71E454E5100E836F5 /* Info.plist */,
@@ -196,6 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				9498692F1E66688B008D41C9 /* RWFoldingCell.swift */,
+				9429815E1E7C7C86006CC44F /* ExpandedView.swift */,
+				9429815C1E7C7BEE006CC44F /* FoldedView.swift */,
+				9429815A1E7C5F1D006CC44F /* FoldedView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -329,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9429815B1E7C5F1D006CC44F /* FoldedView.xib in Resources */,
 				947DA0B61E454E5100E836F5 /* LaunchScreen.storyboard in Resources */,
 				947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */,
 				947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */,
@@ -494,9 +507,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9429815D1E7C7BEE006CC44F /* FoldedView.swift in Sources */,
 				949869301E66688B008D41C9 /* RWFoldingCell.swift in Sources */,
 				94B768261E4C063400C30221 /* AuthManager.swift in Sources */,
+				9429815F1E7C7C86006CC44F /* ExpandedView.swift in Sources */,
 				941B1B031E57B0BA00EA780A /* Entities.swift in Sources */,
+				942C35C91E7ADCB100B92240 /* extensions.swift in Sources */,
 				94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */,
 				9436A2D01E637692006DB660 /* ListingManager.swift in Sources */,
 				9436A2D41E63892D006DB660 /* Common.swift in Sources */,

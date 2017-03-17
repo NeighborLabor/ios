@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8479B262A55BB8389DE794BD219BF5ED'
-               BlueprintName = 'SwiftIconFont'
+               BlueprintIdentifier = 'A9CD0C9632E146B82A2BD0240A84787B'
+               BlueprintName = 'SideMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftIconFont.framework'>
+               BuildableName = 'SideMenu.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
