@@ -10,6 +10,8 @@ import UIKit
 import Parse
 import FoldingCell
 import SwiftIconFont
+import SideMenu
+
 class ListViewController: BaseViewController{
 
     
@@ -36,7 +38,7 @@ class ListViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem?.icon(from: .Octicon, code: "three-bars", ofSize: 40)
+         self.navigationItem.leftBarButtonItem?.icon(from: .Octicon, code: "three-bars", ofSize: 32)
         
         openHeight  = RWFoldingCell.KCloseHeight * CGFloat(itemCount) + 8
         tableView.register(RWFoldingCell.self, forCellReuseIdentifier: "RWFoldingCell")

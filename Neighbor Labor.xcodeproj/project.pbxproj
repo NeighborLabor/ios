@@ -14,6 +14,7 @@
 		9429815B1E7C5F1D006CC44F /* FoldedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9429815A1E7C5F1D006CC44F /* FoldedView.xib */; };
 		9429815D1E7C7BEE006CC44F /* FoldedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9429815C1E7C7BEE006CC44F /* FoldedView.swift */; };
 		9429815F1E7C7C86006CC44F /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9429815E1E7C7C86006CC44F /* ExpandedView.swift */; };
+		942981611E7C9B50006CC44F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942981601E7C9B50006CC44F /* MenuViewController.swift */; };
 		942C35C91E7ADCB100B92240 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C35C81E7ADCB100B92240 /* extensions.swift */; };
 		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
 		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
@@ -28,6 +29,11 @@
 		94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DF1E60CBB50091E70C /* AuthViewController.swift */; };
 		94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08E11E60CBF80091E70C /* BaseViewController.swift */; };
 		94B768261E4C063400C30221 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthManager.swift */; };
+		94FA5BC11E8192F6007221CF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC01E8192F6007221CF /* ProfileViewController.swift */; };
+		94FA5BC51E81932E007221CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC41E81932E007221CF /* SettingViewController.swift */; };
+		94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC61E81933E007221CF /* MyListViewController.swift */; };
+		94FA5BC91E81934E007221CF /* ActiveJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */; };
+		94FA5BCB1E81935C007221CF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BCA1E81935C007221CF /* MessageViewController.swift */; };
 		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +67,7 @@
 		9429815A1E7C5F1D006CC44F /* FoldedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoldedView.xib; sourceTree = "<group>"; };
 		9429815C1E7C7BEE006CC44F /* FoldedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldedView.swift; sourceTree = "<group>"; };
 		9429815E1E7C7C86006CC44F /* ExpandedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
+		942981601E7C9B50006CC44F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		942C35C81E7ADCB100B92240 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -81,6 +88,11 @@
 		94AA08DF1E60CBB50091E70C /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		94AA08E11E60CBF80091E70C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B768251E4C063400C30221 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		94FA5BC01E8192F6007221CF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		94FA5BC41E81932E007221CF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		94FA5BC61E81933E007221CF /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveJobsViewController.swift; sourceTree = "<group>"; };
+		94FA5BCA1E81935C007221CF /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A848D62A753AD41EF37CB48A /* Pods-Neighbor LaborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborUITests/Pods-Neighbor LaborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFC1DDA54265D5C53BCB0FD2 /* Pods-Neighbor LaborTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,8 +207,10 @@
 			children = (
 				94AA08DD1E60C91C0091E70C /* ListViewController.swift */,
 				94AA08DF1E60CBB50091E70C /* AuthViewController.swift */,
+				942981601E7C9B50006CC44F /* MenuViewController.swift */,
 				94AA08E11E60CBF80091E70C /* BaseViewController.swift */,
 				940C32581E79BD2B00DFDB18 /* CreateListViewController.swift */,
+				94FA5BBF1E8192A8007221CF /* MenuVCS */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +224,18 @@
 				9429815A1E7C5F1D006CC44F /* FoldedView.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		94FA5BBF1E8192A8007221CF /* MenuVCS */ = {
+			isa = PBXGroup;
+			children = (
+				94FA5BC01E8192F6007221CF /* ProfileViewController.swift */,
+				94FA5BC61E81933E007221CF /* MyListViewController.swift */,
+				94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */,
+				94FA5BCA1E81935C007221CF /* MessageViewController.swift */,
+				94FA5BC41E81932E007221CF /* SettingViewController.swift */,
+			);
+			name = MenuVCS;
 			sourceTree = "<group>";
 		};
 		FA1FA146B178EEE2A1A2FB16 /* Pods */ = {
@@ -507,9 +533,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FA5BC91E81934E007221CF /* ActiveJobsViewController.swift in Sources */,
 				9429815D1E7C7BEE006CC44F /* FoldedView.swift in Sources */,
 				949869301E66688B008D41C9 /* RWFoldingCell.swift in Sources */,
+				94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */,
 				94B768261E4C063400C30221 /* AuthManager.swift in Sources */,
+				94FA5BC51E81932E007221CF /* SettingViewController.swift in Sources */,
+				942981611E7C9B50006CC44F /* MenuViewController.swift in Sources */,
 				9429815F1E7C7C86006CC44F /* ExpandedView.swift in Sources */,
 				941B1B031E57B0BA00EA780A /* Entities.swift in Sources */,
 				942C35C91E7ADCB100B92240 /* extensions.swift in Sources */,
@@ -517,7 +547,9 @@
 				9436A2D01E637692006DB660 /* ListingManager.swift in Sources */,
 				9436A2D41E63892D006DB660 /* Common.swift in Sources */,
 				940C32591E79BD2B00DFDB18 /* CreateListViewController.swift in Sources */,
+				94FA5BCB1E81935C007221CF /* MessageViewController.swift in Sources */,
 				94AA08DE1E60C91C0091E70C /* ListViewController.swift in Sources */,
+				94FA5BC11E8192F6007221CF /* ProfileViewController.swift in Sources */,
 				947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */,
 				94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */,
 			);

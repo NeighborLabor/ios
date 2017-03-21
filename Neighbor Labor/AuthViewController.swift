@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftIconFont
 
 class AuthViewController: BaseViewController{
     let authInteractor = AuthManager()  // Might cause memory retain cycle
@@ -22,6 +22,15 @@ class LoginViewController: AuthViewController {
     
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet weak var xButton: UIBarButtonItem!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        xButton.icon(from: .Octicon, code: "x", ofSize: 32)
+        
     }
     
     @IBAction func loginAction(_ sender: Any) {

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EasyPeasy.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,6 +72,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2BF3C3218B117E28ACEE1EC2DB4A05EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>51CB0AF616C6306147B99C320EB6D3ED</key>
 		<dict>
 			<key>primary</key>
@@ -87,22 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8479B262A55BB8389DE794BD219BF5ED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>94D030E41223EB43665510EC918B972A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9ADF74A92DB37BCA9991356E7AC5F6FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9CD0C9632E146B82A2BD0240A84787B</key>
+		<key>A251F763407D819E12D07703876D6909</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,6 +113,16 @@
 			<true/>
 		</dict>
 		<key>B626E472969D6F87698AF0041EAAFC38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D57D0021B195B82DEDA37F7DC9C8F2C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
