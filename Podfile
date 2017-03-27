@@ -15,7 +15,10 @@ target 'Neighbor Labor' do
     pod 'SwiftIconFont'
     pod 'AFDateHelper', '~> 4.1.2'
     pod 'SideMenu', '~> 2.3.0'
+    pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     pod 'DZNEmptyDataSet'
+    pod 'Cosmos', '~> 8.0'
+
   target 'Neighbor LaborTests' do
     inherit! :search_paths
     # Pods for testing

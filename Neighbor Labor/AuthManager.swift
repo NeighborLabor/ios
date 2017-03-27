@@ -42,6 +42,7 @@ internal protocol SignOutInteractor{
  */
 class AuthManager : SignUpInteractor, LoginInteractor, SignOutInteractor {
     
+
     
     //Common Interacter
     static func currentUser() -> PFUser? {

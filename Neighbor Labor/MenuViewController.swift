@@ -40,6 +40,7 @@ class MenuViewController: UITableViewController {
         segues = [toProfile, toMyList, toActiveJobs, toMessages, toSetting]
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
      }
     
     

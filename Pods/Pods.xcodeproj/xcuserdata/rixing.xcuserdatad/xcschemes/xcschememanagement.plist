@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Cosmos.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,10 +74,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftValidator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2BF3C3218B117E28ACEE1EC2DB4A05EC</key>
+		<key>3BCDCBA092FB616FCF2FD79CA014C767</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4FDC533A4360A68ABDCE852F04B30927</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8115A6814779FA056B150B3EE68EE06A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9ADF74A92DB37BCA9991356E7AC5F6FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A251F763407D819E12D07703876D6909</key>
+		<key>9BA6AFFBA28908715FD8CF5A436C295E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
+		<key>D23E8F5B51347CD26A44AEB95198780E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D57D0021B195B82DEDA37F7DC9C8F2C0</key>
+		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

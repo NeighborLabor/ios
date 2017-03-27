@@ -30,8 +30,8 @@ class FoldedView: RotatedView{
     class func instanceFromNib() -> FoldedView {
         let cell = UINib(nibName: "FoldedView", bundle: Bundle.main).instantiate(withOwner: nil, options: nil)[0] as! FoldedView
         
-        //cell.backgroundColor = .white
-        
+        cell.backgroundColor = .white
+    
         return cell
     }
     

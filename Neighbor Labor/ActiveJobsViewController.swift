@@ -12,7 +12,6 @@ class ActiveJobsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
      }
 
  

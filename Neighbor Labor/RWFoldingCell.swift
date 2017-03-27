@@ -22,13 +22,15 @@ class RWFoldingCell: FoldingCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = .flatWhite
+        self.backViewColor = .flatGray
+        self.itemCount = 3
+
         self.containerView = createContainerView()
         self.foregroundView = createForegroundView()
         // super class method configure views
         self.foregroundView.layer.cornerRadius = 5
         self.foregroundView.layer.masksToBounds = true
-        
-        commonInit()
+         commonInit()
     }
     
     
@@ -40,8 +42,7 @@ class RWFoldingCell: FoldingCell{
 
     
     func createForegroundView() -> RotatedView {
-       // let foregroundView = FoldedView(frame:.zero)
-        
+         
         
         let foregroundView = FoldedView.instanceFromNib()
         foregroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +64,7 @@ class RWFoldingCell: FoldingCell{
     }
     
     func createContainerView() -> UIView {
-        let containerView = ExpandedView()
+        let containerView = ExpandedView.instanceFromNib()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(containerView)
         

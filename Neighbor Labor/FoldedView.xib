@@ -83,11 +83,11 @@
                             <rect key="frame" x="9" y="0.0" width="413" height="96"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJL-Jq-JP6">
-                                    <rect key="frame" x="0.0" y="0.0" width="413" height="52"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="413" height="48"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Dog Walker">
                                             <attributes>
-                                                <font key="NSFont" size="19" name="Helvetica"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -95,11 +95,11 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asH-qa-hiC">
-                                    <rect key="frame" x="0.0" y="52" width="413" height="44"/>
+                                    <rect key="frame" x="0.0" y="48" width="413" height="48"/>
                                     <attributedString key="attributedText">
                                         <fragment content="555 Huntington Ave, Boston MA">
                                             <attributes>
-                                                <font key="NSFont" size="16" name="Helvetica"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
+
 
 class BaseViewController: UIViewController {
 
@@ -22,14 +24,42 @@ class BaseViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
         {
             (result : UIAlertAction) -> Void in
-                print("You pressed OK")
-        }
+         }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
 
     }
     
+}
+
+
+
+
+class BaseTableViewController: UITableViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+
+    var image =  UIImage(named:"placeholder")!
+    var titleText = "No data available!"
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.emptyDataSetSource = self
+        self.tableView.tableFooterView = UIView()
+    }
     
     
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return self.image
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        return NSAttributedString(string: titleText)
+    }
+    
+    
+    
+    
+
     
 }

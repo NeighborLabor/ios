@@ -19,8 +19,7 @@ class Listing: PFObject, PFSubclassing{
     @NSManaged var address: String
     @NSManaged var startTime: NSDate
     @NSManaged var duration: Int
-    @NSManaged var photos : [PFFile]
-    @NSManaged var applicants : [PFUser]
+     @NSManaged var applicants : [PFUser]
     @NSManaged var active: Bool
     @NSManaged var compensation: Double
     @NSManaged var worker: PFUser?
@@ -36,8 +35,8 @@ class Review: PFObject, PFSubclassing{
     @NSManaged var rating: Int
     @NSManaged var descr: String
     @NSManaged var reviewer: PFUser
-    @NSManaged var listing: [Listing]
-    
+    @NSManaged var listing: Listing
+
     static func parseClassName() -> String {
         return "Review"
     }

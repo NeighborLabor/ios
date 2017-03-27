@@ -16,6 +16,7 @@
 		9429815F1E7C7C86006CC44F /* ExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9429815E1E7C7C86006CC44F /* ExpandedView.swift */; };
 		942981611E7C9B50006CC44F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942981601E7C9B50006CC44F /* MenuViewController.swift */; };
 		942C35C91E7ADCB100B92240 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C35C81E7ADCB100B92240 /* extensions.swift */; };
+		943498AF1E86F53500A8F8A0 /* FetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943498AE1E86F53500A8F8A0 /* FetchManager.swift */; };
 		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
 		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
 		947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0AB1E454E5100E836F5 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DF1E60CBB50091E70C /* AuthViewController.swift */; };
 		94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08E11E60CBF80091E70C /* BaseViewController.swift */; };
 		94B768261E4C063400C30221 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthManager.swift */; };
+		94CB5B4C1E8996AF0015DEFE /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CB5B4B1E8996AF0015DEFE /* ExpandedView.xib */; };
 		94FA5BC11E8192F6007221CF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC01E8192F6007221CF /* ProfileViewController.swift */; };
 		94FA5BC51E81932E007221CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC41E81932E007221CF /* SettingViewController.swift */; };
 		94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC61E81933E007221CF /* MyListViewController.swift */; };
@@ -69,6 +71,7 @@
 		9429815E1E7C7C86006CC44F /* ExpandedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedView.swift; sourceTree = "<group>"; };
 		942981601E7C9B50006CC44F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		942C35C81E7ADCB100B92240 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		943498AE1E86F53500A8F8A0 /* FetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchManager.swift; sourceTree = "<group>"; };
 		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		947DA0A81E454E5100E836F5 /* Neighbor Labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neighbor Labor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +91,7 @@
 		94AA08DF1E60CBB50091E70C /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		94AA08E11E60CBF80091E70C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B768251E4C063400C30221 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		94CB5B4B1E8996AF0015DEFE /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 		94FA5BC01E8192F6007221CF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		94FA5BC41E81932E007221CF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		94FA5BC61E81933E007221CF /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				94B768251E4C063400C30221 /* AuthManager.swift */,
 				9436A2D31E63892D006DB660 /* Common.swift */,
 				9436A2CF1E637692006DB660 /* ListingManager.swift */,
+				943498AE1E86F53500A8F8A0 /* FetchManager.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -219,9 +224,10 @@
 			isa = PBXGroup;
 			children = (
 				9498692F1E66688B008D41C9 /* RWFoldingCell.swift */,
-				9429815E1E7C7C86006CC44F /* ExpandedView.swift */,
 				9429815C1E7C7BEE006CC44F /* FoldedView.swift */,
 				9429815A1E7C5F1D006CC44F /* FoldedView.xib */,
+				9429815E1E7C7C86006CC44F /* ExpandedView.swift */,
+				94CB5B4B1E8996AF0015DEFE /* ExpandedView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9429815B1E7C5F1D006CC44F /* FoldedView.xib in Resources */,
+				94CB5B4C1E8996AF0015DEFE /* ExpandedView.xib in Resources */,
 				947DA0B61E454E5100E836F5 /* LaunchScreen.storyboard in Resources */,
 				947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */,
 				947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */,
@@ -535,6 +542,7 @@
 			files = (
 				94FA5BC91E81934E007221CF /* ActiveJobsViewController.swift in Sources */,
 				9429815D1E7C7BEE006CC44F /* FoldedView.swift in Sources */,
+				943498AF1E86F53500A8F8A0 /* FetchManager.swift in Sources */,
 				949869301E66688B008D41C9 /* RWFoldingCell.swift in Sources */,
 				94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */,
 				94B768261E4C063400C30221 /* AuthManager.swift in Sources */,
