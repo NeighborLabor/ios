@@ -9,6 +9,7 @@ PODS:
   - EasyPeasy (1.4.1)
   - Eureka (2.0.1)
   - FoldingCell (2.0.3)
+  - Font-Awesome-Swift (1.6.1)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - SideMenu (2.3.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - EasyPeasy
   - Eureka (~> 2.0)
   - FoldingCell (~> 2.0.3)
+  - Font-Awesome-Swift (~> 1.6.1)
   - Parse
   - SideMenu (~> 2.3.0)
   - SwiftIconFont
@@ -52,11 +54,12 @@ SPEC CHECKSUMS:
   EasyPeasy: b8a2feebd47395aaf46bde178abcddd36c922d37
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   FoldingCell: 2f3113051609167776743415fc00ed877ac6d62c
+  Font-Awesome-Swift: 70ab020f6749d7048bb49807c3e78b702d78afca
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftIconFont: bbe1f32e1e16bac87dad8566afc80132cb8d072c
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 
-PODFILE CHECKSUM: 3beed2bc9c89245d27b9220ad8e95ca4e76cb445
+PODFILE CHECKSUM: 71dc6071669be05d9ce03a0c58dd95020988c13b
 
 COCOAPODS: 1.2.0

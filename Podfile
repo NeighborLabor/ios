@@ -18,6 +18,7 @@ target 'Neighbor Labor' do
     pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     pod 'DZNEmptyDataSet'
     pod 'Cosmos', '~> 8.0'
+    pod 'Font-Awesome-Swift', '~> 1.6.1'
 
   target 'Neighbor LaborTests' do
     inherit! :search_paths

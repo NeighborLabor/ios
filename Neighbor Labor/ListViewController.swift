@@ -9,8 +9,9 @@
 import UIKit
 import Parse
 import FoldingCell
-import SwiftIconFont
-import SideMenu
+import ChameleonFramework
+import Font_Awesome_Swift
+
 
 class ListViewController: BaseViewController{
 
@@ -31,7 +32,6 @@ class ListViewController: BaseViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var addListingButton: UIBarButtonItem!
-    @IBOutlet weak var mapToggleButton: UIBarButtonItem!
     
     
     
@@ -54,7 +54,6 @@ class ListViewController: BaseViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-
     }
 
 }
@@ -64,10 +63,9 @@ class ListViewController: BaseViewController{
 extension ListViewController{
 
     func customizeOutlets() {
-        let iconsize: CGFloat = 30
-        self.menuButton.icon(from: .Octicon, code: "three-bars", ofSize: iconsize)
-        self.mapToggleButton.icon(from: .Octicon, code: "globe", ofSize: iconsize)
-        self.addListingButton.icon(from: .Octicon, code: "plus", ofSize: iconsize)
+        let icon_size : CGFloat = 30
+        menuButton.setFAIcon(icon: .FABars, iconSize: icon_size)
+        addListingButton.setFAIcon(icon: .FAEdit, iconSize: icon_size)
 
     }
     
@@ -125,7 +123,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RWFoldingCell
 //
-//        
+        
         var duration = 0.0
         if itemHeight[indexPath.row] == closeHeight { // open cell
             itemHeight[indexPath.row] = openHeight
@@ -134,13 +132,13 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
         } else {// close cell
             itemHeight[indexPath.row] = closeHeight
             cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 0.5
+            duration = 0.6
         }
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
             tableView.beginUpdates()
             tableView.endUpdates()
-        }, completion: nil)
+        }, completion:nil)
     }
     
 }

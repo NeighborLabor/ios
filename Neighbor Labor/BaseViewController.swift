@@ -9,12 +9,12 @@
 import UIKit
 import DZNEmptyDataSet
 
-
 class BaseViewController: UIViewController {
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
      }
     
     

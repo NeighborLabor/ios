@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Listing.registerSubclass()
         Review.registerSubclass()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         
         return true
     }

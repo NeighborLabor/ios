@@ -9,12 +9,14 @@
 import UIKit
 import  Eureka
 import SideMenu
+import  ChameleonFramework
+import Font_Awesome_Swift
 
 class HeaderView: UITableViewCell{
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var imView: UIImageView!
-
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var icon: UILabel!
     
 }
 
@@ -22,6 +24,9 @@ struct SegueInfo {
     var label: String
     var destinationId: String
     var cellIdentifier : String
+    var detail: String?
+    var fa: FAType
+
 }
 
 class MenuViewController: UITableViewController {
@@ -31,19 +36,24 @@ class MenuViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let toProfile = SegueInfo(label:"Rixing", destinationId: "to_profile", cellIdentifier: "menuheader")
-        let toMyList = SegueInfo(label: "My List", destinationId: "to_my_list", cellIdentifier: "menucell")
-        let toActiveJobs = SegueInfo(label: "Active Jobs", destinationId: "to_active_job", cellIdentifier: "menucell")
-        let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell")
-        let toSetting = SegueInfo(label: "Setting", destinationId: "to_setting", cellIdentifier: "menucell")
+        SideMenuManager.menuAnimationBackgroundColor = .flatSkyBlue
+        
+        let name = "Rixing Wu"
+        let email = "wur@wit.edu"
+        
+        let toProfile = SegueInfo(label:name, destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
+        let toMyList = SegueInfo(label: "Listed Jobs", destinationId: "to_my_list", cellIdentifier: "menucell", detail: "Your listed jobs", fa: .FAPencilSquareO)
+        let toActiveJobs = SegueInfo(label: "Pending Jobs", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of active jobs", fa: .FAHourglassO)
+        let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "...", fa: .FACommentO)
+        let toSetting = SegueInfo(label: "Setting", destinationId: "to_setting", cellIdentifier: "menucell", detail: "Application configuration", fa: .FAGear)
 
         segues = [toProfile, toMyList, toActiveJobs, toMessages, toSetting]
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+        self.tableView.tableFooterView = UIView()
      }
     
-    
+ 
   
     
 }
@@ -58,31 +68,17 @@ extension MenuViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let segue = segues[indexPath.row]
-        print("cellforrow")
-        print(segue)
 
-         if indexPath.row == 0{
-            let headercell = tableView.dequeueReusableCell(withIdentifier:  segue.cellIdentifier) as! HeaderView
-            // set profile image here
-            headercell.nameLabel.text = segue.label
-            return headercell
-         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier:segue.cellIdentifier)
-            cell?.textLabel?.text = segue.label
-            return cell!
-        }
+        let headercell = tableView.dequeueReusableCell(withIdentifier:  segue.cellIdentifier) as! HeaderView
+        // set profile image here
+        headercell.nameLabel.text = segue.label
+        headercell.emailLabel.text = segue.detail
+        headercell.icon.setFAIcon(icon: segue.fa, iconSize: 25)
+        return headercell
         
      }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = super.tableView(tableView, heightForRowAt: indexPath)
-        if indexPath.row == 0{
-            return height
-        }else{
-            return 44.0
-        }
-    }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let segue = segues[indexPath.row]
         SideMenuManager.menuLeftNavigationController?.performSegue(withIdentifier: segue.destinationId, sender: nil)

@@ -7,21 +7,13 @@
 //
 
 import UIKit
-
+import MapKit
 
 class ExpandedView: UIView{
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-       
-        
-    }
-    required init?(coder aDecoder: NSCoder) {
-         super.init(coder: aDecoder)
-        
-        
-        
-    }
+    
+ 
+    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder)}
     
     
     class func instanceFromNib() -> ExpandedView {
@@ -29,5 +21,15 @@ class ExpandedView: UIView{
         cell.backgroundColor = .white
         return cell
     }
+}
+
+
+
+
+extension ExpandedView {
+    
+    
+    
+    
 }
 
