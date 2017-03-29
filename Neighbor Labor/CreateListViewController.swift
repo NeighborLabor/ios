@@ -97,20 +97,6 @@ class CreateListViewController: FormViewController{
     
     
     
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-        {
-            (result : UIAlertAction) -> Void in
-        }
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
-    
-    
-    
         
 }
         

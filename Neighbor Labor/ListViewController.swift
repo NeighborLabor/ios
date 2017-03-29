@@ -17,12 +17,8 @@ class ListViewController: BaseViewController{
 
     // information for folding cells
     
-    
-    var itemCount = 3
-    var closeHeight: CGFloat = RWFoldingCell.KCloseHeight + 8 //
-    var openHeight: CGFloat!
-    var itemHeight: [CGFloat]!
-    
+ 
+//    
     
     // cell data
     let listingManager = ListingManager()
@@ -39,6 +35,7 @@ class ListViewController: BaseViewController{
         guard let _ = AuthManager.currentUser() else {
             self.performSegue(withIdentifier: "authSegue", sender: self)
             print("User not logged in")
+            print("routing to")
             return
         }
         self.performSegue(withIdentifier: "listSegue", sender: self)
@@ -48,12 +45,19 @@ class ListViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeOutlets()
-        populateTable()
+        getRequiredPermission()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    func getRequiredPermission(){
+        LocationManager.startLocationUpdate { (err) in
+            guard let error = err else {
+                self.populateTable()
+                return
+            }
+            self.titleText = "Location Premission Required"
+            self.desText = error.localizedDescription
+            self.showAlert(title: "Error", message: error.localizedDescription)
+        }
     }
 
 }
@@ -61,13 +65,19 @@ class ListViewController: BaseViewController{
 
 // Customaization
 extension ListViewController{
-
+    
+    // ICons
     func customizeOutlets() {
-        let icon_size : CGFloat = 30
+        let icon_size : CGFloat = 25
         menuButton.setFAIcon(icon: .FABars, iconSize: icon_size)
-        addListingButton.setFAIcon(icon: .FAEdit, iconSize: icon_size)
-
-    }
+        addListingButton.setFAIcon(icon: .FAPencil, iconSize: icon_size)
+        self.tableView.register( UINib(nibName: "RWFoldingCell", bundle: Bundle.main), forCellReuseIdentifier: "RWFoldingCell")
+        self.tableView.tableFooterView = UIView()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.emptyDataSetSource = self
+     }
     
 }
 
@@ -81,19 +91,15 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func populateTable(){
-        openHeight  = RWFoldingCell.KCloseHeight * CGFloat(itemCount) + 8
-        tableView.register(RWFoldingCell.self, forCellReuseIdentifier: "RWFoldingCell")
-        Listing.query()?.findObjectsInBackground(block: { (results, error) in
+         Listing.query()?.findObjectsInBackground(block: { (results, error) in
             guard let error = error else{
                 
                 self.listings = results as! [Listing]
-                self.tableView.delegate = self
-                self.tableView.dataSource = self
-                self.itemHeight =  [CGFloat](repeating: self.closeHeight, count: self.listings.count)
-                self.tableView.reloadData()
+ 
+                 self.tableView.reloadData()
                 return
             }
-            print("Problem occurred : \(error.localizedDescription)")
+            self.showAlert(title: "Error", message: error.localizedDescription)
         })
     }
     
@@ -107,38 +113,22 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
         let listing = self.listings[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "RWFoldingCell") as! RWFoldingCell
          cell.update(list: listing)
-    
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return itemHeight[indexPath.row]
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemHeight.count
+        return listings.count
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RWFoldingCell
-//
-        
-        var duration = 0.0
-        if itemHeight[indexPath.row] == closeHeight { // open cell
-            itemHeight[indexPath.row] = openHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
-            duration = 0.5
-        } else {// close cell
-            itemHeight[indexPath.row] = closeHeight
-            cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 0.6
-        }
-        
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
-            tableView.beginUpdates()
-            tableView.endUpdates()
-        }, completion:nil)
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
 }

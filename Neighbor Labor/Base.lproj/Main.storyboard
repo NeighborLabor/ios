@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="-137"/>
+            <point key="canvasLocation" x="497" y="534"/>
         </scene>
         <!--Create List View Controller-->
         <scene sceneID="QmN-1f-dOc">
@@ -173,14 +173,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tm-y2-ncW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tm-y2-ncW" customClass="U">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yYk-Wc-syO" firstAttribute="top" secondItem="2tm-y2-ncW" secondAttribute="bottom" id="3c6-Ya-hp4"/>
                             <constraint firstItem="2tm-y2-ncW" firstAttribute="top" secondItem="yk0-OH-4Cq" secondAttribute="bottom" constant="-64" id="J4L-qt-1PB"/>
@@ -213,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRq-jB-lHI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1454" y="-276"/>
+            <point key="canvasLocation" x="-1015" y="-269"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="hy6-5K-0Nm">
@@ -336,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ld-ao-glB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665" y="555"/>
+            <point key="canvasLocation" x="1561" y="512"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="Q68-nI-aTy">
@@ -345,6 +343,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NCD-Xz-VzP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
@@ -356,11 +355,12 @@
                         <segue destination="O7U-oe-H69" kind="show" identifier="to_setting" id="KXs-ny-Gig"/>
                         <segue destination="QOw-3T-GJK" kind="show" identifier="to_profile" id="7j3-xb-mEj"/>
                         <segue destination="LMQ-pU-2TH" kind="show" identifier="to_my_list" id="V2T-IL-BLW"/>
+                        <segue destination="0Hj-4d-1pU" kind="presentation" identifier="to_sign_in" id="V8H-ZD-9cA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43u-Va-QRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2034" y="701"/>
+            <point key="canvasLocation" x="-2058" y="570"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="DXF-RI-UdS">
@@ -379,7 +379,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DhJ-G6-bYE">
-                                            <rect key="frame" x="16" y="8" width="106.5" height="44"/>
+                                            <rect key="frame" x="16" y="8" width="106.5" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rixing Wu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b0-24-Kah">
                                                     <rect key="frame" x="0.0" y="0.0" width="106.5" height="22"/>
@@ -388,7 +388,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wur1@wit.edu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbN-mz-9IK">
-                                                    <rect key="frame" x="0.0" y="22" width="106.5" height="22"/>
+                                                    <rect key="frame" x="0.0" y="22" width="106.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -436,11 +436,11 @@
                                                 <constraint firstAttribute="width" constant="44" id="Nle-pG-eUP"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                            <color key="textColor" red="0.15868747234344482" green="0.21822044253349304" blue="0.30320093035697937" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sf1-Ef-Ea9">
-                                            <rect key="frame" x="68" y="8" width="299" height="44"/>
+                                            <rect key="frame" x="68" y="8" width="299" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTg-xS-ss5">
                                                     <rect key="frame" x="0.0" y="0.0" width="299" height="22"/>
@@ -449,7 +449,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wur1@wit.edu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16p-4z-wUZ">
-                                                    <rect key="frame" x="0.0" y="22" width="299" height="22"/>
+                                                    <rect key="frame" x="0.0" y="22" width="299" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -485,7 +485,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60J-Bo-clJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3271.1999999999998" y="1484.7076461769116"/>
+            <point key="canvasLocation" x="-3308" y="1558"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="XOI-zl-N4E">
@@ -577,7 +577,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uag-Su-hN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="586"/>
+            <point key="canvasLocation" x="-559" y="534"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7C4-7A-Qaj">
@@ -596,7 +596,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGU-L9-bFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-268"/>
+            <point key="canvasLocation" x="-332" y="-259"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1zt-4n-ccR">
@@ -606,21 +606,17 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="pOh-z5-3qO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Kh0-2x-e5e">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </toolbar>
                     <connections>
                         <segue destination="4yq-ac-k3P" kind="relationship" relationship="rootViewController" id="heU-fo-uzb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoA-Tq-3Tl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3026" y="-137"/>
+            <point key="canvasLocation" x="-2718" y="-295"/>
         </scene>
         <!--My List View Controller-->
         <scene sceneID="Iy0-Qb-Zmb">
@@ -648,7 +644,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSg-JK-G3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1606" y="1496"/>
+            <point key="canvasLocation" x="-1679" y="1534"/>
         </scene>
         <!--Active Jobs View Controller-->
         <scene sceneID="hkp-ay-HRt">
@@ -666,7 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPs-X3-60I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-887" y="1485"/>
+            <point key="canvasLocation" x="-812" y="1535"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="Bte-op-3z7">
@@ -705,4 +701,7 @@
             <point key="canvasLocation" x="694" y="1485"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="V8H-ZD-9cA"/>
+    </inferredMetricsTieBreakers>
 </document>

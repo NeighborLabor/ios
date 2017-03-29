@@ -1,6 +1,7 @@
 PODS:
   - AFDateHelper (4.1.2)
   - Bolts/Tasks (1.8.4)
+  - BonMot (4.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - AFDateHelper (~> 4.1.2)
+  - BonMot
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Cosmos (~> 8.0)
   - DZNEmptyDataSet
@@ -48,6 +50,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFDateHelper: b19c83daa132e398b34fbea085a1554ce07adfe9
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BonMot: 9dbd59135974d2fa591a2084b3489bdc0e15e8f8
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -60,6 +63,6 @@ SPEC CHECKSUMS:
   SwiftIconFont: bbe1f32e1e16bac87dad8566afc80132cb8d072c
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
 
-PODFILE CHECKSUM: 71dc6071669be05d9ce03a0c58dd95020988c13b
+PODFILE CHECKSUM: 9befb9afb76f4dd4c4d733416a46eafe5aef076e
 
 COCOAPODS: 1.2.0

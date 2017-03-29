@@ -19,6 +19,7 @@ target 'Neighbor Labor' do
     pod 'DZNEmptyDataSet'
     pod 'Cosmos', '~> 8.0'
     pod 'Font-Awesome-Swift', '~> 1.6.1'
+    pod 'BonMot'
 
   target 'Neighbor LaborTests' do
     inherit! :search_paths

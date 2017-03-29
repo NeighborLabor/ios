@@ -91,6 +91,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFDateHelper/AFDateHelper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Bolts/Bolts.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BonMot/BonMot.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ChameleonFramework/ChameleonFramework.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Cosmos/Cosmos.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
@@ -106,6 +107,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFDateHelper/AFDateHelper.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Bolts/Bolts.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BonMot/BonMot.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ChameleonFramework/ChameleonFramework.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Cosmos/Cosmos.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"

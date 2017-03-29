@@ -21,7 +21,7 @@ class HeaderView: UITableViewCell{
 }
 
 struct SegueInfo {
-    var label: String
+    var label: String?
     var destinationId: String
     var cellIdentifier : String
     var detail: String?
@@ -29,37 +29,62 @@ struct SegueInfo {
 
 }
 
-class MenuViewController: UITableViewController {
+class MenuViewController: BaseTableViewController {
 
 
     var segues = [SegueInfo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SideMenuManager.menuAnimationBackgroundColor = .flatSkyBlue
-        
-        let name = "Rixing Wu"
-        let email = "wur@wit.edu"
-        
-        let toProfile = SegueInfo(label:name, destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
-        let toMyList = SegueInfo(label: "Listed Jobs", destinationId: "to_my_list", cellIdentifier: "menucell", detail: "Your listed jobs", fa: .FAPencilSquareO)
-        let toActiveJobs = SegueInfo(label: "Pending Jobs", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of active jobs", fa: .FAHourglassO)
-        let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "...", fa: .FACommentO)
-        let toSetting = SegueInfo(label: "Setting", destinationId: "to_setting", cellIdentifier: "menucell", detail: "Application configuration", fa: .FAGear)
-
-        segues = [toProfile, toMyList, toActiveJobs, toMessages, toSetting]
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.tableFooterView = UIView()
+        self.configureMenu()
+        populateTableView()
      }
     
+    
+    func handleNoUser(){
+        self.desText = "No account found"
+        self.buttonText = "Sign In"
+        self.segueId = "to_sign_in"
+
+    }
+    
+    
+    func configureMenu(){
+         SideMenuManager.menuAnimationBackgroundColor = .flatSkyBlue
+         SideMenuManager.menuLeftNavigationController?.navigationBar.tintColor = .white
+    }
+    
  
-  
     
 }
 
 // MARK: table view methods
 extension MenuViewController {
+    
+   func populateTableView() {
+    
+        guard let user = AuthManager.currentUser() else{
+            // not login
+            print("not log in")
+            handleNoUser()
+            return
+        }
+    
+    let name = user["name"]
+    let email = user.email
+    
+    let toProfile = SegueInfo(label:name as! String?, destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
+    let toMyList = SegueInfo(label: "Listed Jobs", destinationId: "to_my_list", cellIdentifier: "menucell", detail: "Your listed jobs", fa: .FAPencil)
+    let toActiveJobs = SegueInfo(label: "Pending Jobs", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of active jobs", fa: .FAHourglass)
+    let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "...", fa: .FAComment)
+    let toSetting = SegueInfo(label: "Setting", destinationId: "to_setting", cellIdentifier: "menucell", detail: "Application configuration", fa: .FAGear)
+    segues = [toProfile, toMyList, toActiveJobs, toMessages, toSetting]
+    }
+    
+    
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

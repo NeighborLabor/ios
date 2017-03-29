@@ -1,105 +1,75 @@
 //
-//  RWFoldingTableView.swift
+//  FoldedView.swift
 //  Neighbor Labor
 //
-//  Created by Rixing on 2/28/17.
+//  Created by Rixing on 3/17/17.
 //  Copyright © 2017 Rixing. All rights reserved.
 //
 
 import Foundation
-import UIKit
+import  UIKit
 import FoldingCell
-import EasyPeasy
-import ChameleonFramework
+import Font_Awesome_Swift
+import Parse
 
-
-
-class RWFoldingCell: FoldingCell{
+class RWFoldingCell: UITableViewCell{
     
-    static let KCloseHeight: CGFloat = 150
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var applicantLabel: UILabel!
+    
+
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.backgroundColor = .flatWhite
-        self.backViewColor = .flatGray
-        self.itemCount = 3
-
-        self.containerView = createContainerView()
-        self.foregroundView = createForegroundView()
-        // super class method configure views
-        self.foregroundView.layer.cornerRadius = 5
-        self.foregroundView.layer.masksToBounds = true
-         commonInit()
+        print("Over reuse identifier")
     }
     
-    
-    override func animationDuration(_ itemIndex: NSInteger, type: AnimationType) -> TimeInterval {
-        // durations count equal it itemCount
-        let durations = [0.2, 0.15, 0.2] // timing animation for each view
-        return durations[itemIndex]
-    }
-
-    
-    func createForegroundView() -> RotatedView {
-         
-        
-        let foregroundView = FoldedView.instanceFromNib()
-        foregroundView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(foregroundView)
-        // add constraints
-        foregroundView <- [
-            Height(RWFoldingCell.KCloseHeight ),
-            Left(8),
-            Right(8),
-        ]
-        
-        // add identifier
-        let top = (foregroundView <- [Top(8)]).first
-        top?.identifier = "ForegroundViewTop"
-        self.foregroundViewTop = top
-        foregroundView.layoutIfNeeded()
-        return foregroundView
-        
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
-    func createContainerView() -> UIView {
-        let containerView = ExpandedView.instanceFromNib()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(containerView)
-        
-         // add constraints
-        containerView <- [
-            Height(CGFloat(RWFoldingCell.KCloseHeight * CGFloat(itemCount))),
-            Left(8),
-            Right(8),
-            
-        ]
-        
-        // add identifier
-        let top = (containerView <- [Top(8)]).first
-        top?.identifier = "ContainerViewTop"
-        self.containerViewTop = top
-        containerView.layoutIfNeeded()
-
-        return containerView
+ 
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var appLabel: UILabel!
+    @IBOutlet weak var clockLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    override func awakeFromNib() {
+        let iconSize : CGFloat = 15
+        self.dateLabel.setFAIcon(icon: .FACalendar, iconSize: iconSize)
+        self.appLabel.setFAIcon(icon: .FAUsers, iconSize: iconSize)
+        self.clockLabel.setFAIcon(icon: .FAHourglassHalf
+            , iconSize: iconSize)
+        self.distanceLabel.setFAIcon(icon: .FARoad, iconSize: iconSize)
     }
     
     func update(list: Listing){
-        (self.foregroundView as! FoldedView).update(list: list)
+        let compensation = "$\(Int(list.compensation))"
+        let location = list.address
+        let title = list.title
+        let applicants = list.applicants.count
+        let time_required = list.duration
+        let distance = CGFloat(list.geopoint.distanceInMiles(to: LocationManager.currentLocation))
+        
+        
+        priceLabel.text = compensation
+        timeLabel.text =  list.createdAt!.relativeTimeDescription()
+        
+        titleLabel.text = title
+        locationLabel.text = location
+        durationLabel.text = String(time_required) + " mins"
+        applicantLabel.text = String(applicants)
+        ownerLabel.text = distance.string1 + " miles"
+        
     }
     
     
- 
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")}
 }
-
-
-
-
-
-
-
-
-
