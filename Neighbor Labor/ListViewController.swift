@@ -34,8 +34,6 @@ class ListViewController: BaseViewController{
     @IBAction func createListAction(_ sender: Any) {
         guard let _ = AuthManager.currentUser() else {
             self.performSegue(withIdentifier: "authSegue", sender: self)
-            print("User not logged in")
-            print("routing to")
             return
         }
         self.performSegue(withIdentifier: "listSegue", sender: self)
