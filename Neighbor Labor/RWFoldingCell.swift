@@ -52,7 +52,7 @@ class RWFoldingCell: UITableViewCell{
     }
     
     func update(list: Listing){
-        let compensation = "$\(Int(list.compensation))"
+        let compensation = "$ \(Int(list.compensation))"
         let location = list.address
         let title = list.title
         let applicants = list.applicants.count

@@ -123,7 +123,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! RWFoldingCell
+        
+        self.performSegue(withIdentifier: "to_detail", sender: nil)
 
     }
     

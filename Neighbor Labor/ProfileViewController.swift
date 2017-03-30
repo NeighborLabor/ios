@@ -44,18 +44,18 @@ extension ProfileViewController{
             print("ProfileViewController: ----> user == nil")
             return
         }
-        // user exists
-        print(user)
-        
-        // profile name label
-        nameLabel.text = user.object(forKey: "name") as? String
-        
-        // fetch profile image from parse
-        FetchManager.getProfileImage(user: user, completion: { (image) in
-            self.profileImageVIew.image = image
-        })
-        
-        // fetch rating
+//        // user exists
+//        print(user)
+//        
+//        // profile name label
+//        nameLabel.text = user.object(forKey: "name") as? String
+//        
+//        // fetch profile image from parse
+//        FetchManager.getProfileImage(user: user, completion: { (image) in
+//            self.profileImageVIew.image = image
+//        })
+//        
+//        // fetch rating
         
         
         

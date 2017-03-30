@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
-class DetailListingViewController: UIViewController {
 
+
+
+class DetailListingViewController: BaseTableViewController {
+
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,3 +23,4 @@ class DetailListingViewController: UIViewController {
 
     
 }
+
