@@ -53,8 +53,8 @@ class ListViewController: BaseViewController{
                 return
             }
             
-            self.titleText = "Location Premission Required"
-            self.desText = error.localizedDescription
+         //   self.titleText = "Location Premission Required"
+        //    self.desText = error.localizedDescription
             self.showAlert(title: "Error", message: error.localizedDescription)
         }
     }
@@ -74,8 +74,8 @@ extension ListViewController{
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.emptyDataSetDelegate = self
-        self.tableView.emptyDataSetSource = self
+       // self.tableView.emptyDataSetDelegate = self
+       // self.tableView.emptyDataSetSource = self
      }
     
 }
@@ -111,6 +111,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listing = self.listings[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "RWFoldingCell") as! RWFoldingCell
+    
          cell.update(list: listing)
         return cell
     }
@@ -122,16 +123,37 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.performSegue(withIdentifier: "to_detail", sender: nil)
-
+        let listing = self.listings[indexPath.row]
+        self.performSegue(withIdentifier: "to_detail", sender: listing)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     
+    
 }
+
+
+
+// Sgues
+
+
+extension ListViewController {
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "to_detail" {
+            let list = sender as! Listing
+            let detailVC = segue.destination as! DetailListingViewController
+            detailVC.listing = list
+        }
+    }
+}
+
+
 
 
 
