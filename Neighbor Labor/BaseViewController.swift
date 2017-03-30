@@ -37,8 +37,9 @@ class BaseTableViewController: UITableViewController {
     var titleText = ""
     var desText = ""
     var buttonText = ""
+     var color = UIColor.flatSkyBlue
     var segueId : String?
-    var color = UIColor.flatSkyBlue
+    
 }
 
 extension BaseTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
@@ -89,11 +90,6 @@ extension BaseTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSourc
     }
     
 
-    public func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        if let seuge = self.segueId {
-            SideMenuManager.menuLeftNavigationController?.performSegue(withIdentifier: seuge, sender: nil)
-        }
-    }
     
 
 }

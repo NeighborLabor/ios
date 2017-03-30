@@ -8,7 +8,8 @@
 import UIKit
  import DZNEmptyDataSet
 import Font_Awesome_Swift
- 
+ import SideMenu
+
 class MyListViewController: BaseTableViewController{
 
     var myListings = [Listing]()
@@ -23,27 +24,28 @@ class MyListViewController: BaseTableViewController{
         //
         //WARNING
         overrideEmptySet()
-//        let user = AuthManager.currentUser()!
-//        FetchManager.getListingOfUser(user: user) { (listings, error) in
-//            guard let err = error else {
-//                self.myListings = listings as! [Listing]
-//                self.tableView.delegate = self
-//                self.tableView.dataSource = self
-//                self.tableView.reloadData()
-//                return
-//            }
-//            //handle error
-//            print(err.localizedDescription)
-//            self.showAlert(title: "Error", message: err.localizedDescription)
-//        }
+        let user = AuthManager.currentUser()!
+        FetchManager.getListingOfUser(user: user) { (listings, error) in
+            guard let err = error else {
+                self.myListings = listings as! [Listing]
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
+                return
+            }
+            //handle error
+            print(err.localizedDescription)
+            self.showAlert(title: "Error", message: err.localizedDescription)
+        }
     }
     
     
     func overrideEmptySet() {
         
-        self.desText = "You don't have any Listings"
+        self.desText = "You don't have any job listing"
         self.buttonText = "Create A Listing"
-        self.segueId = "to_detail"
+        self.segueId = "listSegue"
+    
     }
     
     
@@ -63,5 +65,9 @@ class MyListViewController: BaseTableViewController{
         return myListings.count
     }
     
-    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        if let segue = self.segueId {
+             self.navigationController?.viewControllers[0].performSegue(withIdentifier: segue, sender: self)
+        }
+    }
 }
