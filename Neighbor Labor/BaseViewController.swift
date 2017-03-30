@@ -197,7 +197,8 @@ extension ListViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let style = StringStyle(
-            .font(UIFont(name: "AmericanTypewriter", size: 17)!)
+            .font(UIFont(name: "AmericanTypewriter", size: 17)!),
+            .color(.flatWhite)
         )
         
         let attributedString = desText.styled(with: style)

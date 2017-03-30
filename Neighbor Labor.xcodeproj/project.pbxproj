@@ -328,6 +328,7 @@
 				TargetAttributes = {
 					947DA0A71E454E5100E836F5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 64ZYM9ZCT7;
 						ProvisioningStyle = Automatic;
 					};
 					947DA0BB1E454E5100E836F5 = {
@@ -704,6 +705,8 @@
 			baseConfigurationReference = 6A4A0CB109424A0CB68D2391 /* Pods-Neighbor Labor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
 				INFOPLIST_FILE = "Neighbor Labor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "wu.rixing.Neighbor-Labor";
@@ -717,6 +720,8 @@
 			baseConfigurationReference = 5FFEEDF84D8D769ADAE7F40F /* Pods-Neighbor Labor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
 				INFOPLIST_FILE = "Neighbor Labor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "wu.rixing.Neighbor-Labor";

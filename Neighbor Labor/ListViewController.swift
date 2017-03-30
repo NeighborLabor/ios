@@ -54,6 +54,7 @@ class ListViewController: BaseViewController{
                 self.populateTable()
                 return
             }
+            
             self.titleText = "Location Premission Required"
             self.desText = error.localizedDescription
             self.showAlert(title: "Error", message: error.localizedDescription)
