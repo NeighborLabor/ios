@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4yq-ac-k3P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="305-Rm-Ewx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRq-jB-lHI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1612" y="-296"/>
+            <point key="canvasLocation" x="-1015.2" y="-269.41529235382313"/>
         </scene>
         <!--Detail Listing View Controller-->
         <scene sceneID="f8d-Yw-TPV">
@@ -936,7 +936,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="raG-Qd-OGt" kind="presentation" identifier="to_detail" id="erJ-Xl-qTm"/>
+                        <segue destination="raG-Qd-OGt" kind="presentation" id="erJ-Xl-qTm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSg-JK-G3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
