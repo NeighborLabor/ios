@@ -916,9 +916,6 @@
                             <outlet property="delegate" destination="LMQ-pU-2TH" id="S99-8O-Swd"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="Zvv-jn-syM" kind="presentation" identifier="to_list" id="YNF-GM-KFw"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSg-JK-G3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -983,7 +980,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zvv-jn-syM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8bY-EN-sJq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8bY-EN-sJq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -999,6 +996,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Nyd-7z-hzb"/>
-        <segue reference="YNF-GM-KFw"/>
     </inferredMetricsTieBreakers>
 </document>

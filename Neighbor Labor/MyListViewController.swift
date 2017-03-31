@@ -70,4 +70,9 @@ class MyListViewController: BaseTableViewController{
              self.navigationController?.viewControllers[0].performSegue(withIdentifier: segue, sender: self)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let list = myListings[indexPath.row]
+        self.navigationController?.viewControllers[0].performSegue(withIdentifier: "to_detail", sender: list)
+    }
 }

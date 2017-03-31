@@ -15,10 +15,16 @@ import Parse
 class DetailListingViewController: BaseTableViewController {
     
     
-    
+    //REQURE: This needs to be set prior to load DetailVIewContoller, use prepareforsegue()
+    var currentUser : PFUser!
     var listing: Listing!
     
+    
+    //NEED THIS: When listing's owner is self
+    var applicants :[PFUser]!
 
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -45,6 +51,7 @@ class DetailListingViewController: BaseTableViewController {
         
         configureMap()
         basicInfo()
+        dynamicSection()
      }
     
     
@@ -98,34 +105,55 @@ class DetailListingViewController: BaseTableViewController {
         self.profileLabel.layer.cornerRadius = self.profileLabel.frame.height * 0.5
         self.profileLabel.layer.masksToBounds = true
         
-          listing.createdBy.fetchInBackground(block: { (user, error) in
+    }
+    
+    
+    func dynamicSection() {
+        listing.createdBy.fetchInBackground(block: { (user, error) in
             guard let err = error else {
+                // 1.  get the listing's owner
+                if let confirmedUser = user{
                 
-                if user != nil {
-                    let u = user as! PFUser
-                    if (u["name"] != nil){
-                        let name =  (u["name"] as! String)
+                    if (confirmedUser["name"] != nil){
+                        let name =  (confirmedUser["name"] as! String)
                         self.profileLabel.text = name.initial.uppercased()
                         self.profileNameLabel.text = name
                         self.profileCityLabel.text = "Boston, MA"
-                        
                     }
-                
+                    //  check if owner is the current user
                 }
                 
+                // 2. if
+    
                 return
             }
             
             self.showAlert(title: "Error", message: err.localizedDescription)
             
         })
-        
     }
     
-
-
-    
 }
+
+
+//Dynamic prototype cells can behave like static ones if you just return the cell without
+//adding any content in cellForRowAtIndexPath, so you can have both "static like" cells and
+//dynamic ones (where the number of rows and the content are variable) by using dynamic prototypes.
+// http://stackoverflow.com/questions/17607240/mixing-static-and-dynamic-sections-in-a-grouped-table-view
+
+
+// There are 5 required static cells in section 1 and in addition, section 2 contains 2 cells
+// TotalCell = 7 when the owner is the user himself
+
+
+
+
+
+
+
+
+
+
 
 
 
