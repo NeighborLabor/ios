@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Neighbor Labor' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -19,8 +20,10 @@ target 'Neighbor Labor' do
     pod 'DZNEmptyDataSet'
     pod 'Cosmos', '~> 8.0'
     pod 'Font-Awesome-Swift', '~> 1.6.1'
+    pod 'TDBadgedCell', :git => 'https://github.com/tmdvs/TDBadgedCell.git', :branch => 'master'
     pod 'BonMot'
-
+    pod 'RainbowSwift', '~> 2.0'
+    
   target 'Neighbor LaborTests' do
     inherit! :search_paths
     # Pods for testing

@@ -9,14 +9,29 @@ import UIKit
  import DZNEmptyDataSet
 import Font_Awesome_Swift
  import SideMenu
-
-class MyListViewController: BaseTableViewController{
+import Eureka
+import TDBadgedCell
+ 
+ 
+ 
+ class MyTableCell : TDBadgedCell {
+    
+    @IBOutlet weak var dateIcon: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+ }
+ 
+ 
+ 
+ 
+ class MyListViewController: BaseTableViewController{
 
     var myListings = [Listing]()
     
      override func viewDidLoad() {
         super.viewDidLoad()
         startFetchingData()
+        
     }
 
     
@@ -45,22 +60,31 @@ class MyListViewController: BaseTableViewController{
         self.desText = "You don't have any job listing"
         self.buttonText = "Create A Listing"
         self.segueId = "listSegue"
-    
+        
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = myListings[indexPath.row].title
+         let listing = myListings[indexPath.row]
+ 
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:"BadgedCell") as! MyTableCell
+        cell.badgeColor = .flatWatermelon
+        
+        cell.badgeString = String(listing.applicants.count)
+        cell.titleLabel?.text = listing.title
+        cell.subTitleLabel?.text = listing.descr
+        cell.dateIcon.text = (listing.startTime as Date).relativeTimeDescription()
         return cell
+        
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myListings.count
     }
@@ -76,3 +100,8 @@ class MyListViewController: BaseTableViewController{
         self.navigationController?.viewControllers[0].performSegue(withIdentifier: "to_detail", sender: list)
     }
 }
+ 
+ 
+ 
+ 
+ 

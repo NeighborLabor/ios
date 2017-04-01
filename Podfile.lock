@@ -1,21 +1,23 @@
 PODS:
   - AFDateHelper (4.1.2)
   - Bolts/Tasks (1.8.4)
-  - BonMot (4.2)
+  - BonMot (4.3.1)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - Cosmos (8.0.2)
   - DZNEmptyDataSet (1.8.1)
-  - EasyPeasy (1.4.1)
+  - EasyPeasy (1.4.2)
   - Eureka (2.0.1)
   - FoldingCell (2.0.3)
   - Font-Awesome-Swift (1.6.1)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - RainbowSwift (2.0.1)
   - SideMenu (2.3.0)
   - SwiftIconFont (2.6.0)
   - SwiftValidator (4.0.0)
+  - TDBadgedCell (4.1.1)
 
 DEPENDENCIES:
   - AFDateHelper (~> 4.1.2)
@@ -28,9 +30,11 @@ DEPENDENCIES:
   - FoldingCell (~> 2.0.3)
   - Font-Awesome-Swift (~> 1.6.1)
   - Parse
+  - RainbowSwift (~> 2.0)
   - SideMenu (~> 2.3.0)
   - SwiftIconFont
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
+  - TDBadgedCell (from `https://github.com/tmdvs/TDBadgedCell.git`, branch `master`)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -38,6 +42,9 @@ EXTERNAL SOURCES:
   SwiftValidator:
     :branch: master
     :git: https://github.com/jpotts18/SwiftValidator.git
+  TDBadgedCell:
+    :branch: master
+    :git: https://github.com/tmdvs/TDBadgedCell.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
@@ -46,23 +53,28 @@ CHECKOUT OPTIONS:
   SwiftValidator:
     :commit: 2a6c23ad9efd76127f6109445515cb9780e5ad92
     :git: https://github.com/jpotts18/SwiftValidator.git
+  TDBadgedCell:
+    :commit: b7008f7958d1d9ddcd57a945d3e9aae8d9c674f5
+    :git: https://github.com/tmdvs/TDBadgedCell.git
 
 SPEC CHECKSUMS:
   AFDateHelper: b19c83daa132e398b34fbea085a1554ce07adfe9
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  BonMot: 9dbd59135974d2fa591a2084b3489bdc0e15e8f8
+  BonMot: 043bb5a8834cc6d74e9d624742272b92385e0a27
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EasyPeasy: b8a2feebd47395aaf46bde178abcddd36c922d37
+  EasyPeasy: 50e7130b61f495ce105796e438d4136e2c8d2cc0
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   FoldingCell: 2f3113051609167776743415fc00ed877ac6d62c
   Font-Awesome-Swift: 70ab020f6749d7048bb49807c3e78b702d78afca
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  RainbowSwift: 54b5fbfe5c6225d5da50ce30244f04cf0b81eb2d
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftIconFont: bbe1f32e1e16bac87dad8566afc80132cb8d072c
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
+  TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: 9befb9afb76f4dd4c4d733416a46eafe5aef076e
+PODFILE CHECKSUM: 64c5abed53a25930d64ded45749800d595ab8b3d
 
 COCOAPODS: 1.2.0

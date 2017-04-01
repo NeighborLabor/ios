@@ -20,14 +20,28 @@ extension UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-        {
-            (result : UIAlertAction) -> Void in
-        }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
-
+    
+    func showConfirmAlert(title: String, message: String, completion: (() -> Void)? ){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+         if completion == nil {
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        let defaultAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alert in
+            completion!()
+        }
+        alertController.addAction(defaultAction)
+        alertController.addAction(deleteAction)
+       
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 

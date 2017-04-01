@@ -11,17 +11,25 @@ import MapKit
 import Font_Awesome_Swift
 import BonMot
 import Parse
+import RainbowSwift
+
+
+
+
+
+
+
 
 class DetailListingViewController: BaseTableViewController {
     
     
     //REQURE: This needs to be set prior to load DetailVIewContoller, use prepareforsegue()
-    var currentUser : PFUser!
     var listing: Listing!
     
     
     //NEED THIS: When listing's owner is self
-    var applicants :[PFUser]!
+    var applicants = [PFUser]()
+    var isOwner : Bool = false
 
     
     
@@ -38,20 +46,38 @@ class DetailListingViewController: BaseTableViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     
-    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var innerTable: UITableView!
     
-    @IBOutlet weak var profileLabel: UILabel!
-    @IBOutlet weak var profileCityLabel: UILabel!
+    @IBOutlet weak var applyDeleteButton: UIButton!
+    
+    @IBAction func applyDeleteAction(_ sender: Any) {
+        
+        if isOwner {
+            print("Delete")
+            
+            self.showConfirmAlert(title: "Confirm", message: "Are you sure you want to delete this listing?", completion: { 
+                print("Confirm ")
+            })
+            
+        
+            
+        }else{
+            print("Apply")
+            
+        }
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        self.navigationItem.title = String(listing.geopoint.distanceInMiles(to: LocationManager.currentLocation)) + " Miles"
+        self.navigationItem.title = String(CGFloat(listing.geopoint.distanceInMiles(to: LocationManager.currentLocation)).string1) + " Miles"
         
         configureMap()
         basicInfo()
-        dynamicSection()
+        dynamcTable()
      }
     
     
@@ -61,7 +87,7 @@ class DetailListingViewController: BaseTableViewController {
         let location = CLLocationCoordinate2D(latitude:geopoint.latitude,longitude: geopoint.longitude)
         
         // 3)
-        let span = MKCoordinateSpanMake(0.02, 0.02)
+        let span = MKCoordinateSpanMake(0.005, 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
         
@@ -101,38 +127,43 @@ class DetailListingViewController: BaseTableViewController {
         self.timeLabel.text = time.uppercased()
         self.moneyLabel.text = "$" + CGFloat( listing.compensation).string2
         
-        
-        self.profileLabel.layer.cornerRadius = self.profileLabel.frame.height * 0.5
-        self.profileLabel.layer.masksToBounds = true
-        
     }
     
     
-    func dynamicSection() {
-        listing.createdBy.fetchInBackground(block: { (user, error) in
-            guard let err = error else {
-                // 1.  get the listing's owner
-                if let confirmedUser = user{
-                
-                    if (confirmedUser["name"] != nil){
-                        let name =  (confirmedUser["name"] as! String)
-                        self.profileLabel.text = name.initial.uppercased()
-                        self.profileNameLabel.text = name
-                        self.profileCityLabel.text = "Boston, MA"
-                    }
-                    //  check if owner is the current user
-                }
-                
-                // 2. if
-    
-                return
-            }
+    func dynamcTable(){
+        
+        self.innerTable.emptyDataSetSource = self
+        self.innerTable.emptyDataSetDelegate = self
+        self.desText = "0 applicants"
+        
+        
+        let user = AuthManager.currentUser()!
+         if user.objectId! == listing.createdBy.objectId! {
+                    let query = PFUser.query()
+                    query?.whereKey(listing.objectId!, containedIn: listing.applicants)
+                    query?.findObjectsInBackground(block: { (results, error) in
+                         guard let err = error else {
+                            let users = results as! [PFUser]
+                            self.isOwner = true
+                            self.applicants = users
+                            self.applyDeleteButton.setTitle("DELETE", for: .normal)
+                            self.applyDeleteButton.backgroundColor = .flatWatermelon
+                            self.innerTable.delegate = self
+                            self.innerTable.dataSource = self
+                            return
+                        }
+                        self.showAlert(title: "Errror", message: err.localizedDescription)
+                    })
             
-            self.showAlert(title: "Error", message: err.localizedDescription)
             
-        })
+        }else{
+            self.isOwner = false
+            self.applicants.append(user)
+            self.innerTable.delegate = self
+            self.innerTable.dataSource = self
+        }
+   
     }
-    
 }
 
 
@@ -145,9 +176,77 @@ class DetailListingViewController: BaseTableViewController {
 // There are 5 required static cells in section 1 and in addition, section 2 contains 2 cells
 // TotalCell = 7 when the owner is the user himself
 
+class InnerTableCell : UITableViewCell {
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var iconLabel: UILabel!
+}
 
+extension DetailListingViewController{
 
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.innerTable == tableView {
+            let innercell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
+            let user = self.applicants[indexPath.row]
+            innercell.iconLabel.text = (user["name"] as! String).initial.uppercased()
+            innercell.titleLabel.text = (user["name"] as! String)
+            innercell.detailLabel.text = "ssdsd"
+            innercell.iconLabel.layer.cornerRadius = innercell.iconLabel.frame.height * 0.5
+            innercell.iconLabel.layer.masksToBounds = true
+          //  innercell.iconLabel.text
+            return innercell
+        }
+        
+        return super.tableView(tableView, cellForRowAt: indexPath)
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if self.innerTable == tableView {
+            if isOwner {
+                return self.applicants.count
+            }else{
+                return 1
+            }
+        }
+        return super.numberOfSections(in: tableView)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.innerTable == tableView {
+           return applicants.count
+            
+        }
+        return super.tableView(tableView, numberOfRowsInSection: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.innerTable == tableView {
+           return 100
+        }
+        return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if self.innerTable == tableView {
+            if isOwner {
+                return "Applicants"
+            }else{
+                return "Employer"
+            }
+            
+        }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
 
+}
 
 
 

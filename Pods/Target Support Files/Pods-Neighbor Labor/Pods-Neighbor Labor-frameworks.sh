@@ -100,9 +100,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FoldingCell/FoldingCell.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Font-Awesome-Swift/Font_Awesome_Swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Parse/Parse.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RainbowSwift/RainbowSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftIconFont/SwiftIconFont.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftValidator/SwiftValidator.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/TDBadgedCell/TDBadgedCell.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFDateHelper/AFDateHelper.framework"
@@ -116,9 +118,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FoldingCell/FoldingCell.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Font-Awesome-Swift/Font_Awesome_Swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Parse/Parse.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RainbowSwift/RainbowSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftIconFont/SwiftIconFont.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftValidator/SwiftValidator.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/TDBadgedCell/TDBadgedCell.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
