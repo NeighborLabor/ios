@@ -29,6 +29,7 @@
 		94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08DF1E60CBB50091E70C /* AuthViewController.swift */; };
 		94AA08E21E60CBF80091E70C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AA08E11E60CBF80091E70C /* BaseViewController.swift */; };
 		94B768261E4C063400C30221 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B768251E4C063400C30221 /* AuthManager.swift */; };
+		94B8DEB31E90571A00063318 /* InnerTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B8DEB21E90571A00063318 /* InnerTableCell.xib */; };
 		94FA5BC11E8192F6007221CF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC01E8192F6007221CF /* ProfileViewController.swift */; };
 		94FA5BC51E81932E007221CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC41E81932E007221CF /* SettingViewController.swift */; };
 		94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC61E81933E007221CF /* MyListViewController.swift */; };
@@ -88,6 +89,7 @@
 		94AA08DF1E60CBB50091E70C /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		94AA08E11E60CBF80091E70C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		94B768251E4C063400C30221 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		94B8DEB21E90571A00063318 /* InnerTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InnerTableCell.xib; sourceTree = "<group>"; };
 		94FA5BC01E8192F6007221CF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		94FA5BC41E81932E007221CF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		94FA5BC61E81933E007221CF /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				9498692F1E66688B008D41C9 /* RWFoldingCell.swift */,
 				9429815A1E7C5F1D006CC44F /* RWFoldingCell.xib */,
+				94B8DEB21E90571A00063318 /* InnerTableCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9429815B1E7C5F1D006CC44F /* RWFoldingCell.xib in Resources */,
+				94B8DEB31E90571A00063318 /* InnerTableCell.xib in Resources */,
 				947DA0B61E454E5100E836F5 /* LaunchScreen.storyboard in Resources */,
 				947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */,
 				947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */,

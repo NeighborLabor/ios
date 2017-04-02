@@ -19,7 +19,7 @@ class Listing: PFObject, PFSubclassing{
     @NSManaged var address: String
     @NSManaged var startTime: NSDate
     @NSManaged var duration: Int
-     @NSManaged var applicants : [PFUser]
+     @NSManaged var applicants : PFRelation<PFUser>
     @NSManaged var active: Bool
     @NSManaged var compensation: Double
     @NSManaged var worker: PFUser?
@@ -27,6 +27,8 @@ class Listing: PFObject, PFSubclassing{
     static func parseClassName() -> String {
         return "Listing"
     }
+    
+    var applied = false
     
 }
 

@@ -26,13 +26,7 @@ class ListingManager : ListingInteractor{
     
     func createAListing(title: String, desc: String, address: String, startTime: NSDate, duration: Int, photo: NSData?, compensation: Double, completion: @escaping ErrorResultBlock){
         
-        guard let user = AuthManager.currentUser() else {
-            // Handle Error
-            let error = NLError.noAuthError
-            completion(error as NSError?)
-            //Break out
-            return
-        }
+        let user = AuthManager.currentUser()!
         
         let listing = Listing()
         listing.createdBy = user

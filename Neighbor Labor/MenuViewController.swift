@@ -77,8 +77,8 @@ extension MenuViewController {
     
     let toProfile = SegueInfo(label:name as! String?, destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
     let toMyList = SegueInfo(label: "Jobs Listings", destinationId: "to_my_list", cellIdentifier: "menucell", detail: "Your listed jobs", fa: .FAPencil)
-    let toActiveJobs = SegueInfo(label: "Pending Jobs", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of active jobs", fa: .FAHourglass)
-    let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "...", fa: .FAComment)
+    let toActiveJobs = SegueInfo(label: "Job Applications", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of active jobs", fa: .FAHourglass)
+    let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "Your conversations", fa: .FAComment)
     let toSetting = SegueInfo(label: "Setting", destinationId: "to_setting", cellIdentifier: "menucell", detail: "Application configuration", fa: .FAGear)
     segues = [toProfile, toMyList, toActiveJobs, toMessages, toSetting]
     }

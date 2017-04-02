@@ -30,15 +30,18 @@ import TDBadgedCell
     
      override func viewDidLoad() {
         super.viewDidLoad()
-        startFetchingData()
+        overrideEmptySet()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startFetchingData()
     }
 
     
     func startFetchingData() {
         //
         //WARNING
-        overrideEmptySet()
         let user = AuthManager.currentUser()!
         FetchManager.getListingOfUser(user: user) { (listings, error) in
             guard let err = error else {
@@ -69,9 +72,18 @@ import TDBadgedCell
  
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"BadgedCell") as! MyTableCell
-        cell.badgeColor = .flatWatermelon
+        cell.badgeColor = .flatGray
+
+
+        listing.applicants.query().countObjectsInBackground { (count, error) in
+            guard let err = error else {
+                cell.badgeString = String(count)
+                return
+            }
+            self.showAlert(title: "Error", message: err.localizedDescription)
+        }
         
-        cell.badgeString = String(listing.applicants.count)
+        
         cell.titleLabel?.text = listing.title
         cell.subTitleLabel?.text = listing.descr
         cell.dateIcon.text = (listing.startTime as Date).relativeTimeDescription()
@@ -99,6 +111,7 @@ import TDBadgedCell
          let list = myListings[indexPath.row]
         self.navigationController?.viewControllers[0].performSegue(withIdentifier: "to_detail", sender: list)
     }
+    
 }
  
  

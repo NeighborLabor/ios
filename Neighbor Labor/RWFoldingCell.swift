@@ -55,7 +55,11 @@ class RWFoldingCell: UITableViewCell{
         let compensation = "$ \(Int(list.compensation))"
         let location = list.address
         let title = list.title
-        let applicants = list.applicants.count
+        
+        list.applicants.query().countObjectsInBackground { (count, error) in
+            self.applicantLabel.text = String(count)
+        }
+        
         let time_required = list.duration
         let distance = CGFloat(list.geopoint.distanceInMiles(to: LocationManager.currentLocation))
         
@@ -66,10 +70,45 @@ class RWFoldingCell: UITableViewCell{
         titleLabel.text = title
         locationLabel.text = location
         durationLabel.text = String(time_required) + " mins"
-        applicantLabel.text = String(applicants)
+
+        
+        
+        
         ownerLabel.text = distance.string1 + " miles"
         
     }
     
     
 }
+
+
+class InnerTableCell : UITableViewCell {
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var iconLabel: UILabel!
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        print("Over reuse identifier")
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
+
+    override func draw(_ rect: CGRect) {
+        self.iconLabel.layer.cornerRadius = iconLabel.frame.height * 0.5
+        self.iconLabel.layer.masksToBounds = true
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+}
+
+
+
+

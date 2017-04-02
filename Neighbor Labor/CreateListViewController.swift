@@ -8,9 +8,13 @@
 
 import Foundation
 import  Eureka
+import Parse
 
 
 class CreateListViewController: FormViewController{
+    
+    
+    
     
      @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -56,7 +60,7 @@ class CreateListViewController: FormViewController{
                     
                     let title = self.form.rowBy(tag: "title")?.baseValue as! String
                     let desc = self.form.rowBy(tag: "des")?.baseValue as! String
-                    let address = "555 huntington ave, Boston MA"
+                    let address = self.form.rowBy(tag: "address")?.baseValue as! String
                     let startTime = self.form.rowBy(tag: "startTime")?.baseValue as! Date as NSDate
                     let duration  = self.form.rowBy(tag: "duration")?.baseValue as! Int
                     let compensation = self.form.rowBy(tag: "compensation")?.baseValue as! Double

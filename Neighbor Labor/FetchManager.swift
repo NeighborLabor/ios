@@ -36,18 +36,9 @@ extension FetchManager{
             completion(objs, error)
         })
     }
+
     
-    // get image of user
-    class func getProfileImage(user: PFUser, completion: @escaping (UIImage) -> Void){
-        let image = UIImage(named: "placeholder")!
-        let imageData =  user.object(forKey: "profilePic")
-    
-        if imageData == nil {
-            completion(image)
-        }else{
-            completion(image)
-        }
-    }
+     
 }
 
 

@@ -72,9 +72,9 @@ extension ListViewController{
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
- 
+        
      }
-    
+
 }
 
 
