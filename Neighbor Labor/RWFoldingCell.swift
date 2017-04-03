@@ -52,8 +52,8 @@ class RWFoldingCell: UITableViewCell{
     }
     
     func update(list: Listing){
-        let compensation = "$ \(Int(list.compensation))"
-        let location = list.address
+        let compensation = "\(Int(list.compensation))"
+        let location = list.descr
         let title = list.title
         
         list.applicants.query().countObjectsInBackground { (count, error) in
@@ -64,7 +64,7 @@ class RWFoldingCell: UITableViewCell{
         let distance = CGFloat(list.geopoint.distanceInMiles(to: LocationManager.currentLocation))
         
         
-        priceLabel.text = compensation
+        priceLabel.setFAText(prefixText: "", icon: FAType.FADollar, postfixText: "\(compensation)", size: nil)
         timeLabel.text =  list.createdAt!.relativeTimeDescription()
         
         titleLabel.text = title

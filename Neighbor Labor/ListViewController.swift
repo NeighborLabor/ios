@@ -17,7 +17,7 @@ class ListViewController: BaseViewController{
 
     // information for folding cells
     
- 
+    var isUser = false
 //    
     
     // cell data
@@ -32,11 +32,12 @@ class ListViewController: BaseViewController{
     
     
     @IBAction func createListAction(_ sender: Any) {
-        guard let _ = AuthManager.currentUser() else {
+        if isUser {
+            self.performSegue(withIdentifier: "listSegue", sender: self)
+        }else{
             self.performSegue(withIdentifier: "authSegue", sender: self)
-            return
+
         }
-        self.performSegue(withIdentifier: "listSegue", sender: self)
     }
 
     
@@ -44,6 +45,20 @@ class ListViewController: BaseViewController{
         super.viewDidLoad()
         customizeOutlets()
         getRequiredPermission()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let icon_size : CGFloat = 25
+        menuButton.setFAIcon(icon: .FABars, iconSize: icon_size)
+        if let _ = AuthManager.currentUser() {
+            addListingButton.setFAIcon(icon: .FAPencil, iconSize: icon_size)
+            isUser = true
+        }else{
+            addListingButton.setFAIcon(icon: .FALock, iconSize: icon_size)
+            isUser = false
+        }
     }
     
     func getRequiredPermission(){
@@ -52,7 +67,6 @@ class ListViewController: BaseViewController{
                 self.populateTable()
                 return
             }
- 
             self.showAlert(title: "Error", message: error.localizedDescription)
         }
     }
@@ -65,9 +79,8 @@ extension ListViewController{
     
     // ICons
     func customizeOutlets() {
-        let icon_size : CGFloat = 25
-        menuButton.setFAIcon(icon: .FABars, iconSize: icon_size)
-        addListingButton.setFAIcon(icon: .FAPencil, iconSize: icon_size)
+ 
+        
         self.tableView.register( UINib(nibName: "RWFoldingCell", bundle: Bundle.main), forCellReuseIdentifier: "RWFoldingCell")
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
@@ -149,6 +162,11 @@ extension ListViewController {
         }
     }
 }
+
+
+
+// Search
+
 
 
 

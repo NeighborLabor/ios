@@ -44,11 +44,10 @@ class MenuViewController: BaseTableViewController {
     
     
     func handleNoUser(){
-        self.desText = "No account found"
+        self.desText = "No account found!"
         self.buttonText = "Sign In"
         self.segueId = "to_sign_in"
-
-    }
+     }
     
     
     func configureMenu(){
@@ -77,7 +76,7 @@ extension MenuViewController {
     
     let toProfile = SegueInfo(label:name as! String?, destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
     let toMyList = SegueInfo(label: "Jobs Listings", destinationId: "to_my_list", cellIdentifier: "menucell", detail: "Your listed jobs", fa: .FAPencil)
-    let toActiveJobs = SegueInfo(label: "Job Applications", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of active jobs", fa: .FAHourglass)
+    let toActiveJobs = SegueInfo(label: "Job Applications", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of pending jobs", fa: .FAHourglass)
     let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "Your conversations", fa: .FAComment)
     let toSetting = SegueInfo(label: "Setting", destinationId: "to_setting", cellIdentifier: "menucell", detail: "Application configuration", fa: .FAGear)
     segues = [toProfile, toMyList, toActiveJobs, toMessages, toSetting]
@@ -113,5 +112,11 @@ extension MenuViewController {
         return segues.count
     }
     
-    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        
+        if let segue = self.segueId {
+            self.navigationController?.performSegue(withIdentifier: segue, sender: self)
+        }
+        
+    }
 }

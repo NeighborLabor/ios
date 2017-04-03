@@ -30,6 +30,7 @@ class DetailListingViewController: BaseTableViewController {
     //NEED THIS: When listing's owner is self
     var applicants = [PFUser]()
     var isOwner : Bool = false
+    var currentUser : PFUser!
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -82,7 +83,7 @@ class DetailListingViewController: BaseTableViewController {
                     
                     guard let err = error else {
                         self.applyDeleteButton.setTitle("APPLIED", for: .normal)
-                        self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
+                        self.setButton(state: .SUCCEEDED)
                     
                         return
                     }
@@ -99,6 +100,46 @@ class DetailListingViewController: BaseTableViewController {
         
     }
     
+    enum State {
+        case LOCK,OWNER,VERIFIELD, SUCCEEDED, PENDING
+    }
+    
+    func setButton(state: State) {
+        
+        UIView.animate(withDuration: 0.2) { 
+            switch state {
+            case .LOCK:
+                self.applyOverLay()
+                
+            case .VERIFIELD:
+                self.applyDeleteButton.setTitle("APPLY", for: .normal)
+                self.applyDeleteButton.backgroundColor = UIColor.flatSkyBlue
+                self.applyDeleteButton.isEnabled = true
+            case .OWNER:
+                self.applyDeleteButton.setTitle("DELETE", for: .normal)
+                self.applyDeleteButton.backgroundColor = .flatWatermelon
+                self.applyDeleteButton.isEnabled = true
+             case .SUCCEEDED:
+                self.applyDeleteButton.setTitle("SUCCEEDED", for: .normal)
+                self.applyDeleteButton.backgroundColor = UIColor.flatGreen
+                self.applyDeleteButton.isEnabled = false
+            case .PENDING:
+                self.applyDeleteButton.setTitle("PENDING", for: .normal)
+                self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
+                self.applyDeleteButton.isEnabled = false
+            }
+
+        }
+    }
+    
+    
+    func applyOverLay() {
+        self.applyDeleteButton.isEnabled = false
+        self.applyDeleteButton.backgroundColor = UIColor.flatGray
+        self.applyDeleteButton.setFAText(prefixText: "APPLY  ", icon: FAType.FALock, postfixText: "", size: 20, forState: .disabled)
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,10 +147,29 @@ class DetailListingViewController: BaseTableViewController {
         
         self.navigationItem.title = String(CGFloat(listing.geopoint.distanceInMiles(to: LocationManager.currentLocation)).string1) + " Miles"
         
+        verifyUser()
         configureMap()
         basicInfo()
         dynamcTable()
      }
+    
+    
+    
+    
+    func verifyUser() {
+        
+        if let user = AuthManager.currentUser() {
+            self.currentUser = user
+            self.setButton(state: .VERIFIELD)
+            return
+        }else{
+            self.setButton(state: .LOCK)
+        }
+        
+    }
+    
+    
+    
     
     
     func configureMap(){
@@ -164,8 +224,7 @@ class DetailListingViewController: BaseTableViewController {
         self.moneyLabel.text = "$" + CGFloat( listing.compensation).string2
     
         if listing.applied == true {
-            self.applyDeleteButton.setTitle("PENDING", for: .normal)
-            self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
+            self.setButton(state: .PENDING)
     
         }
     
@@ -182,17 +241,19 @@ class DetailListingViewController: BaseTableViewController {
         
         guard let user = AuthManager.currentUser() else {
             
+            self.setButton(state: .LOCK)
+            
             return
         }
         
         if user.objectId! == listing.createdBy.objectId! {
+            self.setButton(state: .OWNER)
+            
             let query = listing.applicants.query()
             query.findObjectsInBackground(block: { (results, error) in
                 guard let err = error else {
                     self.isOwner = true
                     self.applicants = results!
-                    self.applyDeleteButton.setTitle("DELETE", for: .normal)
-                    self.applyDeleteButton.backgroundColor = .flatWatermelon
                     self.innerTable.delegate = self
                     self.innerTable.dataSource = self
                     return

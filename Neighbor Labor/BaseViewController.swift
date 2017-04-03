@@ -11,9 +11,17 @@ import DZNEmptyDataSet
 import Font_Awesome_Swift
 import ChameleonFramework
 import BonMot
-import SideMenu
 
-class BaseViewController: UIViewController {}
+class BaseViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+ 
+        
+        
+    }
+  
+}
 
 extension UIViewController {
     func showAlert(title: String, message: String) {
@@ -42,6 +50,10 @@ extension UIViewController {
        
         self.present(alertController, animated: true, completion: nil)
     }
+    
+
+    
+    
 }
 
 
@@ -54,6 +66,7 @@ class BaseTableViewController: UITableViewController {
      var color = UIColor.flatSkyBlue
     var segueId : String?
     
+ 
 }
 
 extension BaseTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
@@ -61,10 +74,12 @@ extension BaseTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSourc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
         self.tableView.emptyDataSetDelegate = self
         self.tableView.emptyDataSetSource = self
         self.tableView.tableFooterView = UIView()
         self.view.backgroundColor = .flatWhite
+        
      }
     
     
@@ -91,6 +106,8 @@ extension BaseTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSourc
         let attributedString = desText.styled(with: style)
         return attributedString
     }
+ 
+
     
     public func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
         let colorState = (state == .normal) ? self.color : self.color.darken(byPercentage: 80.0)
@@ -100,12 +117,29 @@ extension BaseTableViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSourc
             .lineHeightMultiple(1.2),
             .color(colorState!)
         )
+    
+        
         return buttonText.styled(with: style)
     }
     
-
+    
     
 
+}
+
+extension UIViewController {
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }
 
 
