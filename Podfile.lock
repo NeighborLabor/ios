@@ -10,6 +10,7 @@ PODS:
   - EasyPeasy (1.4.2)
   - Eureka (2.0.1)
   - Font-Awesome-Swift (1.6.1)
+  - LFTimePicker (0.3.2)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - SideMenu (2.3.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - EasyPeasy
   - Eureka (~> 2.0)
   - Font-Awesome-Swift (~> 1.6.1)
+  - LFTimePicker
   - Parse
   - SideMenu (~> 2.3.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
@@ -61,11 +63,12 @@ SPEC CHECKSUMS:
   EasyPeasy: 50e7130b61f495ce105796e438d4136e2c8d2cc0
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Font-Awesome-Swift: 70ab020f6749d7048bb49807c3e78b702d78afca
+  LFTimePicker: 2a0b15e35652f87299941ddb1f22a16fae30f1df
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: df8054800ca107c72751ad591d3c58abaf813dfa
+PODFILE CHECKSUM: 8a7a80a472a5c37b31505d5766293d91c1857c0c
 
 COCOAPODS: 1.2.0

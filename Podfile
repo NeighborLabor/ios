@@ -20,7 +20,8 @@ target 'Neighbor Labor' do
     pod 'Font-Awesome-Swift', '~> 1.6.1'
     pod 'TDBadgedCell', :git => 'https://github.com/BendingUnit-22/TDBadgedCell.git', :branch => 'access_control'
     pod 'BonMot'
-    
+    pod 'LFTimePicker'
+   
   target 'Neighbor LaborTests' do
     inherit! :search_paths
     # Pods for testing

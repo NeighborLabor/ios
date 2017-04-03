@@ -157,7 +157,7 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
     
     func validationSuccessful() {
         
-        authInteractor.signUpWith(email: emailTF.text!, password: passwordTF.text!, name: nameTF.text!, phone: "", ppic: nil, bio: bioTextView.text) { (error) in
+        authInteractor.signUpWith(email: emailTF.text!, password: passwordTF.text!, name: nameTF.text!, phone: phoneTF.text!, ppic: nil, bio: bioTextView.text) { (error) in
             
             guard let err = error else {
                 self.navigationController?.dismiss(animated: true, completion: nil)

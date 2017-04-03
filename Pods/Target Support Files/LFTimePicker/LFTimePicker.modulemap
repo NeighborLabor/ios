@@ -1,0 +1,6 @@
+framework module LFTimePicker {
+  umbrella header "LFTimePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

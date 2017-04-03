@@ -8,7 +8,7 @@
 
 import Foundation
 import Parse
-
+import MapKit
 
 /**
     Error Types
@@ -48,6 +48,7 @@ class LocationManager {
             }
             errorCompletion( err)
         }
+    
     }
 
     static func requestCurrentLocation(adress: String?, completion: @escaping  (PFGeoPoint?, Error?) -> Void){
@@ -56,7 +57,6 @@ class LocationManager {
         }
     }
     
-    
-    
+
     
 }

@@ -7,19 +7,33 @@
 //
 
 import Foundation
-import  Eureka
+import  EasyPeasy
 import Parse
+import Font_Awesome_Swift
+import LFTimePicker
+import ChameleonFramework
+import CoreLocation
 
 
-class CreateListViewController: FormViewController{
+class CreateListViewController: UIViewController{
     
+    let timePicker = CustomPickerController()
+    let currentLocation = LocationManager.currentLocation!
     
+    @IBOutlet weak var closeButton: UIBarButtonItem!
     
-    
-     @IBAction func cancelAction(_ sender: Any) {
+    @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+
+    @IBOutlet weak var titleLabel: UITextField!
+    @IBOutlet weak var descrLabel: UITextView!
+    @IBOutlet weak var addressLabel: UITextField!
+    @IBOutlet weak var compensationLabel: UITextField!
     
+    
+    @IBOutlet weak var startTIme: UILabel!
+    @IBOutlet weak var endTime: UILabel!
     
 //    
 //    func createAListing(title: String, desc: String, address: String, startTime: NSDate, duration: Int, photo: NSData?, compensation: Double, completion: @escaping ErrorResultBlock){
@@ -27,83 +41,96 @@ class CreateListViewController: FormViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.outletsSetUp()
         
-        
-        form
-            +++ Section("basic information")
-                <<< TextRow("title"){ row in
-                     row.placeholder = "title"
-                }
-                <<< TextAreaRow("des"){
-                    $0.placeholder = "description"
-                }
-                <<< TextRow("address"){
-                    $0.placeholder = "555 huntington ave"
-                }
-            
-            +++ Section("schedule")
-                <<< DateTimeRow("startTime"){
-                    $0.title = "start date"
-                    $0.value = Date()
-            }
-                <<< PushRow<Int>("duration"){
-                    $0.title = "duration (hr)"
-                    $0.options = [0,1,2,3,4,5,6,7,8]
-                }
-            +++ Section("compensation")
-                <<< DecimalRow("compensation"){
-                    $0.title = "$"
-                }
-            +++ ButtonRow(){
-                    $0.title = "Submit"
-                }.onCellSelection({ (cell, row) in
-                    
-                    let title = self.form.rowBy(tag: "title")?.baseValue as! String
-                    let desc = self.form.rowBy(tag: "des")?.baseValue as! String
-                    let address = self.form.rowBy(tag: "address")?.baseValue as! String
-                    let startTime = self.form.rowBy(tag: "startTime")?.baseValue as! Date as NSDate
-                    let duration  = self.form.rowBy(tag: "duration")?.baseValue as! Int
-                    let compensation = self.form.rowBy(tag: "compensation")?.baseValue as! Double
-                    
-                    let listingManager = ListingManager()
-                   listingManager.createAListing(
-                    title: title,
-                    desc: desc,
-                    address: address,
-                    startTime: startTime,
-                    duration: duration,
-                    photo: nil,
-                    compensation: compensation
-                    ,completion: { (error) in
-                        guard let err = error else{
-                           //No Error
-                            print("Created Listing")
-                            self.dismiss(animated: true, completion: nil)
-                            return
-                        }
-                        print("Error")
-                        self.showAlert(title: "Error", message: err.localizedDescription)
-                        
-                   })
-                    
-                    //self.dismiss(animated: true, completion: nil)
+    }
+    
+    func outletsSetUp() {
+        self.closeButton.setFAIcon(icon: .FAClose, iconSize: 30)
+        self.timePicker.delegate = self
+        CLGeocoder().reverseGeocodeLocation(self.currentLocation.cclocation) { (placemarks, err) -> Void in
+            if let p = placemarks {
+                let address = p[0].addressDictionary!
+                print(address)
+            } else {
+                self.dismiss(animated: true, completion: {
                 })
+            }
+        }
+
+    }
+    
+
+
+}
+extension CreateListViewController: LFTimePickerDelegate {
+    
+    func presentTimePicker() {
+        self.navigationController?.present(timePicker , animated: true, completion: {})
+    }
+    
+    func didPickTime(_ start: String, end: String) {
         
 
+        if (start == "00:00" && end == "00:00"){
+            self.timePicker.button.setFAIcon(icon: .FAClose, forState: .normal)
+            self.timePicker.button.backgroundColor = UIColor.flatWatermelon
+        }else{
+            UIView.animate(withDuration: 0.3, animations: { 
+                self.timePicker.button.setFAIcon(icon: .FACheck, forState: .normal)
+                self.timePicker.button.backgroundColor = UIColor.flatGreen
+                self.timePicker.button <- Width(100)
+                self.timePicker.button.alpha = 0.6
+            }, completion: { (_) in
+                self.timePicker.dismiss(animated: true, completion: nil)
+            })
+        }
+        
+    }
     
-        // Enables the navigation accessory and stops navigation when a disabled row is encountered
-        navigationOptions = RowNavigationOptions.Disabled
-        // Enables smooth scrolling on navigation to off-screen ro  ws
-        animateScroll = true
-        // Leaves 20pt of space between the keyboard and the highlighted row after scrolling to an off screen row
-        rowKeyboardSpacing = 20
+}
+
+
+
+
+
+
+class CustomPickerController: LFTimePickerController{
+    
+    let button =  UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    
+    override func viewDidLoad() {
+        self.view.backgroundColor = .flatSkyBlue
+        super.viewDidLoad()
+        createCloseButton()
     }
     
     
+    func createCloseButton(){
+        button.setFAIcon(icon: .FASquare, forState: .normal)
+        button.backgroundColor = UIColor.flatBlue
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 25
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1.5
+        self.view.addSubview(button)
+        button <- [
+            CenterX(),
+            Bottom(8),
+            Height(50),
+            Width(50)
+        ]
+        button.addTarget(self, action: #selector(click), for: UIControlEvents.touchUpInside)
+        
+    }
     
-        
+    // Selector
+    func click(sender: Any?) {
+        self.delegate?.didPickTime(self.lastSelectedLeft, end: self.lastSelectedRight)
+    }
+    
 }
-        
 
 
     

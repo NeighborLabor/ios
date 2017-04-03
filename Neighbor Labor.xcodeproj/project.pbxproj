@@ -35,7 +35,7 @@
 		94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC61E81933E007221CF /* MyListViewController.swift */; };
 		94FA5BC91E81934E007221CF /* ActiveJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */; };
 		94FA5BCB1E81935C007221CF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BCA1E81935C007221CF /* MessageViewController.swift */; };
-		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; };
+		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -712,6 +712,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					Other,
+					Linker,
+					Flags,
+					"$(inherited)",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = "Neighbor Labor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -742,6 +754,7 @@
 					"\"SwiftValidator\"",
 					"-framework",
 					"\"TDBadgedCell\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wu.rixing.Neighbor-Labor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -757,6 +770,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1.2",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = "Neighbor Labor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -787,6 +807,7 @@
 					"\"SwiftValidator\"",
 					"-framework",
 					"\"TDBadgedCell\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wu.rixing.Neighbor-Labor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -798,7 +819,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFC1DDA54265D5C53BCB0FD2 /* Pods-Neighbor LaborTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Neighbor LaborTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -813,7 +834,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80BB0E631C0F733C4C4F9DB8 /* Pods-Neighbor LaborTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Neighbor LaborTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

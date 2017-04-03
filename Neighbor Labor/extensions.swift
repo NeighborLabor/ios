@@ -8,7 +8,7 @@
 
 import Foundation
 import AFDateHelper
-
+import Parse
 
 
 
@@ -54,6 +54,14 @@ extension String {
             str = self[str.startIndex].description
         }
         return str
+    }
+}
+
+
+extension PFGeoPoint {
+    
+    var cclocation: CLLocation {
+        return CLLocation(latitude: self.latitude, longitude: self.longitude)
     }
 }
  
