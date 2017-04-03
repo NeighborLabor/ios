@@ -8,7 +8,6 @@
 
 import UIKit
 import Parse
-import FoldingCell
 import ChameleonFramework
 import Font_Awesome_Swift
 
@@ -45,6 +44,7 @@ class ListViewController: BaseViewController{
         super.viewDidLoad()
         customizeOutlets()
         getRequiredPermission()
+        createSearchBar()
 
     }
     
@@ -165,7 +165,15 @@ extension ListViewController {
 
 
 // Search
+extension ListViewController : UISearchBarDelegate{
+    
+    func createSearchBar(){
+        let searchBar = UISearchBar()
+        searchBar.showsCancelButton = true
+        searchBar.delegate = self
+     }
 
+}
 
 
 

@@ -714,6 +714,35 @@
 				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
 				INFOPLIST_FILE = "Neighbor Labor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFDateHelper\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"BonMot\"",
+					"-framework",
+					"\"ChameleonFramework\"",
+					"-framework",
+					"\"Cosmos\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"EasyPeasy\"",
+					"-framework",
+					"\"Eureka\"",
+					"-framework",
+					"\"Font_Awesome_Swift\"",
+					"-framework",
+					"\"Parse\"",
+					"-framework",
+					"\"SideMenu\"",
+					"-framework",
+					"\"SwiftValidator\"",
+					"-framework",
+					"\"TDBadgedCell\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wu.rixing.Neighbor-Labor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -730,6 +759,35 @@
 				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
 				INFOPLIST_FILE = "Neighbor Labor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFDateHelper\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"BonMot\"",
+					"-framework",
+					"\"ChameleonFramework\"",
+					"-framework",
+					"\"Cosmos\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"EasyPeasy\"",
+					"-framework",
+					"\"Eureka\"",
+					"-framework",
+					"\"Font_Awesome_Swift\"",
+					"-framework",
+					"\"Parse\"",
+					"-framework",
+					"\"SideMenu\"",
+					"-framework",
+					"\"SwiftValidator\"",
+					"-framework",
+					"\"TDBadgedCell\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wu.rixing.Neighbor-Labor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

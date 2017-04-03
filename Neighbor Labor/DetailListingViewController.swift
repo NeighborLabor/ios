@@ -11,7 +11,6 @@ import MapKit
 import Font_Awesome_Swift
 import BonMot
 import Parse
-import RainbowSwift
 
 
 

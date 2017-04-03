@@ -9,19 +9,17 @@ target 'Neighbor Labor' do
 
   # Pods for Neighbor Labor
 	pod 'Parse'
-    pod 'FoldingCell', '~> 2.0.3'
     pod 'EasyPeasy'
     pod 'Eureka', '~> 2.0'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-     pod 'AFDateHelper', '~> 4.1.2'
+    pod 'AFDateHelper', '~> 4.1.2'
     pod 'SideMenu', '~> 2.3.0'
     pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
     pod 'DZNEmptyDataSet'
     pod 'Cosmos', '~> 8.0'
     pod 'Font-Awesome-Swift', '~> 1.6.1'
-    pod 'TDBadgedCell', :git => 'https://github.com/tmdvs/TDBadgedCell.git', :branch => 'master'
+    pod 'TDBadgedCell', :git => 'https://github.com/BendingUnit-22/TDBadgedCell.git', :branch => 'access_control'
     pod 'BonMot'
-    pod 'RainbowSwift', '~> 2.0'
     
   target 'Neighbor LaborTests' do
     inherit! :search_paths
