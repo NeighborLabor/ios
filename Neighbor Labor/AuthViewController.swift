@@ -59,7 +59,6 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var confirmTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
-
     @IBOutlet weak var zipCodeTF: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
 
@@ -70,7 +69,7 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
     @IBOutlet weak var errPasswordTF: UILabel!
     @IBOutlet weak var errConfirmTF: UILabel!
     @IBOutlet weak var errPhoneTF: UILabel!
-     @IBOutlet weak var errZipCodeTF: UILabel!
+    @IBOutlet weak var errZipCodeTF: UILabel!
     
     
     
