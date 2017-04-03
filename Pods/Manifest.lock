@@ -15,7 +15,6 @@ PODS:
     - Bolts/Tasks (~> 1.8)
   - RainbowSwift (2.0.1)
   - SideMenu (2.3.0)
-  - SwiftIconFont (2.6.0)
   - SwiftValidator (4.0.0)
   - TDBadgedCell (4.1.1)
 
@@ -32,7 +31,6 @@ DEPENDENCIES:
   - Parse
   - RainbowSwift (~> 2.0)
   - SideMenu (~> 2.3.0)
-  - SwiftIconFont
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - TDBadgedCell (from `https://github.com/tmdvs/TDBadgedCell.git`, branch `master`)
 
@@ -71,10 +69,9 @@ SPEC CHECKSUMS:
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   RainbowSwift: 54b5fbfe5c6225d5da50ce30244f04cf0b81eb2d
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
-  SwiftIconFont: bbe1f32e1e16bac87dad8566afc80132cb8d072c
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: 64c5abed53a25930d64ded45749800d595ab8b3d
+PODFILE CHECKSUM: 437d08971fd5bafd87516a4f26356af73cc30034
 
 COCOAPODS: 1.2.0

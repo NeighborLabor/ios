@@ -11,7 +11,7 @@ import UIKit
 /// TDBadgedCell is a table view cell class that adds a badge, similar to the badges in Apple's own apps
 /// The badge is generated as image data and drawn as a sub view to the table view sell. This is hopefully
 /// most resource effective that a manual draw(rect:) call would be
-open class TDBadgedCell: UITableViewCell {
+class TDBadgedCell: UITableViewCell {
 
     /// Badge value
     public var badgeString : String = "" {
@@ -43,10 +43,10 @@ open class TDBadgedCell: UITableViewCell {
     /// The Image view that the badge will be rendered into
     internal let badgeView = UIImageView()
     
-    override open func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         
-        // Layout our badge's posit\ion
+        // Layout our badge's position
         var offsetX = badgeOffset.x
         if(isEditing == false && accessoryType != .none || (accessoryView) != nil) {
             offsetX = 0 // Accessory types are a pain to get sizing for?
@@ -63,12 +63,12 @@ open class TDBadgedCell: UITableViewCell {
     }
     
     // When the badge
-    override open func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         drawBadge()
     }
     
-    override open func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         drawBadge()
     }

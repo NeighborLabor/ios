@@ -708,6 +708,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A4A0CB109424A0CB68D2391 /* Pods-Neighbor Labor.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64ZYM9ZCT7;
@@ -723,6 +724,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FFEEDF84D8D769ADAE7F40F /* Pods-Neighbor Labor.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 64ZYM9ZCT7;

@@ -16,10 +16,6 @@ import RainbowSwift
 
 
 
-
-
-
-
 class DetailListingViewController: BaseTableViewController {
     
     
@@ -51,9 +47,7 @@ class DetailListingViewController: BaseTableViewController {
     @IBOutlet weak var applyDeleteButton: UIButton!
     
     
-    
-     
-    
+ 
     
     @IBAction func applyDeleteAction(_ sender: Any) {
         

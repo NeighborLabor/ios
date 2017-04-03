@@ -102,7 +102,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Parse/Parse.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RainbowSwift/RainbowSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftIconFont/SwiftIconFont.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftValidator/SwiftValidator.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TDBadgedCell/TDBadgedCell.framework"
 fi
@@ -120,7 +119,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Parse/Parse.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RainbowSwift/RainbowSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftIconFont/SwiftIconFont.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftValidator/SwiftValidator.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TDBadgedCell/TDBadgedCell.framework"
 fi
