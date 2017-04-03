@@ -114,7 +114,7 @@ class DetailListingViewController: BaseTableViewController {
                 self.applyDeleteButton.isEnabled = true
              case .SUCCEEDED:
                 self.applyDeleteButton.setTitle("SUCCEEDED", for: .normal)
-                self.applyDeleteButton.backgroundColor = UIColor.flatGreen
+                self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
                 self.applyDeleteButton.isEnabled = false
             case .PENDING:
                 self.applyDeleteButton.setTitle("PENDING", for: .normal)
