@@ -14,15 +14,18 @@ import LFTimePicker
 import ChameleonFramework
 import CoreLocation
 import SwiftValidator
+import DatePickerDialog
+import  AddressBookUI
 
 
+import AFDateHelper
 
 class CreateListViewController: UIViewController{
     
     let timePicker = CustomPickerController()
     let currentLocation = LocationManager.currentLocation!
-    var cellHeight = 0.0
     let validator = Validator()
+    @IBOutlet weak var errSubmitLabel: UILabel!
     
     
     @IBOutlet weak var closeButton: UIBarButtonItem!
@@ -41,32 +44,60 @@ class CreateListViewController: UIViewController{
     @IBOutlet weak var errorAddressLabel: UILabel!
     @IBOutlet weak var errorCompensationLabel: UILabel!
 
+    // when a date is selected
+    // it will store ins selectedDate
+    var selectedDate: Date!
     
-    @IBOutlet weak var cellHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var selectedTimeLabel: UILabel!
+    // This will only be seen when open
+    // it will store ins selectedDate
+ 
     @IBOutlet weak var errDateLabel: UILabel!
+    @IBOutlet weak var hiddenDateContraint: NSLayoutConstraint!
+    var hiddenDateHeight = 0.0
+     @IBOutlet weak var dateButton: UIButton!
     @IBAction func dateAction(_ sender: Any) {
-        
+        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+            (date) -> Void in
+            guard let d = date else{
+                print("No Date: Cancel action")
+                return
+            }
+            self.selectedTimeLabel.text = d.toStringWithRelativeTime()
+    
+            // store in selectedDate
+            self.selectedDate = d
+             UIView.animate(withDuration: 0.3, animations: {
+                self.dateButton.backgroundColor = UIColor.flatSkyBlue
+                self.hiddenDateContraint.constant = CGFloat(self.hiddenDateHeight)
+            })
+
+        }
     }
     
     
     @IBOutlet weak var errTimeLabel: UILabel!
+    @IBOutlet weak var hiddenTimeConstraint: NSLayoutConstraint!
+    var hiddenTimeHeight = 0.0
+
+    @IBOutlet weak var timeButton: UIButton!
+    
     @IBAction func timeAction(_ sender: Any) {
         presentTimePicker()
     }
     
-    
-    
+
     @IBOutlet weak var startTIme: UILabel!
     @IBOutlet weak var endTime: UILabel!
-
+    var sTime: Date!
+    var eTime: Date!
+    
+    
+    
     @IBAction func submitAction(_ sender: Any) {
         validator.validate(self)
     }
-    
-    
-    
-    
+
     
 //    
 //    func createAListing(title: String, desc: String, address: String, startTime: NSDate, duration: Int, photo: NSData?, compensation: Double, completion: @escaping ErrorResultBlock){
@@ -74,6 +105,15 @@ class CreateListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // store the storyboard heights
+        self.hiddenDateHeight = Double(self.hiddenDateContraint.constant)
+        self.hiddenTimeHeight = Double(self.hiddenTimeConstraint.constant)
+        
+        // set layout height = 0 or hidden
+        self.hiddenTimeConstraint.constant = 0
+        self.hiddenDateContraint.constant = 0
+        
         self.outletsSetUp()
         self.registerForm()
         
@@ -81,50 +121,51 @@ class CreateListViewController: UIViewController{
     
     func outletsSetUp() {
         self.closeButton.setFAIcon(icon: .FAClose, iconSize: 30)
-        self.cellHeight = Double(self.cellHeightConstraint.constant)
-        self.cellHeightConstraint.constant = 0
-        
         self.timePicker.delegate = self
-        CLGeocoder().reverseGeocodeLocation(self.currentLocation.cclocation) { (placemarks, err) -> Void in
-            if let p = placemarks {
-                let address = p[0].addressDictionary!
-                print(address)
-            } else {
-                self.dismiss(animated: true, completion: {
-                })
-            }
-        }
-
     }
-    
 
 
 }
 extension CreateListViewController: LFTimePickerDelegate {
+    
     
     func presentTimePicker() {
         self.navigationController?.present(timePicker , animated: true, completion: {})
     }
     
     func didPickTime(_ start: String, end: String) {
+        sTime = Date(fromString: start, format: .custom("HH:mm"))
+        eTime = Date(fromString: end, format: .custom("HH:mm"))
+    
         
-        if (start == "00:00" && end == "00:00"){
+        
+        self.startTIme.text = sTime.format_AM_PM
+        self.endTime.text = eTime.format_AM_PM
+        let duration =  eTime.since(sTime, in: .minute)
+        
+        if (duration <= 0){
             self.timePicker.button.setFAIcon(icon: .FAClose, forState: .normal)
             self.timePicker.button.backgroundColor = UIColor.flatWatermelon
+             self.timePicker.button <- Width(100)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.hiddenTimeConstraint.constant = CGFloat(self.hiddenTimeHeight)
+                self.timePicker.button <- Width(50)
+             })
+
+    
+            return
         }else{
             UIView.animate(withDuration: 0.3, animations: { 
                 self.timePicker.button.setFAIcon(icon: .FACheck, forState: .normal)
                 self.timePicker.button.backgroundColor = UIColor.flatGreen
-                self.timePicker.button <- Width(100)
                 self.timePicker.button.alpha = 0.6
             }, completion: { (_) in
-                
-                self.startTIme.text = start
-                self.endTime.text = end
+            
             
                 self.timePicker.dismiss(animated: true, completion: {
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.cellHeightConstraint.constant = CGFloat(self.cellHeight)
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.hiddenTimeConstraint.constant = CGFloat(self.hiddenTimeHeight)
+                        self.timeButton.backgroundColor = .flatSkyBlue
                     })
                     
                     
@@ -138,12 +179,110 @@ extension CreateListViewController: LFTimePickerDelegate {
 
 
 
+extension CreateListViewController: ValidationDelegate {
+    
+    func registerForm() {
+        // validator for title table
+        self.validator.registerField(titleLabel, errorLabel: errorTitleLabel, rules: [RequiredRule(), MinLengthRule(length: 5)])
+        
+        // validator for Descript table
+        self.validator.registerField(descrLabel, errorLabel: errorDescLabel, rules: [RequiredRule(), MinLengthRule(length: 5)])
+        
+        // validator for Address table
+        self.validator.registerField(addressLabel, errorLabel: errorAddressLabel, rules: [RequiredRule(), MinLengthRule(length: 5)])
+        
+        // validator for compensation table
+        self.validator.registerField(compensationLabel, errorLabel: errorCompensationLabel, rules: [RequiredRule(),FloatRule()])
+        
+        
+    }
+
+    func validationSuccessful() {
+
+        if self.hiddenDateContraint.constant == 0 {
+            self.dateButton.backgroundColor = .flatWatermelon
+            self.errDateLabel.textColor = .flatWatermelon
+            return
+        }
+        
+        if self.hiddenTimeConstraint.constant == 0 {
+            self.timeButton.backgroundColor = .flatWatermelon
+            self.errTimeLabel.textColor = .flatWatermelon
+            self.errSubmitLabel.text = "Check your input fields!"
+            return
+        }
+        
+        let selectDate = self.selectedDate.dateFor(.startOfDay)
+
+         let beginDateTime = selectDate.adjust(.minute, offset: Int(self.sTime.since(self.sTime.dateFor(.startOfDay), in: .minute)))
+        let endDateTime = selectDate.adjust(.minute, offset: Int(self.eTime.since(self.eTime.dateFor(.startOfDay), in: .minute)))
+    
+        print(" Start Time +  : \(beginDateTime)" )
+        print(" End Time + : \(endDateTime)" )
+        
+        if beginDateTime.compare(.isInThePast) {
+            self.errSubmitLabel.text = "The date or time your entered has expireds"
+            return
+        }
+        let duration = endDateTime.since(beginDateTime, in: .minute)
+        print("Duration: \(duration)" )
+        
+        // All feield clear
+        
+        print(beginDateTime.format_month)
+
+        ListingManager().createAListing(title: titleLabel.text!, desc: descrLabel.text!, address: addressLabel.text!, startTime: beginDateTime as NSDate, duration: Int(duration), photo: nil, compensation: Double(compensationLabel.text!)!) { (error) in
+            guard let err = error else {
+                print("No Error")
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                return
+            }
+            self.showAlert(title: "Error", message: err.localizedDescription)
+        }
+//
+//
+        
+    }
+    
+
+    
+    func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
+        // turn the fields to red
+        for (field, error) in errors {
+            if let field = field as? UITextField {
+                field.layer.borderColor = UIColor.flatWatermelon.cgColor
+                field.layer.borderWidth = 1.0
+            }
+            
+            // works if you add labels
+            error.errorLabel?.text = error.errorMessage
+            error.errorLabel?.isHidden = false
+        }
+    }
+    
+    
+    
+}
+    
+
+
+
 class CustomPickerController: LFTimePickerController{
     
     let button =  UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.view.backgroundColor = .flatSkyBlue
+        self.view.alpha = 1
+        self.view.backgroundColor = UIColor.flatSkyBlue
+        button.backgroundColor = UIColor.flatSkyBlue
+        self.button <- Width(50)
+    }
+    
+    
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         createCloseButton()
     }
@@ -151,7 +290,6 @@ class CustomPickerController: LFTimePickerController{
     
     func createCloseButton(){
         button.setFAIcon(icon: .FASquare, forState: .normal)
-        button.backgroundColor = UIColor.flatBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 25
         button.layer.masksToBounds = true
@@ -167,53 +305,10 @@ class CustomPickerController: LFTimePickerController{
         button.addTarget(self, action: #selector(click), for: UIControlEvents.touchUpInside)
         
     }
-    
     // Selector
     func click(sender: Any?) {
         self.delegate?.didPickTime(self.lastSelectedLeft, end: self.lastSelectedRight)
     }
-    
 }
 
 
-
-extension CreateListViewController: ValidationDelegate {
-    
-    func registerForm() {
-        // validator for title table
-        self.validator.registerField(titleLabel, errorLabel: errorTitleLabel, rules: [RequiredRule(), MinLengthRule(length: 10)])
-        
-        // validator for Descript table
-        self.validator.registerField(descrLabel, errorLabel: errorDescLabel, rules: [RequiredRule(), MinLengthRule(length: 10)])
-        
-        // validator for Address table
-        self.validator.registerField(addressLabel, errorLabel: errorAddressLabel, rules: [RequiredRule(), MinLengthRule(length: 10)])
-        
-        // validator for compensation table
-        self.validator.registerField(compensationLabel, errorLabel: errorCompensationLabel, rules: [RequiredRule(),FloatRule()])
-        
-        
-    }
-
-    func validationSuccessful() {
-        
-    }
-    
-
-    
-    func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
-        // turn the fields to red
-        for (field, error) in errors {
-            if let field = field as? UITextField {
-                field.layer.borderColor = UIColor.flatWatermelon.cgColor
-                field.layer.borderWidth = 1.0
-            }
-            error.errorLabel?.text = error.errorMessage // works if you added labels
-            error.errorLabel?.isHidden = false
-        }
-    }
-    
-    
-    
-}
-    

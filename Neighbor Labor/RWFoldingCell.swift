@@ -64,14 +64,11 @@ class RWFoldingCell: UITableViewCell{
         
         
         priceLabel.setFAText(prefixText: "", icon: FAType.FADollar, postfixText: "\(compensation)", size: nil)
-        timeLabel.text =  list.createdAt!.relativeTimeDescription()
+        timeLabel.text =  (list.startTime as Date).format_month
         
         titleLabel.text = title
         locationLabel.text = location
         durationLabel.text = String(time_required) + " mins"
-
-        
-        
         
         ownerLabel.text = distance.string1 + " miles"
         

@@ -15,18 +15,25 @@ import Parse
 extension Date{
 
     func date_time_tup() -> (String, String){
-        var date = self.compare(.isToday) ? "Today" : self.toString(style: .shortMonth).appending(self.toString(format: .custom(" h")))
-        date = self.compare(.isTomorrow) ? "Tomorrow" : date
-        
-        let time = self.toString(format: .custom("h:mm a"))
+        let date = format_month
+        let time = format_AM_PM
         return (date, time )
     }
+    
+    
+    var format_AM_PM : String {
+         return self.toString(format: .custom("h:mm a"))
+    }
+    var format_month : String {
+        return self.toString(style: .shortMonth).appending(self.toString(format: .custom(" d")))
+    }
+    
     
     func relativeTimeDescription() -> String{
          if self.compare(.isToday){
             return self.toString(format: .custom("h:mm a"))
          }else{
-            return self.toString(style: .shortMonth).appending(self.toString(format: .custom(" h")))
+            return self.toString(style: .shortMonth).appending(self.toString(format: .custom(" d")))
         }
     }
     
@@ -54,6 +61,13 @@ extension String {
             str = self[str.startIndex].description
         }
         return str
+    }
+    
+    func toSeconds() -> Date?{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let time = formatter.date(from: self)
+        return time
     }
 }
 

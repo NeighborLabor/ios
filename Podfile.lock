@@ -6,6 +6,7 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - Cosmos (8.0.2)
+  - DatePickerDialog (1.1.7)
   - DZNEmptyDataSet (1.8.1)
   - EasyPeasy (1.4.2)
   - Eureka (2.0.1)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - BonMot
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Cosmos (~> 8.0)
+  - DatePickerDialog
   - DZNEmptyDataSet
   - EasyPeasy
   - Eureka (~> 2.0)
@@ -59,6 +61,7 @@ SPEC CHECKSUMS:
   BonMot: 043bb5a8834cc6d74e9d624742272b92385e0a27
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
+  DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EasyPeasy: 50e7130b61f495ce105796e438d4136e2c8d2cc0
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
@@ -69,6 +72,6 @@ SPEC CHECKSUMS:
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: 8a7a80a472a5c37b31505d5766293d91c1857c0c
+PODFILE CHECKSUM: 2f021c4d99397c1747550c98f894022938631aca
 
 COCOAPODS: 1.2.0

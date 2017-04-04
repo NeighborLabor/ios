@@ -27,17 +27,24 @@ class ListViewController: BaseViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var addListingButton: UIBarButtonItem!
-    
-    
+    var currentLocation : PFGeoPoint? {
+        return LocationManager.currentLocation
+    }
     
     @IBAction func createListAction(_ sender: Any) {
-        if isUser {
-            self.performSegue(withIdentifier: "listSegue", sender: self)
+        if (currentLocation != nil) {
+            if isUser {
+                self.performSegue(withIdentifier: "listSegue", sender: self)
+            }else{
+                self.performSegue(withIdentifier: "authSegue", sender: self)
+                
+            }
         }else{
-            self.performSegue(withIdentifier: "authSegue", sender: self)
+            self.showAlert(title: "Error", message: "Location no found, try again later")
+            getRequiredPermission()
 
         }
-             }
+    }
 
     
     override func viewDidLoad() {
@@ -59,17 +66,25 @@ class ListViewController: BaseViewController{
             addListingButton.setFAIcon(icon: .FALock, iconSize: icon_size)
             isUser = false
         }
+    
     }
     
     func getRequiredPermission(){
-        LocationManager.startLocationUpdate { (err) in
-            guard let error = err else {
-                self.populateTable()
-                return
-            }
-            self.showAlert(title: "Error", message: error.localizedDescription)
-        }
+            LocationManager.startLocationUpdate { (err) in
+                guard let error = err else {
+                    // no error
+                    self.populateTable()
+                    return
+                }
+                // No Permission Error
+                print(error.localizedDescription)
+                self.showAlert(title: "Location Require", message: "Please allow location access in Setting")
+             }
+    
     }
+   
+    
+    
 
 }
 

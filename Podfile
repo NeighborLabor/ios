@@ -21,6 +21,7 @@ target 'Neighbor Labor' do
     pod 'TDBadgedCell', :git => 'https://github.com/BendingUnit-22/TDBadgedCell.git', :branch => 'access_control'
     pod 'BonMot'
     pod 'LFTimePicker'
+    pod 'DatePickerDialog'
    
   target 'Neighbor LaborTests' do
     inherit! :search_paths

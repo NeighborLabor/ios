@@ -161,10 +161,7 @@ class DetailListingViewController: BaseTableViewController {
         
     }
     
-    
-    
-    
-    
+
     func configureMap(){
         let annotation = MKPointAnnotation()
         let geopoint  = listing.geopoint
