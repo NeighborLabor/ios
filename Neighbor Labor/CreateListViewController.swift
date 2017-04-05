@@ -252,10 +252,16 @@ extension CreateListViewController: ValidationDelegate {
     
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
         // turn the fields to red
+        var count = 0
         for (field, error) in errors {
             if let field = field as? UITextField {
                 field.layer.borderColor = UIColor.flatWatermelon.cgColor
                 field.layer.borderWidth = 1.0
+                count = count+1
+            }
+            if count > 0 {
+                self.errSubmitLabel.text = "Invlaid fields (\(count))"
+                self.errSubmitLabel.textColor = UIColor.flatWatermelon
             }
             
             // works if you add labels

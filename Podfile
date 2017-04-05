@@ -22,7 +22,7 @@ target 'Neighbor Labor' do
     pod 'BonMot'
     pod 'LFTimePicker'
     pod 'DatePickerDialog'
-   
+    pod 'DLRadioButton', '~> 1.4'
   target 'Neighbor LaborTests' do
     inherit! :search_paths
     # Pods for testing

@@ -52,8 +52,7 @@ class RWFoldingCell: UITableViewCell{
     
     func update(list: Listing){
         let compensation = "\(Int(list.compensation))"
-        let location = list.descr
-        let title = list.title
+         let title = list.title
         
         list.applicants.query().countObjectsInBackground { (count, error) in
             self.applicantLabel.text = String(count)
@@ -67,7 +66,7 @@ class RWFoldingCell: UITableViewCell{
         timeLabel.text =  (list.startTime as Date).format_month
         
         titleLabel.text = title
-        locationLabel.text = location
+        locationLabel.text = list.descr
         durationLabel.text = String(time_required) + " mins"
         
         ownerLabel.text = distance.string1 + " miles"

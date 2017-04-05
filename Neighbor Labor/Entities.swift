@@ -22,7 +22,7 @@ class Listing: PFObject, PFSubclassing{
      @NSManaged var applicants : PFRelation<PFUser>
     @NSManaged var active: Bool
     @NSManaged var compensation: Double
-    @NSManaged var worker: PFUser?
+    @NSManaged var worker: PFUser
     
     static func parseClassName() -> String {
         return "Listing"

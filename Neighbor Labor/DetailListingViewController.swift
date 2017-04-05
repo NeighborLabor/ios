@@ -53,7 +53,7 @@ class DetailListingViewController: BaseTableViewController {
         if isOwner {
             print("Delete")
             
-            self.showConfirmAlert(title: "Confirm", message: "Are you sure you want to delete this listing?", completion: { 
+            self.showConfirmAlert(title: "Confirm", message: "Are you sure you want to delete this listing now?", completion: {
                 print("Warning")
                 
                 self.listing.deleteInBackground(block: { (sucess, error) in
@@ -194,6 +194,7 @@ class DetailListingViewController: BaseTableViewController {
         return attributedString
         
     }
+    @IBOutlet weak var timeExpired: UILabel!
     
     func basicInfo() {
         
@@ -212,12 +213,32 @@ class DetailListingViewController: BaseTableViewController {
         
         self.timeLabel.text = time.uppercased()
         self.moneyLabel.text = "$" + CGFloat( listing.compensation).string2
-    
+        self.streetLabel.text = listing.address
         if listing.applied == true {
             self.setButton(state: .PENDING)
-    
+            
+            let deleteButton = UIBarButtonItem.init(title: "", style: .plain, target: #selector(deleteList), action: nil)
+            deleteButton.setFAIcon(icon: .FATrash, iconSize: 25)
+              self.navigationItem.rightBarButtonItem = deleteButton
         }
+        
+        self.timeExpired.text = "Listing will expire " + (self.listing.startTime as Date).toStringWithRelativeTime()
     
+    }
+    
+    func deleteList(sender: Any) {
+        
+        self.listing.relation(forKey: "applicants").remove(self.currentUser)
+        
+        self.listing.saveEventually { (succeed, err) in
+            guard let e = err else {
+                let _ = self.navigationController?.popViewController(animated: true)
+                return
+            }
+            self.showAlert(title: "Error", message: e.localizedDescription)
+        }
+        
+        
     }
     
     
@@ -246,6 +267,7 @@ class DetailListingViewController: BaseTableViewController {
                     self.applicants = results!
                     self.innerTable.delegate = self
                     self.innerTable.dataSource = self
+                    self.innerTable.reloadData()
                     return
                 }
                 self.showAlert(title: "Error", message: err.localizedDescription)
@@ -284,9 +306,24 @@ extension DetailListingViewController{
             let innercell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
             let user = self.applicants[indexPath.row]
             innercell.iconLabel.text = (user["name"] as! String).initial.uppercased()
-            innercell.titleLabel.text = (user["name"] as! String)
-            innercell.detailLabel.text = "detail"
+            innercell.titleLabel.text = (user["name"] as! String).capitalized
+             if listing.active  == true {
+                self.innerTable.allowsSelection = false
+                if (listing.worker ==  user) {
+                     innercell.titleLabel.textColor = UIColor.flatSkyBlue
+                    innercell.detailLabel.text = ""
+                    innercell.accessoryType = .checkmark
+                    innercell.detailLabel.text = "got the job"
 
+                }else{
+                    innercell.titleLabel.textColor = UIColor.flatBlack
+                    innercell.detailLabel.text = ""
+                }
+                
+             }else{
+                innercell.titleLabel.textColor = UIColor.flatBlack
+                innercell.detailLabel.text = "click to select"
+            }
           //  innercell.iconLabel.text
             return innercell
         }
@@ -324,9 +361,12 @@ extension DetailListingViewController{
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.innerTable == tableView {
-            if isOwner {
-                return "Applicants"
-            }else{
+           if (listing.active  == true && isOwner){
+                return ""
+           }
+           else if(listing.active  == false && isOwner){
+                return "Choose an applicant"
+           }else{
                 return "Employer"
             }
             
@@ -337,6 +377,26 @@ extension DetailListingViewController{
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1
     }
+    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if listing.active  == false && isOwner{
+            let selectedUser = self.applicants[indexPath.row]
+            self.listing.worker = selectedUser
+            listing.active = true
+
+            listing.saveInBackground(block: { (success, error) in
+                guard let err = error else {
+                    self.innerTable.reloadData()
+                    return
+                }
+                self.showAlert(title: "Error", message: err.localizedDescription)
+            })
+        }
+        
+    }
+    
+    
 
 }
 
