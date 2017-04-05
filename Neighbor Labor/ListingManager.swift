@@ -37,6 +37,7 @@ class ListingManager : ListingInteractor{
         listing.duration = duration
         listing.compensation = compensation
         listing.active = false
+    
      //   listing.worker = nil
         
         

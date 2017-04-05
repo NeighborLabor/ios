@@ -55,18 +55,12 @@ import UIKit
 // Table
 extension ActiveJobsViewController {
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        
-    }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
         let list = listings[indexPath.row]
-        let userName = (list.createdBy["name"] as! String)
-        cell.iconLabel.text = userName.initial.uppercased()
+        let userName = (list.createdBy["name"] as? String)
+        cell.iconLabel.text = userName?.initial.uppercased()
         cell.titleLabel.text = list.title
         cell.detailLabel.text = userName
         

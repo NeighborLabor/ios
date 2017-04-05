@@ -109,6 +109,8 @@ class CreateListViewController: UIViewController{
         // store the storyboard heights
         self.hiddenDateHeight = Double(self.hiddenDateContraint.constant)
         self.hiddenTimeHeight = Double(self.hiddenTimeConstraint.constant)
+        self.hideKeyboard()
+        
         
         // set layout height = 0 or hidden
         self.hiddenTimeConstraint.constant = 0
@@ -116,6 +118,8 @@ class CreateListViewController: UIViewController{
         
         self.outletsSetUp()
         self.registerForm()
+        
+        
         
     }
     

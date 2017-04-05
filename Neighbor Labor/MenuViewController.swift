@@ -71,10 +71,10 @@ extension MenuViewController {
             return
         }
     
-    let name = user["name"]
+    let name = (user["name"] as AnyObject).capitalized
     let email = user.email
     
-    let toProfile = SegueInfo(label:name as! String?, destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
+    let toProfile = SegueInfo(label:name , destinationId: "to_profile", cellIdentifier: "menuheader", detail:email, fa: .FAIdCard)
     let toMyList = SegueInfo(label: "Jobs Listings", destinationId: "to_my_list", cellIdentifier: "menucell", detail: "Your listed jobs", fa: .FAPencil)
     let toActiveJobs = SegueInfo(label: "Job Applications", destinationId: "to_active_job", cellIdentifier: "menucell", detail: "Your list of pending jobs", fa: .FAHourglass)
     let toMessages = SegueInfo(label: "Message", destinationId: "to_messages", cellIdentifier: "menucell", detail: "Your conversations", fa: .FAComment)
