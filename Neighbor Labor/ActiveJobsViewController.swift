@@ -16,29 +16,9 @@ import UIKit
         super.viewDidLoad()
         self.tableView.register( UINib(nibName: "InnerTableCell", bundle: nil), forCellReuseIdentifier: "innercell")
         emptySetUp()
-        
-        
-        let user = AuthManager.currentUser()!
-        
-        let query = Listing.query()!
-        query.whereKey("applicants", equalTo: user)
-        query.includeKey("createdBy")
-        query.findObjectsInBackground { (list, error) in
-            guard let err = error else {
-                
-                self.listings = (list as! [Listing])
-                self.tableView.delegate = self
-                self.tableView.dataSource = self
-                self.tableView.reloadData()
-                 return
-            }
-            self.showAlert(title: "Error", message: err.localizedDescription)
-            
-        }
-        
-        
-
-     }
+        addRefresh()
+        self.tableView.es_startPullToRefresh()
+    }
     
     func emptySetUp() {
         self.desText = "You have not applied for any work!"
@@ -82,6 +62,36 @@ extension ActiveJobsViewController {
         self.navigationController?.viewControllers[0].performSegue(withIdentifier: "to_detail", sender: list)
     }
     
+    func addRefresh() {
+        self.tableView.es_addPullToRefresh {
+            [weak self] in
+            /// Do anything you want...
+            /// ...
+            /// Stop refresh when your job finished, it will reset refresh footer if completion is true
+            let user = AuthManager.currentUser()!
+            
+            let query = Listing.query()!
+            query.whereKey("applicants", equalTo: user)
+            query.includeKey("createdBy")
+            query.findObjectsInBackground { (list, error) in
+                guard let err = error else {
+                    
+                    self?.listings = (list as! [Listing])
+                    self?.tableView.delegate = self
+                    self?.tableView.dataSource = self
+                    self?.tableView.reloadData()
+                    self?.tableView.es_stopPullToRefresh()
+                    return
+                }
+                self?.showAlert(title: "Error", message: err.localizedDescription)
+                
+            self?.tableView.es_stopPullToRefresh(ignoreDate: true)
+            /// Set ignore footer or not
+            self?.tableView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
+        }
+        }
+    
+    }
     
     
 }

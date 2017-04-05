@@ -217,7 +217,7 @@ class DetailListingViewController: BaseTableViewController {
         if listing.applied == true {
             self.setButton(state: .PENDING)
             
-            let deleteButton = UIBarButtonItem.init(title: "", style: .plain, target: #selector(deleteList), action: nil)
+            let deleteButton = UIBarButtonItem.init(title: "", style: .plain, target:self, action:  #selector(deleteList))
             deleteButton.setFAIcon(icon: .FATrash, iconSize: 25)
               self.navigationItem.rightBarButtonItem = deleteButton
         }
@@ -227,10 +227,11 @@ class DetailListingViewController: BaseTableViewController {
     }
     
     func deleteList(sender: Any) {
+        print("DElete")
         
         self.listing.relation(forKey: "applicants").remove(self.currentUser)
         
-        self.listing.saveEventually { (succeed, err) in
+        self.listing.saveInBackground() { (succeed, err) in
             guard let e = err else {
                 let _ = self.navigationController?.popViewController(animated: true)
                 return
@@ -277,9 +278,20 @@ class DetailListingViewController: BaseTableViewController {
             
         }else {
             self.isOwner = false
-            self.applicants.append(user)
-            self.innerTable.delegate = self
-            self.innerTable.dataSource = self
+            
+            listing.createdBy.fetchIfNeededInBackground(block: { (creator, error) in
+                self.desText = "Error!"
+                
+                guard let ctor = creator else {
+                    self.desText = "Error!"
+                    return
+                }
+                self.applicants.append(ctor as! PFUser)
+                self.innerTable.delegate = self
+                self.innerTable.dataSource = self
+                self.innerTable.reloadData()
+            })
+
         }
         
     }
