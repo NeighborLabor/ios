@@ -94,7 +94,7 @@ class DetailListingViewController: BaseTableViewController {
     }
     
     enum State {
-        case LOCK,OWNER,VERIFIELD, SUCCEEDED, PENDING
+        case LOCK,OWNER,VERIFIELD, SUCCEEDED, PENDING, ACTIVE
     }
     
     func setButton(state: State) {
@@ -113,13 +113,19 @@ class DetailListingViewController: BaseTableViewController {
                 self.applyDeleteButton.backgroundColor = .flatWatermelon
                 self.applyDeleteButton.isEnabled = true
              case .SUCCEEDED:
-                self.applyDeleteButton.setTitle("SUCCEEDED", for: .normal)
+                self.applyDeleteButton.setTitle("Done", for: .normal)
                 self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
                 self.applyDeleteButton.isEnabled = false
             case .PENDING:
                 self.applyDeleteButton.setTitle("PENDING", for: .normal)
                 self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
                 self.applyDeleteButton.isEnabled = false
+            case .ACTIVE:
+                self.applyDeleteButton.setTitle("ACTIVE", for: .normal)
+                self.applyDeleteButton.backgroundColor = UIColor.flatGreenDark
+                self.applyDeleteButton.isEnabled = false
+                self.timeExpired.text = "Congrates, you have choose!"
+                
             }
 
         }
@@ -217,8 +223,15 @@ class DetailListingViewController: BaseTableViewController {
         if listing.applied == true {
             self.setButton(state: .PENDING)
             
+            var icon = FAType.FATrash
+            
+            if listing.worker.objectId == self.currentUser.objectId {
+             self.setButton(state: .ACTIVE)
+            icon = FAType.FACheck
+            }
+            
             let deleteButton = UIBarButtonItem.init(title: "", style: .plain, target:self, action:  #selector(deleteList))
-            deleteButton.setFAIcon(icon: .FATrash, iconSize: 25)
+            deleteButton.setFAIcon(icon: icon, iconSize: 25)
               self.navigationItem.rightBarButtonItem = deleteButton
         }
         
@@ -332,6 +345,7 @@ extension DetailListingViewController{
                 
              }else{
                 innercell.titleLabel.textColor = UIColor.flatBlack
+                innercell.detailLabel.text = "select as worker"
             }
           //  innercell.iconLabel.text
             return innercell
