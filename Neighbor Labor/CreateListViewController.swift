@@ -226,6 +226,7 @@ extension CreateListViewController: ValidationDelegate {
         
         if beginDateTime.compare(.isInThePast) {
             self.errSubmitLabel.text = "The date or time your entered has expireds"
+            self.errDateLabel.textColor = UIColor.flatWatermelon
             return
         }
         let duration = endDateTime.since(beginDateTime, in: .minute)

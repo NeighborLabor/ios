@@ -10,9 +10,14 @@ import UIKit
 import Parse
 import ChameleonFramework
 import Font_Awesome_Swift
+import ESPullToRefresh
 
 
 class ListViewController: BaseViewController{
+    var image = UIImage.init(icon: FAType.FAAnchor, size: CGSize(width: 150, height: 150), textColor: UIColor.flatGrayDark, backgroundColor: .clear)
+    var titleText = ""
+    var desText = ""
+    var buttonText = ""
 
     // information for folding cells
     
@@ -100,11 +105,35 @@ extension ListViewController{
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+    
+        addRefresh()
+        self.tableView.es_startPullToRefresh()
      }
+    
+    func addRefresh() {
+        self.tableView.es_addPullToRefresh {
+            [weak self] in
+            /// Do anything you want...
+            /// ...
+            /// Stop refresh when your job finished, it will reset refresh footer if completion is true
+            Listing.query()?.findObjectsInBackground(block: { (results, error) in
+                guard let error = error else{
+                    
+                    self?.listings = results as! [Listing]
+                    self?.tableView.reloadData()
+                    return
+                }
+                self?.showAlert(title: "Error", message: error.localizedDescription)
+            })
+            self?.tableView.es_stopPullToRefresh(ignoreDate: true)
+            /// Set ignore footer or not
+            self?.tableView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
+        }
+    }
+    
+    
 
 }
-
 
 
 
@@ -115,16 +144,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func populateTable(){
-         Listing.query()?.findObjectsInBackground(block: { (results, error) in
-            guard let error = error else{
-                
-                self.listings = results as! [Listing]
- 
-                 self.tableView.reloadData()
-                return
-            }
-            self.showAlert(title: "Error", message: error.localizedDescription)
-        })
+    
+        
     }
     
     
@@ -164,8 +185,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
 
 // Sgues
 
-
-extension ListViewController {
+extension ListViewController{
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

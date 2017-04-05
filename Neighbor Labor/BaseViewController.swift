@@ -16,8 +16,6 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        
         
     }
   
@@ -141,5 +139,24 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+
+
+
+
+extension ListViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
+    
+    public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let style = StringStyle(
+            .font(UIFont(name: "AmericanTypewriter", size: 17)!)
+        )
+        
+        let attributedString = desText.styled(with: style)
+        return attributedString
+    }
+    
+}
+
+
 
 

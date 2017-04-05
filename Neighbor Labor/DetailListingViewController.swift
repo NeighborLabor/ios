@@ -249,6 +249,7 @@ class DetailListingViewController: BaseTableViewController {
         self.innerTable.register( UINib(nibName: "InnerTableCell", bundle: Bundle.main), forCellReuseIdentifier: "innercell")
 
         self.desText = "0 applicants"
+        print(listing)
         
         guard let user = AuthManager.currentUser() else {
             
@@ -299,8 +300,6 @@ class DetailListingViewController: BaseTableViewController {
 
 extension DetailListingViewController{
 
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.innerTable == tableView {
             let innercell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
@@ -308,21 +307,19 @@ extension DetailListingViewController{
             innercell.iconLabel.text = (user["name"] as! String).initial.uppercased()
             innercell.titleLabel.text = (user["name"] as! String).capitalized
              if listing.active  == true {
-                self.innerTable.allowsSelection = false
-                if (listing.worker ==  user) {
-                     innercell.titleLabel.textColor = UIColor.flatSkyBlue
-                    innercell.detailLabel.text = ""
+                if (listing.worker.objectId ==  user.objectId) {
+                    innercell.iconLabel.backgroundColor = UIColor.flatSkyBlue
                     innercell.accessoryType = .checkmark
                     innercell.detailLabel.text = "got the job"
 
                 }else{
-                    innercell.titleLabel.textColor = UIColor.flatBlack
+                    self.innerTable.allowsSelection = false
+                    innercell.iconLabel.backgroundColor = UIColor.flatGray
                     innercell.detailLabel.text = ""
                 }
                 
              }else{
                 innercell.titleLabel.textColor = UIColor.flatBlack
-                innercell.detailLabel.text = "click to select"
             }
           //  innercell.iconLabel.text
             return innercell
@@ -362,7 +359,7 @@ extension DetailListingViewController{
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.innerTable == tableView {
            if (listing.active  == true && isOwner){
-                return ""
+                return "Worker"
            }
            else if(listing.active  == false && isOwner){
                 return "Choose an applicant"
@@ -395,6 +392,7 @@ extension DetailListingViewController{
         }
         
     }
+    
     
     
 
