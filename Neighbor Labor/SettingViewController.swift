@@ -15,7 +15,8 @@ class SettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "Setting"
+
         self.bgImage.image = UIImage.init(icon: .FAAnchor, size: CGSize(width: 100, height: 100), textColor: .flatGrayDark, backgroundColor: .clear)
      }
 

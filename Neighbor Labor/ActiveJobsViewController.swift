@@ -14,11 +14,13 @@ import UIKit
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Active Jobs"
+
         self.tableView.register( UINib(nibName: "InnerTableCell", bundle: nil), forCellReuseIdentifier: "innercell")
         emptySetUp()
         addRefresh()
         self.tableView.es_startPullToRefresh()
-    }
+     }
     
     func emptySetUp() {
         self.desText = "You have not applied for any work!"

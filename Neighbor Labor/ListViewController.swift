@@ -11,7 +11,7 @@ import Parse
 import ChameleonFramework
 import Font_Awesome_Swift
 import ESPullToRefresh
-
+import Presentr
 
 class ListViewController: BaseViewController{
     var image = UIImage.init(icon: FAType.FAAnchor, size: CGSize(width: 150, height: 150), textColor: UIColor.flatGrayDark, backgroundColor: .clear)
@@ -22,8 +22,9 @@ class ListViewController: BaseViewController{
     // information for folding cells
     
     var isUser = false
-//    
-    
+//
+    let presenter = Presentr(presentationType: .bottomHalf)
+
     // cell data
     let listingManager = ListingManager()
     var listings = [Listing]()
@@ -186,6 +187,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let listing = self.listings[indexPath.row]
         self.performSegue(withIdentifier: "to_detail", sender: listing)
+    
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -193,9 +195,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+
     
-    
-  
 }
 
 
@@ -221,20 +222,38 @@ extension ListViewController : UISearchBarDelegate{
     
     func createSearchBar(){
          self.searchBar.delegate = self
+        let tf = self.searchBar.value(forKey: "searchField") as? UITextField
+        tf?.textColor = UIColor.flatWhite
         self.searchButton.setFAIcon(icon: .FASliders, iconSize: 25)
+        
      }
     
     
     @IBAction func searchButtonAction(_ sender: Any) {
-
+        let controller = FilterViewController()
+         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
+
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchText = searchBar.text
+        print(searchText)
+     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.setShowsCancelButton(true, animated: true)
         
     }
     
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.searchBar.setShowsCancelButton(false, animated: true)
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+
+    }
 
 }
 

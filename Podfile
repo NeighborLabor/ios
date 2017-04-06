@@ -24,6 +24,9 @@ target 'Neighbor Labor' do
     pod 'DatePickerDialog'
     pod 'DLRadioButton', '~> 1.4'
     pod 'ESPullToRefresh'
+    pod 'Presentr'
+    pod 'IQKeyboardManagerSwift'
+
 
   target 'Neighbor LaborTests' do
     inherit! :search_paths

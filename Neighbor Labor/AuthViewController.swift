@@ -31,6 +31,8 @@ class LoginViewController: AuthViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Login"
+
         xButton.setFAIcon(icon: .FAClose, iconSize: 27)
         self.hideKeyboard()
         
@@ -59,8 +61,7 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var confirmTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var zipCodeTF: UITextField!
-    @IBOutlet weak var bioTextView: UITextView!
+     @IBOutlet weak var bioTextView: UITextView!
 
     @IBOutlet weak var scrollView: UIScrollView!
   
@@ -69,7 +70,6 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
     @IBOutlet weak var errPasswordTF: UILabel!
     @IBOutlet weak var errConfirmTF: UILabel!
     @IBOutlet weak var errPhoneTF: UILabel!
-    @IBOutlet weak var errZipCodeTF: UILabel!
     
     
     
@@ -88,7 +88,6 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
         passwordTF.delegate = self
         confirmTF.delegate = self
         phoneTF.delegate = self
-        zipCodeTF.delegate = self
         
         // Validation Rules are evaluated from left to right.
          validator.registerField(nameTF, errorLabel: errNameTF, rules: [RequiredRule(), FullNameRule()])
@@ -102,11 +101,12 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
         validator.registerField(phoneTF , errorLabel: errPhoneTF , rules: [RequiredRule(), PhoneNumberRule()])
     
         // Zip Code Validation
-        validator.registerField(zipCodeTF , errorLabel: errZipCodeTF , rules: [RequiredRule(), ZipCodeRule()])
         
     }
     
     override func viewDidLoad() {
+        self.navigationItem.title = "Sign Up"
+
         super.viewDidLoad()
         self.hideKeyboard()
         self.validateForm()
@@ -134,11 +134,7 @@ class RegisterController : AuthViewController, ValidationDelegate, UITextFieldDe
                 next = phoneTF
             } else if (textField == phoneTF){
                 label = errPhoneTF
-                next = zipCodeTF
-            }else if (textField == zipCodeTF){
-                label = errZipCodeTF
-                self.resignFirstResponder()
-            }
+             }
 
             
             if error == nil{

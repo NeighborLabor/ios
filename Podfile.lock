@@ -13,9 +13,11 @@ PODS:
   - ESPullToRefresh (2.6)
   - Eureka (2.0.1)
   - Font-Awesome-Swift (1.6.1)
+  - IQKeyboardManagerSwift (4.0.8)
   - LFTimePicker (0.3.2)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - Presentr (1.2.3)
   - SideMenu (2.3.0)
   - SwiftValidator (4.0.0)
   - TDBadgedCell (4.1.1)
@@ -32,8 +34,10 @@ DEPENDENCIES:
   - ESPullToRefresh
   - Eureka (~> 2.0)
   - Font-Awesome-Swift (~> 1.6.1)
+  - IQKeyboardManagerSwift
   - LFTimePicker
   - Parse
+  - Presentr
   - SideMenu (~> 2.3.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - TDBadgedCell (from `https://github.com/BendingUnit-22/TDBadgedCell.git`, branch `access_control`)
@@ -72,12 +76,14 @@ SPEC CHECKSUMS:
   ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Font-Awesome-Swift: 70ab020f6749d7048bb49807c3e78b702d78afca
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   LFTimePicker: 2a0b15e35652f87299941ddb1f22a16fae30f1df
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  Presentr: a21c7bbb3532c8ff60320e235c0a4869e72f8885
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: 3a8680eff130152624d3ec08e05c0daf9a41a003
+PODFILE CHECKSUM: c8985c9c35215cfd22cbab80a81713816c447f3b
 
 COCOAPODS: 1.2.0

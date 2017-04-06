@@ -105,7 +105,7 @@ class CreateListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "Create a listing"
         // store the storyboard heights
         self.hiddenDateHeight = Double(self.hiddenDateContraint.constant)
         self.hiddenTimeHeight = Double(self.hiddenTimeConstraint.constant)

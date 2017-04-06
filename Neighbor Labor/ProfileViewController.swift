@@ -22,7 +22,8 @@ class ProfileViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        self.navigationItem.title = "Profile"
+
         currentUser = AuthManager.currentUser()!
         
         nameLabel.text = (currentUser["name"] as? String)
