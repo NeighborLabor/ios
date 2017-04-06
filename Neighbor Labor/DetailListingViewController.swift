@@ -12,7 +12,7 @@ import Font_Awesome_Swift
 import BonMot
 import Parse
 
-
+import AFDateHelper
 
 
 class DetailListingViewController: BaseTableViewController {
@@ -94,7 +94,7 @@ class DetailListingViewController: BaseTableViewController {
     }
     
     enum State {
-        case LOCK,OWNER,VERIFIELD, SUCCEEDED, PENDING, ACTIVE
+        case LOCK,OWNER,VERIFIELD, SUCCEEDED, PENDING, ACTIVE, EXPIRED
     }
     
     func setButton(state: State) {
@@ -121,11 +121,15 @@ class DetailListingViewController: BaseTableViewController {
                 self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
                 self.applyDeleteButton.isEnabled = false
             case .ACTIVE:
-                self.applyDeleteButton.setTitle("ACTIVE", for: .normal)
+                self.applyDeleteButton.setTitle("CONGRATS", for: .normal)
                 self.applyDeleteButton.backgroundColor = UIColor.flatGreenDark
                 self.applyDeleteButton.isEnabled = false
                 self.timeExpired.text = "Congrates, you have choose!"
-                
+            case .EXPIRED:
+                self.applyDeleteButton.setTitle("EXPIRED", for: .normal)
+                self.applyDeleteButton.backgroundColor = UIColor.flatGray
+                self.applyDeleteButton.isEnabled = false
+                self.timeExpired.text = "This listing has expired"
             }
 
         }
@@ -161,6 +165,8 @@ class DetailListingViewController: BaseTableViewController {
             self.currentUser = user
             self.setButton(state: .VERIFIELD)
             return
+        }else if (listing.startTime as Date).compare(.isInThePast) {
+            self.setButton(state: .EXPIRED)
         }else{
             self.setButton(state: .LOCK)
         }
@@ -182,7 +188,7 @@ class DetailListingViewController: BaseTableViewController {
         annotation.coordinate = location
         annotation.title = listing.address
          mapView.addAnnotation(annotation)
- 
+        
     }
     
     
@@ -328,9 +334,11 @@ extension DetailListingViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.innerTable == tableView {
             let innercell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
+
             let user = self.applicants[indexPath.row]
             innercell.iconLabel.text = (user["name"] as! String).initial.uppercased()
             innercell.titleLabel.text = (user["name"] as! String).capitalized
+    
              if listing.active  == true {
                 if (listing.worker.objectId ==  user.objectId) {
                     innercell.iconLabel.backgroundColor = UIColor.flatSkyBlue
@@ -345,7 +353,7 @@ extension DetailListingViewController{
                 
              }else{
                 innercell.titleLabel.textColor = UIColor.flatBlack
-                innercell.detailLabel.text = "select as worker"
+                innercell.detailLabel.text = ""
             }
           //  innercell.iconLabel.text
             return innercell
@@ -356,19 +364,19 @@ extension DetailListingViewController{
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if self.innerTable == tableView {
-            if isOwner {
-                return self.applicants.count
-            }else{
-                return 1
-            }
+            return 1
+
         }
         return super.numberOfSections(in: tableView)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.innerTable == tableView {
-           return applicants.count
-            
+            if isOwner {
+                return self.applicants.count
+            }else{
+                return 1
+            }
         }
         return super.tableView(tableView, numberOfRowsInSection: section)
     }

@@ -32,6 +32,14 @@ class ListViewController: BaseViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var addListingButton: UIBarButtonItem!
+    
+    
+    // Toolbar 
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    
+    
     var currentLocation : PFGeoPoint? {
         return LocationManager.currentLocation
     }
@@ -60,6 +68,9 @@ class ListViewController: BaseViewController{
 
     }
     
+    
+ 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let icon_size : CGFloat = 25
@@ -71,7 +82,7 @@ class ListViewController: BaseViewController{
             addListingButton.setFAIcon(icon: .FALock, iconSize: icon_size)
             isUser = false
         }
-    
+     
     }
     
     func getRequiredPermission(){
@@ -98,6 +109,10 @@ class ListViewController: BaseViewController{
 extension ListViewController{
     
     // ICons
+    
+    
+    
+    
     func customizeOutlets() {
  
         
@@ -178,6 +193,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    
   
 }
 
@@ -203,10 +220,21 @@ extension ListViewController{
 extension ListViewController : UISearchBarDelegate{
     
     func createSearchBar(){
-        let searchBar = UISearchBar()
-        searchBar.showsCancelButton = true
-        searchBar.delegate = self
+         self.searchBar.delegate = self
+        self.searchButton.setFAIcon(icon: .FASliders, iconSize: 25)
      }
+    
+    
+    @IBAction func searchButtonAction(_ sender: Any) {
+
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    
+    
 
 }
 
