@@ -87,15 +87,15 @@ class ListViewController: BaseViewController{
     }
     
     func getRequiredPermission(){
-            LocationManager.startLocationUpdate { (err) in
+            LocationManager.startLocationUpdate { [weak self] (err) in
+ 
                 guard let error = err else {
                     // no error
-                    self.populateTable()
-                    return
+                     return
                 }
                 // No Permission Error
                 print(error.localizedDescription)
-                self.showAlert(title: "Location Require", message: "Please allow location access in Setting")
+                self?.showAlert(title: "Location Require", message: "Please allow location access in Setting")
              }
     
     }
@@ -132,7 +132,9 @@ extension ListViewController{
             /// Do anything you want...
             /// ...
             /// Stop refresh when your job finished, it will reset refresh footer if completion is true
-            Listing.query()?.findObjectsInBackground(block: { (results, error) in
+            let query = Listing.query()
+            
+            query?.findObjectsInBackground(block: { [weak self] (results, error) in
                 guard let error = error else{
                     
                     self?.listings = results as! [Listing]
@@ -159,10 +161,7 @@ extension ListViewController{
 extension ListViewController: UITableViewDelegate, UITableViewDataSource{
     
     
-    func populateTable(){
-    
-        
-    }
+ 
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -223,31 +222,54 @@ extension ListViewController : UISearchBarDelegate{
     func createSearchBar(){
          self.searchBar.delegate = self
         let tf = self.searchBar.value(forKey: "searchField") as? UITextField
-        tf?.textColor = UIColor.flatWhite
+        tf?.attributedPlaceholder = NSAttributedString(string: "Search", attributes:[NSForegroundColorAttributeName: UIColor.flatWhite])
         self.searchButton.setFAIcon(icon: .FASliders, iconSize: 25)
         
      }
     
     
     @IBAction func searchButtonAction(_ sender: Any) {
+        if self.searchBar.isFirstResponder {
+            self.searchBar.resignFirstResponder()
+            return
+        }
         let controller = FilterViewController()
-         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+
     }
 
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text
-        print(searchText)
+        let listManager = ListingManager()
+       
+        listManager.searchWords(text: searchText!) { (listings, error) in
+            self.searchBar.resignFirstResponder()
+            guard let err = error else {
+                // Search Success
+                self.listings = listings as! [Listing]
+                self.tableView.reloadData()
+
+                return
+            }
+            
+            self.showAlert(title: "Error", message: err.localizedDescription)
+        }
      }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.setShowsCancelButton(true, animated: true)
+       // self.searchBar.setShowsCancelButton(true, animated: false)
         
+        UIView.animate(withDuration: 0.2) { 
+            self.searchButton.setFAIcon(icon: .FAClose, iconSize: 25)
+        }
+    
     }
     
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchBar.setShowsCancelButton(false, animated: true)
+      //  self.searchBar.setShowsCancelButton(false, animated: true)
+        self.searchButton.setFAIcon(icon: .FASliders, iconSize: 25)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

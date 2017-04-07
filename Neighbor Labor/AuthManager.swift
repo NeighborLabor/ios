@@ -68,7 +68,7 @@ class AuthManager : SignUpInteractor, LoginInteractor, SignOutInteractor {
     }
     /*
      *
-     *  SignUpInteractor   */
+     *  LoginInteractor   */
     func loginWith(email: String, password: String, completion: @escaping ErrorResultBlock) {
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
             completion(error as NSError?)

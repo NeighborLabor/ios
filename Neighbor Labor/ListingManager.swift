@@ -60,6 +60,37 @@ class ListingManager : ListingInteractor{
     deinit {
     print("listingManager : deinits")
     }
+    
 
     
 }
+
+
+
+extension ListingManager {
+
+
+    func searchWords(text: String, completion: @escaping ( ([PFObject]?, Error?) -> Void)) {
+        
+        
+        
+        let titleQ = Listing.query()?.whereKey("title", matchesRegex: text, modifiers: "i")
+        let descQ = Listing.query()?.whereKey("descr", matchesRegex: text, modifiers: "i")
+        let addrQ = Listing.query()?.whereKey("address",matchesRegex: text, modifiers: "i")
+        let orQ = PFQuery.orQuery(withSubqueries: [titleQ!, descQ!, addrQ!])
+        
+        orQ.findObjectsInBackground { (objs, error) in
+            completion(objs, error)
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
