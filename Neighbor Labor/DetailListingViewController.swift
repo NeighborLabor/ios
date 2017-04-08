@@ -428,7 +428,7 @@ extension DetailListingViewController{
     }
     
     
-    
+
 
 }
 

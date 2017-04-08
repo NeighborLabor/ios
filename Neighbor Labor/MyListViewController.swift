@@ -31,7 +31,7 @@ import TDBadgedCell
      override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "You Job Listings"
-
+        
         overrideEmptySet()
         
     }
@@ -90,8 +90,7 @@ import TDBadgedCell
         cell.subTitleLabel?.text = listing.descr
         cell.dateIcon.text = (listing.startTime as Date).relativeTimeDescription()
         return cell
-        
-        
+    
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

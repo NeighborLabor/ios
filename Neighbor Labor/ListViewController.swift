@@ -22,9 +22,11 @@ class ListViewController: BaseViewController{
     // information for folding cells
     
     var isUser = false
-//
+//  
+    var filter: PFQuery<PFObject>?
+    
     let presenter = Presentr(presentationType: .bottomHalf)
-
+    var  controller: FilterViewController?
     // cell data
     let listingManager = ListingManager()
     var listings = [Listing]()
@@ -75,6 +77,7 @@ class ListViewController: BaseViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let icon_size : CGFloat = 25
+        print("View will appear")
         menuButton.setFAIcon(icon: .FABars, iconSize: icon_size)
         if let _ = AuthManager.currentUser() {
             addListingButton.setFAIcon(icon: .FAPencil, iconSize: icon_size)
@@ -107,10 +110,15 @@ class ListViewController: BaseViewController{
 
 
 // Customaization
-extension ListViewController{
+extension ListViewController : FilterViewControllerDelegate{
     
     // ICons
     
+    
+    func didApplyFilter(query: PFQuery<PFObject>) {
+        filter = query
+        self.tableView.es_startPullToRefresh()
+    }
     
     
     
@@ -121,7 +129,8 @@ extension ListViewController{
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-    
+        controller = storyboard!.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController
+        controller?.delegate = self
         addRefresh()
         self.tableView.es_startPullToRefresh()
      }
@@ -132,16 +141,14 @@ extension ListViewController{
             /// Do anything you want...
             /// ...
             /// Stop refresh when your job finished, it will reset refresh footer if completion is true
-            let query = Listing.query()
-            
-            query?.findObjectsInBackground(block: { [weak self] (results, error) in
-                guard let error = error else{
-                    
-                    self?.listings = results as! [Listing]
+            self?.listingManager.searchListRequest(query: self?.filter, completion: { (results, error) in
+                guard let err = error else {
+                    self?.tableView.es_stopLoadingMore()
+                    self?.listings = (results as? [Listing])!
                     self?.tableView.reloadData()
                     return
                 }
-                self?.showAlert(title: "Error", message: error.localizedDescription)
+                self?.showAlert(title: "Error", message: err.localizedDescription)
             })
             self?.tableView.es_stopPullToRefresh(ignoreDate: true)
             /// Set ignore footer or not
@@ -149,8 +156,6 @@ extension ListViewController{
         }
     }
     
-    
-
 }
 
 
@@ -195,7 +200,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource{
         return 150
     }
 
-    
+
 }
 
 
@@ -217,7 +222,7 @@ extension ListViewController{
 
 
 // Search
-extension ListViewController : UISearchBarDelegate{
+extension ListViewController : UISearchBarDelegate, PresentrDelegate{
     
     func createSearchBar(){
          self.searchBar.delegate = self
@@ -235,11 +240,8 @@ extension ListViewController : UISearchBarDelegate{
             return
         }
         
-        if let controller = storyboard!.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController {
-            print("controller exists")
-            customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
-        }
-
+        customPresentViewController(presenter, viewController: controller!, animated: true, completion: nil)
+        
     }
 
     
@@ -278,9 +280,13 @@ extension ListViewController : UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
-
+        
     }
 
+    
+    func presentrShouldDismiss(keyboardShowing: Bool) -> Bool {
+        return true
+    }
 }
 
 

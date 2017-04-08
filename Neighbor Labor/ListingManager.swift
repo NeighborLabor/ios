@@ -84,6 +84,21 @@ extension ListingManager {
         }
     }
     
+    
+    func searchListRequest(query: PFQuery<PFObject>?, completion: @escaping ( ([PFObject]?, (Error?)) -> Void)){
+
+        var listQuery = Listing.query()
+        if query != nil {
+            print("Filter Query recieved")
+            listQuery = query
+        }
+        
+        listQuery?.findObjectsInBackground(block: { (results, error) in
+            completion(results, error)
+        })
+    }
+    
+    
 }
 
 
