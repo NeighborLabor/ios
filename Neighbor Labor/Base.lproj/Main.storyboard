@@ -584,6 +584,30 @@
             </objects>
             <point key="canvasLocation" x="903.20000000000005" y="-1186.5067466266867"/>
         </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="Mcp-Js-OEs">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="1cB-d4-eTk" customClass="FilterViewController" customModule="Neighbor_Labor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rcH-Vn-j9T"/>
+                        <viewControllerLayoutGuide type="bottom" id="aK3-tx-r63"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nxw-hU-RFH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TMh-Xe-fgw">
+                                <rect key="frame" x="18" y="20" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Apv-gI-gWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896.8" y="-805.54722638680664"/>
+        </scene>
         <!--NL-->
         <scene sceneID="4C3-fd-mSd">
             <objects>
@@ -1281,7 +1305,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="0Sg-nX-j5c" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NCD-Xz-VzP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NCD-Xz-VzP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1508,7 +1532,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Hj-4d-1pU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hgd-FU-NuE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgd-FU-NuE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1531,7 +1555,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="305-Rm-Ewx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" id="pOh-z5-3qO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="pOh-z5-3qO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1717,7 +1741,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8bY-EN-sJq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8bY-EN-sJq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

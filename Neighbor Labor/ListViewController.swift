@@ -222,7 +222,8 @@ extension ListViewController : UISearchBarDelegate{
     func createSearchBar(){
          self.searchBar.delegate = self
         let tf = self.searchBar.value(forKey: "searchField") as? UITextField
-        tf?.attributedPlaceholder = NSAttributedString(string: "Search", attributes:[NSForegroundColorAttributeName: UIColor.flatWhite])
+        tf?.attributedPlaceholder = NSAttributedString(string: "Search", attributes:[NSForegroundColorAttributeName: UIColor.flatWhiteDark])
+        tf?.textColor = UIColor.flatWhite
         self.searchButton.setFAIcon(icon: .FASliders, iconSize: 25)
         
      }
@@ -233,8 +234,11 @@ extension ListViewController : UISearchBarDelegate{
             self.searchBar.resignFirstResponder()
             return
         }
-        let controller = FilterViewController()
-        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+        
+        if let controller = storyboard!.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController {
+            print("controller exists")
+            customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+        }
 
     }
 
