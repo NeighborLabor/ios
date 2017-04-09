@@ -33,11 +33,9 @@ class Listing: PFObject, PFSubclassing{
 }
 
 class Review: PFObject, PFSubclassing{
-    @NSManaged var createdBy: PFUser
+    @NSManaged var user: PFRelation<PFUser>
     @NSManaged var rating: Int
     @NSManaged var descr: String
-    @NSManaged var reviewer: PFUser
-    @NSManaged var listing: Listing
 
     static func parseClassName() -> String {
         return "Review"

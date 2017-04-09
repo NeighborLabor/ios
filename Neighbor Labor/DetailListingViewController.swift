@@ -11,7 +11,7 @@ import MapKit
 import Font_Awesome_Swift
 import BonMot
 import Parse
-
+import SideMenu
 import AFDateHelper
 
 
@@ -267,8 +267,7 @@ class DetailListingViewController: BaseTableViewController {
         self.innerTable.emptyDataSetSource = self
         self.innerTable.emptyDataSetDelegate = self
         self.innerTable.register( UINib(nibName: "InnerTableCell", bundle: Bundle.main), forCellReuseIdentifier: "innercell")
-
-        self.desText = "0 applicants"
+         self.desText = "0 applicants"
         print(listing)
         
         guard let user = AuthManager.currentUser() else {
@@ -335,18 +334,17 @@ extension DetailListingViewController{
         if self.innerTable == tableView {
             let innercell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
 
-            let user = self.applicants[indexPath.row]
-            innercell.iconLabel.text = (user["name"] as! String).initial.uppercased()
-            innercell.titleLabel.text = (user["name"] as! String).capitalized
+            let applicant = self.applicants[indexPath.row]
+            innercell.iconLabel.text = (applicant["name"] as! String).initial.uppercased()
+            innercell.titleLabel.text = (applicant["name"] as! String).capitalized
     
              if listing.active  == true {
-                if (listing.worker.objectId ==  user.objectId) {
+                if (listing.worker.objectId ==  applicant.objectId) {
                     innercell.iconLabel.backgroundColor = UIColor.flatSkyBlue
                     innercell.accessoryType = .checkmark
                     innercell.detailLabel.text = "got the job"
 
                 }else{
-                    self.innerTable.allowsSelection = false
                     innercell.iconLabel.backgroundColor = UIColor.flatGray
                     innercell.detailLabel.text = ""
                 }
@@ -415,7 +413,7 @@ extension DetailListingViewController{
             let selectedUser = self.applicants[indexPath.row]
             self.listing.worker = selectedUser
             listing.active = true
-
+            
             listing.saveInBackground(block: { (success, error) in
                 guard let err = error else {
                     self.innerTable.reloadData()
@@ -423,11 +421,21 @@ extension DetailListingViewController{
                 }
                 self.showAlert(title: "Error", message: err.localizedDescription)
             })
+        }else{
+            let user = self.applicants[indexPath.row]
+            self.performSegue(withIdentifier: "to_profile", sender: user)
         }
         
     }
     
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination.isKind(of: ProfileViewController.self) {
+            let pvc = segue.destination as! ProfileViewController
+            pvc.user = sender as! PFUser?
+        }
+    }
     
 
 }
