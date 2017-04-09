@@ -146,16 +146,32 @@ extension UIViewController {
 
 extension ListViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
     
+    public func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.flatWhite
+    }
+    
+    
+    public func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return self.image
+    }
+    
+    public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        titleText = "No listings found!"
+        return NSAttributedString(string: titleText)
+    }
+    
     public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let style = StringStyle(
             .font(UIFont(name: "AmericanTypewriter", size: 17)!)
         )
-        
+        desText = "Try again later"
         let attributedString = desText.styled(with: style)
         return attributedString
     }
     
+    
 }
+
 
 
 

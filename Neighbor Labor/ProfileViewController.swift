@@ -28,8 +28,7 @@ class ProfileViewController: UITableViewController {
         
         nameLabel.text = (currentUser["name"] as? String)
         
-        mapDatatoComponents()
-
+ 
         
      }
 
@@ -37,12 +36,7 @@ class ProfileViewController: UITableViewController {
 
 extension ProfileViewController{
     
-    func mapDatatoComponents(){
  
-        
-        
-        
-    }
     
     
 }

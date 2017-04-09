@@ -138,8 +138,8 @@ extension CreateListViewController: LFTimePickerDelegate {
     }
     
     func didPickTime(_ start: String, end: String) {
-        sTime = Date(fromString: start, format: .custom("HH:mm"))
-        eTime = Date(fromString: end, format: .custom("HH:mm"))
+        sTime = Date(fromString: start, format: .custom("HH:mm"))!.adjust(.hour, offset: 24)
+        eTime = Date(fromString: end, format: .custom("HH:mm"))!.adjust(.hour, offset: 24)
     
         
         

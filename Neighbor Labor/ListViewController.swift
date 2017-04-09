@@ -129,6 +129,8 @@ extension ListViewController : FilterViewControllerDelegate{
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         controller = storyboard!.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController
         controller?.delegate = self
         addRefresh()

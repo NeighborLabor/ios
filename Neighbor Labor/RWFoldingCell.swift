@@ -67,7 +67,13 @@ class RWFoldingCell: UITableViewCell{
         
         titleLabel.text = title
         locationLabel.text = list.descr
-        durationLabel.text = String(time_required) + " mins"
+        
+        if time_required >= 60 {
+            durationLabel.text = String(Int(time_required/60)) + " hours"
+
+        }else{
+            durationLabel.text = String(time_required) + " mins"
+        }
         
         ownerLabel.text = distance.string1 + " miles"
         
