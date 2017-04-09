@@ -17,6 +17,7 @@
 		943498AF1E86F53500A8F8A0 /* FetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943498AE1E86F53500A8F8A0 /* FetchManager.swift */; };
 		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
 		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
+		9443DC001E9AEB4C00880412 /* Arkhip_font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9443DBFF1E9AEB4C00880412 /* Arkhip_font.ttf */; };
 		947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0AB1E454E5100E836F5 /* AppDelegate.swift */; };
 		947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0AF1E454E5100E836F5 /* Main.storyboard */; };
 		947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0B21E454E5100E836F5 /* Assets.xcassets */; };
@@ -72,6 +73,8 @@
 		943498AE1E86F53500A8F8A0 /* FetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchManager.swift; sourceTree = "<group>"; };
 		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9443DBFF1E9AEB4C00880412 /* Arkhip_font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arkhip_font.ttf; sourceTree = "<group>"; };
+		9443DC011E9AEC0700880412 /* BananaYeti-Extrabold-Trial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BananaYeti-Extrabold-Trial.ttf"; sourceTree = "<group>"; };
 		947DA0A81E454E5100E836F5 /* Neighbor Labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neighbor Labor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		947DA0AB1E454E5100E836F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		947DA0B01E454E5100E836F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				947DA0B21E454E5100E836F5 /* Assets.xcassets */,
 				947DA0B41E454E5100E836F5 /* LaunchScreen.storyboard */,
 				947DA0B71E454E5100E836F5 /* Info.plist */,
+				9443DBFF1E9AEB4C00880412 /* Arkhip_font.ttf */,
+				9443DC011E9AEC0700880412 /* BananaYeti-Extrabold-Trial.ttf */,
 			);
 			path = "Neighbor Labor";
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9443DC001E9AEB4C00880412 /* Arkhip_font.ttf in Resources */,
 				9429815B1E7C5F1D006CC44F /* RWFoldingCell.xib in Resources */,
 				94B8DEB31E90571A00063318 /* InnerTableCell.xib in Resources */,
 				947DA0B61E454E5100E836F5 /* LaunchScreen.storyboard in Resources */,

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,15 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-r2-YDb">
-                                <rect key="frame" x="62" y="72.5" width="250" height="402"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="402" id="Bts-EG-Xuj"/>
-                                    <constraint firstAttribute="width" constant="250" id="z9w-lL-sqa"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2017 Durgas List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZy-uo-376">
-                                <rect key="frame" x="16" y="494.5" width="343" height="21"/>
+                                <rect key="frame" x="16" y="495" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0Vw-eP-SwW"/>
                                 </constraints>
@@ -39,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-RK-elh">
-                                <rect key="frame" x="16" y="515.5" width="343" height="21"/>
+                                <rect key="frame" x="16" y="516" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="tMU-dv-AZ8"/>
                                 </constraints>
@@ -47,8 +40,15 @@
                                 <color key="textColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-r2-YDb">
+                                <rect key="frame" x="62" y="73" width="250" height="402"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="402" id="Bts-EG-Xuj"/>
+                                    <constraint firstAttribute="width" constant="250" id="z9w-lL-sqa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MZy-uo-376" firstAttribute="top" secondItem="CLe-r2-YDb" secondAttribute="bottom" constant="20" id="1MU-NM-lvI"/>
                             <constraint firstItem="Iy9-RK-elh" firstAttribute="top" secondItem="MZy-uo-376" secondAttribute="bottom" id="BqA-wx-Zn9"/>
@@ -67,6 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="59" height="59"/>
+        <image name="logo" width="512" height="512"/>
     </resources>
 </document>

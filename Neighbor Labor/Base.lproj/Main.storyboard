@@ -765,7 +765,7 @@
             </objects>
             <point key="canvasLocation" x="1896.8" y="-805.54722638680664"/>
         </scene>
-        <!--NL-->
+        <!--Durgas List-->
         <scene sceneID="4C3-fd-mSd">
             <objects>
                 <viewController id="4yq-ac-k3P" customClass="ListViewController" customModule="Neighbor_Labor" customModuleProvider="target" sceneMemberID="viewController">
@@ -816,7 +816,7 @@
                             <constraint firstAttribute="trailing" secondItem="2OE-KX-OHb" secondAttribute="trailing" id="qMu-1T-bEY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NL" id="hPb-Gn-Mug">
+                    <navigationItem key="navigationItem" title="Durgas List" id="hPb-Gn-Mug">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Feh-be-jjZ">
                             <connections>
                                 <segue destination="0Sg-nX-j5c" kind="presentation" id="hjZ-58-4hq"/>
@@ -1462,7 +1462,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="0Sg-nX-j5c" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NCD-Xz-VzP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NCD-Xz-VzP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1772,7 +1772,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Hj-4d-1pU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgd-FU-NuE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hgd-FU-NuE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1795,13 +1795,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="305-Rm-Ewx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="pOh-z5-3qO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" id="pOh-z5-3qO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                            <fontDescription key="fontDescription" name="Arkhip" family="Arkhip" pointSize="19"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1815,7 +1815,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoA-Tq-3Tl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2775" y="-925"/>
+            <point key="canvasLocation" x="-2164" y="-922"/>
         </scene>
         <!--My List View Controller-->
         <scene sceneID="Iy0-Qb-Zmb">
@@ -1906,10 +1906,10 @@
             </objects>
             <point key="canvasLocation" x="-818.39999999999998" y="1458.6206896551726"/>
         </scene>
-        <!--Message View Controller-->
+        <!--View Controller-->
         <scene sceneID="Bte-op-3z7">
             <objects>
-                <viewController id="6rE-SS-3mt" customClass="MessageViewController" customModule="Neighbor_Labor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6rE-SS-3mt" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GVW-Nl-emd"/>
                         <viewControllerLayoutGuide type="bottom" id="omo-ob-bBb"/>
@@ -1981,7 +1981,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8bY-EN-sJq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8bY-EN-sJq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2001,10 +2001,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="59" height="59"/>
+        <image name="logo" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Nyd-7z-hzb"/>
         <segue reference="7j3-xb-mEj"/>
-        <segue reference="V8H-ZD-9cA"/>
     </inferredMetricsTieBreakers>
 </document>

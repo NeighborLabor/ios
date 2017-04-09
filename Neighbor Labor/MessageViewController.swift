@@ -7,14 +7,18 @@
 //
 
 import UIKit
-
-class MessageViewController: UIViewController {
+import Font_Awesome_Swift
+class MessageViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Messages"
-
+        self.image = UIImage.init(icon: .FAEnvelopeO, size: CGSize(width: 200, height: 200  ))
+        self.desText = "No Messages"
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetSource = self
      }
-
- 
 }
+
+
+

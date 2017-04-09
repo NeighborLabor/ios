@@ -43,3 +43,19 @@ class Review: PFObject, PFSubclassing{
 }
 
 
+class Thread : PFObject, PFSubclassing {
+    @NSManaged var participants: PFRelation<PFUser>
+    static func parseClassName() -> String {
+        return "Thread"
+    }
+}
+
+
+class Message: PFObject, PFSubclassing {
+    @NSManaged var threadId: String
+    @NSManaged var body: String
+    @NSManaged var userId: String
+    static func parseClassName() -> String {
+        return "Message"
+    }
+}
