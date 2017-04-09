@@ -87,7 +87,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf" translatesAutoresizingMaskIntoConstraints="NO" id="mi1-Pd-SEy">
-                                <rect key="frame" x="16" y="72" width="343" height="180"/>
+                                <rect key="frame" x="16" y="85" width="343" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="F7G-Pn-i8q"/>
                                 </constraints>
@@ -107,7 +107,7 @@
                             <constraint firstItem="1dq-5Q-0hO" firstAttribute="trailing" secondItem="wS7-rp-0HQ" secondAttribute="trailing" id="NPK-Gl-bOM"/>
                             <constraint firstItem="wS7-rp-0HQ" firstAttribute="top" secondItem="1dq-5Q-0hO" secondAttribute="bottom" constant="25" id="Vos-18-Pkw"/>
                             <constraint firstItem="fid-dG-coS" firstAttribute="top" secondItem="wS7-rp-0HQ" secondAttribute="bottom" constant="20" id="W7q-oU-DZn"/>
-                            <constraint firstItem="mi1-Pd-SEy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="gdJ-Y2-22O"/>
+                            <constraint firstItem="mi1-Pd-SEy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="gdJ-Y2-22O"/>
                             <constraint firstItem="mi1-Pd-SEy" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mOb-Pc-ics"/>
                             <constraint firstItem="cTf-6p-1Yh" firstAttribute="leading" secondItem="vnD-E9-TXh" secondAttribute="leading" id="oAy-jP-LnE"/>
                             <constraint firstItem="cTf-6p-1Yh" firstAttribute="top" secondItem="fid-dG-coS" secondAttribute="bottom" constant="8" symbolic="YES" id="orN-KQ-gNQ"/>
