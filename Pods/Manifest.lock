@@ -18,6 +18,7 @@ PODS:
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - Presentr (1.2.3)
+  - SCLAlertView (0.7.0)
   - SideMenu (2.3.0)
   - SwiftValidator (4.0.0)
   - TDBadgedCell (4.1.1)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - LFTimePicker
   - Parse
   - Presentr
+  - SCLAlertView
   - SideMenu (~> 2.3.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - TDBadgedCell (from `https://github.com/BendingUnit-22/TDBadgedCell.git`, branch `access_control`)
@@ -80,10 +82,11 @@ SPEC CHECKSUMS:
   LFTimePicker: 2a0b15e35652f87299941ddb1f22a16fae30f1df
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   Presentr: a21c7bbb3532c8ff60320e235c0a4869e72f8885
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: c8985c9c35215cfd22cbab80a81713816c447f3b
+PODFILE CHECKSUM: 1249a4728ac09e64576e85b42cb9599013b0d86a
 
 COCOAPODS: 1.2.0

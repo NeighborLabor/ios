@@ -26,6 +26,7 @@ target 'Neighbor Labor' do
     pod 'ESPullToRefresh'
     pod 'Presentr'
     pod 'IQKeyboardManagerSwift'
+    pod 'SCLAlertView'
 
 
   target 'Neighbor LaborTests' do
