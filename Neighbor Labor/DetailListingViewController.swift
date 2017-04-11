@@ -52,7 +52,7 @@ class DetailListingViewController: BaseTableViewController {
         
         if isOwner {
             print("Delete")
-            
+            self.titleLabel.text = "Select worker"
             self.showConfirmAlert(title: "Confirm", message: "Are you sure you want to delete this listing now?", completion: {
                 print("Warning")
                 
@@ -113,7 +113,7 @@ class DetailListingViewController: BaseTableViewController {
                 self.applyDeleteButton.backgroundColor = .flatWatermelon
                 self.applyDeleteButton.isEnabled = true
              case .SUCCEEDED:
-                self.applyDeleteButton.setTitle("Done", for: .normal)
+                self.applyDeleteButton.setTitle("Write a review", for: .normal)
                 self.applyDeleteButton.backgroundColor = UIColor.flatWatermelon
                 self.applyDeleteButton.isEnabled = false
             case .PENDING:
@@ -426,7 +426,7 @@ extension DetailListingViewController{
             let user = self.applicants[indexPath.row]
             self.performSegue(withIdentifier: "to_profile", sender: user)
         }
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
 
     }
     

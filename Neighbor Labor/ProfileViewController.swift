@@ -23,6 +23,7 @@ class ProfileViewController: BaseTableViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     var reviews = [Review]()
+    var reviewable: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,6 +164,8 @@ extension ProfileViewController{
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
+    
+
  
 }
 

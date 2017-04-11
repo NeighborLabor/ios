@@ -18,8 +18,8 @@ class MessageViewController: BaseTableViewController {
     var threads = [Thread]()
     
     let currentUser = AuthManager.currentUser()!
+    var names  = [String]()
     var name = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpEmptyTable()
@@ -57,6 +57,7 @@ class MessageViewController: BaseTableViewController {
                 if let thds = threads {
                     self?.threads = thds as! [Thread]
                     self?.tableView.reloadData()
+                    self?.names = Array(repeating: "", count: thds.count)
                     self?.tableView.es_stopPullToRefresh()
                 }
             })
@@ -93,15 +94,17 @@ extension MessageViewController{
                 return
             }
             
+            var nameoff = ""
             for u in users {
                 if u != self.currentUser {
                     let name = (u["name"] as? String)
-                    self.name = name!
+                    nameoff = name!
                     cell.titleLabel.text = name
                     cell.detailLabel.text = u.updatedAt?.toStringWithRelativeTime()
                     cell.iconLabel.text = name?.initial
                 }
-                
+                self.names[indexPath.row] = nameoff
+
             }
             
         }
@@ -113,7 +116,7 @@ extension MessageViewController{
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.name = names[indexPath.row]
         self.performSegue(withIdentifier: "to_detailmessage", sender: threads[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
         
