@@ -218,7 +218,8 @@ class DetailListingViewController: BaseTableViewController {
         let time = t + "  - " + adJustTime
         self.titleLabel.text =  listing.title
         self.descriptionLabel.text = listing.descr
-
+        
+        self.timeExpired.text = "Please log in"
         self.iconDateLabel.attributedText = attrStringWithIcon(icon: .FAClockO, text: d.uppercased())
         self.iconStreetLabel.attributedText = attrStringWithIcon(icon: .FAMapMarker, text: "LOCATION")
         self.iconMoneyLabel.attributedText = attrStringWithIcon(icon: .FAMoney, text: "COMPENSATION")
@@ -425,7 +426,8 @@ extension DetailListingViewController{
             let user = self.applicants[indexPath.row]
             self.performSegue(withIdentifier: "to_profile", sender: user)
         }
-        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
     

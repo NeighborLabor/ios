@@ -9,6 +9,7 @@
 import UIKit
 import Font_Awesome_Swift
 import SwiftValidator
+import IQKeyboardManagerSwift
 
 
 class AuthViewController: BaseViewController{
@@ -32,6 +33,7 @@ class LoginViewController: AuthViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Login"
+        IQKeyboardManager.sharedManager().enable = true
 
         xButton.setFAIcon(icon: .FAClose, iconSize: 27)
         self.hideKeyboard()

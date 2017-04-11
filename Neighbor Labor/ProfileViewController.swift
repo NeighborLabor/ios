@@ -88,7 +88,8 @@ class ProfileViewController: BaseTableViewController {
         
             let query = Thread.query()!
           //  query.whereKey("participants", equalTo: currentUser)
-            query.whereKey("participants", containsAllObjectsIn: [currentUser,sender] )
+            query.whereKey("participants", equalTo: currentUser)
+            query.whereKey("participants", equalTo: sender)
 
             query.getFirstObjectInBackground(block: { (t, error) in
                 var thread: Thread!
@@ -97,10 +98,9 @@ class ProfileViewController: BaseTableViewController {
                     print("Already has Thread")
                 }else{
                     thread = Thread()
-                    thread.participants.add(sender)
-                    thread.participants.add(currentUser)
+                    thread.relation(forKey: "participants").add(sender)
+                    thread.relation(forKey: "participants").add(currentUser)
                     print("No Thread yet")
-
                 }
                 
                             thread.saveInBackground(block: { (_, error) in

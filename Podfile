@@ -27,7 +27,7 @@ target 'Neighbor Labor' do
     pod 'Presentr'
     pod 'IQKeyboardManagerSwift'
     pod 'SCLAlertView'
-
+    pod 'NMessenger'
 
   target 'Neighbor LaborTests' do
     inherit! :search_paths

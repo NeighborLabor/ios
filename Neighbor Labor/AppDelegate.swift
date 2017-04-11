@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = "http://159.203.73.182:1337/parse"
         }
         Parse.initialize(with: configuration)
-        IQKeyboardManager.sharedManager().enable = true
         Listing.registerSubclass()
         Review.registerSubclass()
         

@@ -14,7 +14,7 @@ import UIKit
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Active Jobs"
+        self.navigationItem.title = "Applications"
 
         self.tableView.register( UINib(nibName: "InnerTableCell", bundle: nil), forCellReuseIdentifier: "innercell")
         emptySetUp()

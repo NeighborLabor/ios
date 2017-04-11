@@ -1,10 +1,12 @@
-    //
+//
 //  MessageViewController.swift
 //  Neighbor Labor
 //
-//  Created by Rixing on 3/21/17.
+//  Created by Rixing on 4/10/17.
 //  Copyright © 2017 Rixing. All rights reserved.
 //
+
+ 
 
 import UIKit
 import Font_Awesome_Swift
@@ -12,27 +14,30 @@ import ESPullToRefresh
 
 
 class MessageViewController: BaseTableViewController {
-
+    
     var threads = [Thread]()
     
     let currentUser = AuthManager.currentUser()!
-
+    var name = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpEmptyTable()
         setUpPullToQuery()
-     }
-
+        self.tableView.es_startPullToRefresh()
+        self.tableView.register( UINib(nibName: "InnerTableCell", bundle: nil), forCellReuseIdentifier: "innercell")
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tableView.es_startPullToRefresh()
-    }
 
+    }
+    
     func setUpEmptyTable() {
         self.image = UIImage.init(icon: .FAEnvelopeO, size: CGSize(width: 200, height: 200  ))
         self.desText = "No Messages"
+        self.navigationItem.title = "Messages"
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetSource = self
         self.tableView.dataSource = self
@@ -61,7 +66,7 @@ class MessageViewController: BaseTableViewController {
             self?.tableView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
         }
         
-     }
+    }
 }
 
 
@@ -78,12 +83,67 @@ extension MessageViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "messagecell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "innercell") as! InnerTableCell
         let thread = self.threads[indexPath.row]
-        cell?.textLabel?.text = "Thread"
-        return cell!
+       
+        
+        thread.participants.query().findObjectsInBackground { (objects, error) in
+            
+            guard let users = objects else {
+                return
+            }
+            
+            for u in users {
+                if u != self.currentUser {
+                    let name = (u["name"] as? String)
+                    self.name = name!
+                    cell.titleLabel.text = name
+                    cell.detailLabel.text = u.updatedAt?.toStringWithRelativeTime()
+                    cell.iconLabel.text = name?.initial
+                }
+                
+            }
+            
+        }
+        
+        
+        return cell
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "to_detailmessage", sender: threads[indexPath.row])
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    
+}
+
+
+// MARK: Segue
+
+extension MessageViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination.isKind(of: MessageDetailViewController.self) {
+            
+            let detailMessVC = segue.destination as! MessageDetailViewController
+            detailMessVC.thread = sender as! Thread
+            detailMessVC.navigationItem.title = self.name
+        }
+        
+        
     }
 }
+
+
+
+
+
+
 
 
 

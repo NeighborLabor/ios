@@ -16,7 +16,7 @@ import CoreLocation
 import SwiftValidator
 import DatePickerDialog
 import  AddressBookUI
-
+import IQKeyboardManagerSwift
 
 import AFDateHelper
 
@@ -110,7 +110,8 @@ class CreateListViewController: UIViewController{
         self.hiddenDateHeight = Double(self.hiddenDateContraint.constant)
         self.hiddenTimeHeight = Double(self.hiddenTimeConstraint.constant)
         self.hideKeyboard()
-        
+        IQKeyboardManager.sharedManager().enable = true
+
         
         // set layout height = 0 or hidden
         self.hiddenTimeConstraint.constant = 0

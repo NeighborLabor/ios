@@ -18,6 +18,8 @@
 		9436A2D01E637692006DB660 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2CF1E637692006DB660 /* ListingManager.swift */; };
 		9436A2D41E63892D006DB660 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436A2D31E63892D006DB660 /* Common.swift */; };
 		9443DC001E9AEB4C00880412 /* Arkhip_font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9443DBFF1E9AEB4C00880412 /* Arkhip_font.ttf */; };
+		9449F9921E9C3D5C0034AF34 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9449F9911E9C3D5C0034AF34 /* MessageViewController.swift */; };
+		9449F9941E9C411E0034AF34 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9449F9931E9C411E0034AF34 /* MessageDetailViewController.swift */; };
 		947DA0AC1E454E5100E836F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DA0AB1E454E5100E836F5 /* AppDelegate.swift */; };
 		947DA0B11E454E5100E836F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0AF1E454E5100E836F5 /* Main.storyboard */; };
 		947DA0B31E454E5100E836F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947DA0B21E454E5100E836F5 /* Assets.xcassets */; };
@@ -36,7 +38,6 @@
 		94FA5BC51E81932E007221CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC41E81932E007221CF /* SettingViewController.swift */; };
 		94FA5BC71E81933E007221CF /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC61E81933E007221CF /* MyListViewController.swift */; };
 		94FA5BC91E81934E007221CF /* ActiveJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */; };
-		94FA5BCB1E81935C007221CF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA5BCA1E81935C007221CF /* MessageViewController.swift */; };
 		D5C379FC80AFADA13249224F /* Pods_Neighbor_Labor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15987189CADA38ED13DE4D51 /* Pods_Neighbor_Labor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		9436A2CF1E637692006DB660 /* ListingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		9436A2D31E63892D006DB660 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9443DBFF1E9AEB4C00880412 /* Arkhip_font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arkhip_font.ttf; sourceTree = "<group>"; };
+		9449F9911E9C3D5C0034AF34 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		9449F9931E9C411E0034AF34 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		947DA0A81E454E5100E836F5 /* Neighbor Labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neighbor Labor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		947DA0AB1E454E5100E836F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		947DA0B01E454E5100E836F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,7 +101,6 @@
 		94FA5BC41E81932E007221CF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		94FA5BC61E81933E007221CF /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveJobsViewController.swift; sourceTree = "<group>"; };
-		94FA5BCA1E81935C007221CF /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A848D62A753AD41EF37CB48A /* Pods-Neighbor LaborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborUITests/Pods-Neighbor LaborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFC1DDA54265D5C53BCB0FD2 /* Pods-Neighbor LaborTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neighbor LaborTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Neighbor LaborTests/Pods-Neighbor LaborTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,8 +243,9 @@
 				94909D081E95D26F003D2964 /* FilterViewController.swift */,
 				94FA5BC61E81933E007221CF /* MyListViewController.swift */,
 				94FA5BC81E81934E007221CF /* ActiveJobsViewController.swift */,
-				94FA5BCA1E81935C007221CF /* MessageViewController.swift */,
+				9449F9911E9C3D5C0034AF34 /* MessageViewController.swift */,
 				94FA5BC41E81932E007221CF /* SettingViewController.swift */,
+				9449F9931E9C411E0034AF34 /* MessageDetailViewController.swift */,
 			);
 			name = MenuVCS;
 			sourceTree = "<group>";
@@ -556,10 +559,11 @@
 				942C35C91E7ADCB100B92240 /* extensions.swift in Sources */,
 				94AA08E01E60CBB50091E70C /* AuthViewController.swift in Sources */,
 				9436A2D01E637692006DB660 /* ListingManager.swift in Sources */,
+				9449F9941E9C411E0034AF34 /* MessageDetailViewController.swift in Sources */,
 				9436A2D41E63892D006DB660 /* Common.swift in Sources */,
 				940C32591E79BD2B00DFDB18 /* CreateListViewController.swift in Sources */,
-				94FA5BCB1E81935C007221CF /* MessageViewController.swift in Sources */,
 				94909D091E95D26F003D2964 /* FilterViewController.swift in Sources */,
+				9449F9921E9C3D5C0034AF34 /* MessageViewController.swift in Sources */,
 				94AA08DE1E60C91C0091E70C /* ListViewController.swift in Sources */,
 				94A118161E8C61250090C092 /* DetailListingViewController.swift in Sources */,
 				94FA5BC11E8192F6007221CF /* ProfileViewController.swift in Sources */,
