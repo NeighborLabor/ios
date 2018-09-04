@@ -34,7 +34,6 @@ public protocol LFTimePickerDelegate: class {
      - returns: start and end times in hh:mm aa
      */
     func didPickTime(_ start: String, end: String)
-
 }
 
 /**
@@ -56,8 +55,8 @@ open class LFTimePickerController: UIViewController {
     var lblAMPM = UILabel()
     var lblAMPM2 = UILabel()
     var firstRowIndex = 0
-    open var lastSelectedLeft = "00:00"
-    open var lastSelectedRight = "00:00"
+    var lastSelectedLeft = "00:00"
+    var lastSelectedRight = "00:00"
 
     
     var isCustomTime = false

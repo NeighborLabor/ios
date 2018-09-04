@@ -133,9 +133,9 @@ extension MessageViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination.isKind(of: MessageDetailViewController.self) {
             
-            let detailMessVC = segue.destination as! MessageDetailViewController
-            detailMessVC.thread = sender as! Thread
-            detailMessVC.navigationItem.title = self.name
+//            let detailMessVC = segue.destination as! MessageDetailViewController
+//            detailMessVC.thread = sender as! Thread
+//            detailMessVC.navigationItem.title = self.name
         }
         
         

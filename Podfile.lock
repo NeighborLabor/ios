@@ -1,12 +1,5 @@
 PODS:
   - AFDateHelper (4.1.2)
-  - AsyncDisplayKit (2.2):
-    - AsyncDisplayKit/PINRemoteImage (= 2.2)
-  - AsyncDisplayKit/Core (2.2)
-  - AsyncDisplayKit/PINRemoteImage (2.2):
-    - AsyncDisplayKit/Core
-    - PINRemoteImage/iOS (= 3.0.0-beta.8)
-    - PINRemoteImage/PINCache
   - Bolts/Tasks (1.8.4)
   - BonMot (4.3.1)
   - ChameleonFramework/Default (2.1.0)
@@ -18,28 +11,12 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - EasyPeasy (1.4.2)
   - ESPullToRefresh (2.6)
-  - Eureka (2.0.1)
+  - Eureka (3.0.0)
   - Font-Awesome-Swift (1.6.1)
   - IQKeyboardManagerSwift (4.0.8)
   - LFTimePicker (0.3.2)
-  - NMessenger (1.0.80):
-    - AsyncDisplayKit (= 2.2)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
-  - PINCache (3.0.1-beta.4):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
-    - PINCache/Core (= 3.0.1-beta.4)
-  - PINCache/Arc-exception-safe (3.0.1-beta.4):
-    - PINCache/Core
-  - PINCache/Core (3.0.1-beta.4):
-    - PINOperation (= 1.0.3)
-  - PINOperation (1.0.3)
-  - PINRemoteImage/Core (3.0.0-beta.8)
-  - PINRemoteImage/iOS (3.0.0-beta.8):
-    - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.8):
-    - PINCache (= 3.0.1-beta.4)
-    - PINRemoteImage/Core
   - Presentr (1.2.3)
   - SCLAlertView (0.7.0)
   - SideMenu (2.3.0)
@@ -56,11 +33,10 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - EasyPeasy
   - ESPullToRefresh
-  - Eureka (~> 2.0)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `Swift-3.3`)
   - Font-Awesome-Swift (~> 1.6.1)
   - IQKeyboardManagerSwift
   - LFTimePicker
-  - NMessenger
   - Parse
   - Presentr
   - SCLAlertView
@@ -71,6 +47,9 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :branch: Swift-3.3
+    :git: https://github.com/xmartlabs/Eureka.git
   SwiftValidator:
     :branch: master
     :git: https://github.com/jpotts18/SwiftValidator.git
@@ -82,6 +61,9 @@ CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
     :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :commit: 8fcc11477411b1ac96339d3d9d0973956ed05151
+    :git: https://github.com/xmartlabs/Eureka.git
   SwiftValidator:
     :commit: 2a6c23ad9efd76127f6109445515cb9780e5ad92
     :git: https://github.com/jpotts18/SwiftValidator.git
@@ -91,7 +73,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFDateHelper: b19c83daa132e398b34fbea085a1554ce07adfe9
-  AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BonMot: 043bb5a8834cc6d74e9d624742272b92385e0a27
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
@@ -101,21 +82,17 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EasyPeasy: 50e7130b61f495ce105796e438d4136e2c8d2cc0
   ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
-  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
   Font-Awesome-Swift: 70ab020f6749d7048bb49807c3e78b702d78afca
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   LFTimePicker: 2a0b15e35652f87299941ddb1f22a16fae30f1df
-  NMessenger: ca6a89073ca40d3868cf45505f6f8318853afd40
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
-  PINCache: a89c8f609232afac77128557bd12c861844423d7
-  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
-  PINRemoteImage: c4f9f16932840c597f32e69dd288e10e111a1929
   Presentr: a21c7bbb3532c8ff60320e235c0a4869e72f8885
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   TDBadgedCell: 7b81a9f1464c842083e60d39251a424f93abf7c1
 
-PODFILE CHECKSUM: 55b2985c74730643a28c77624f5f3f48371f0088
+PODFILE CHECKSUM: a564944434471e4a9c594ff91f7ffd47fa2f19aa
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0

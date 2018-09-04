@@ -8,9 +8,9 @@ target 'Neighbor Labor' do
   inhibit_all_warnings!
 
   # Pods for Neighbor Labor
-	pod 'Parse'
+    pod 'Parse'
     pod 'EasyPeasy'
-    pod 'Eureka', '~> 2.0'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Swift-3.3'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'AFDateHelper', '~> 4.1.2'
     pod 'SideMenu', '~> 2.3.0'
@@ -27,7 +27,6 @@ target 'Neighbor Labor' do
     pod 'Presentr'
     pod 'IQKeyboardManagerSwift'
     pod 'SCLAlertView'
-    pod 'NMessenger'
 
   target 'Neighbor LaborTests' do
     inherit! :search_paths

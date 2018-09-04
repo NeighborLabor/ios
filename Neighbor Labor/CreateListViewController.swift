@@ -319,7 +319,7 @@ class CustomPickerController: LFTimePickerController{
     }
     // Selector
     func click(sender: Any?) {
-        self.delegate?.didPickTime(self.lastSelectedLeft, end: self.lastSelectedRight)
+       // self.delegate?.didPickTime(self.lastSelectedLeft, end: self.lastSelectedRight)
     }
 }
 
